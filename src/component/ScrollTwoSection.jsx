@@ -258,7 +258,10 @@ function ScrollTwoSection() {
       <section className="relative w-full h-screen graybg" ref={pinref}>
         <div className="bgAnimation" ref={bgbackdiv}>
           <div className="imgOverlay" ref={imgMove}></div>
+
           <div className="top-[40vh] lg:top-[40vh] relative w-[90vw] lg:w-[100%] text-center">
+
+          <div className="absolute bg-red-800 w-full h-full movingtext">
             <h1 ref={tltext1} className="font-InterTight text-5xl lg:text-6xl lineheightfix">
               Running a dental practice <br />
               can be
@@ -267,15 +270,18 @@ function ScrollTwoSection() {
               </span>
             </h1>
           </div>
-
-          <div className="top-[20vh] lg:top-[20vh] relative w-[50vw] lg:w-[100%] text-center">
-            <div className="movingtext">
+        
+            <div className="absolute bg-green-700 w-full h-full movingtext">
               <h1 ref={tltext2} className="font-InterTight text-5xl lg:text-6xl">
                 with <span className="font-IvyOraheadline">endless</span> <br />
                 responsiblites.
               </h1>
             </div>
+
           </div>
+
+
+
         </div>
 
         {/* 3 box animation */}

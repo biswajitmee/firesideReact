@@ -33,11 +33,11 @@ export default function HomePage() {
       <div id='smooth-content'>
         <ScrollOneSection />
         <ScrollTwoSection/>
-        {/* <ScrollThreeSection/>
+        <ScrollThreeSection/>
         <ScrollFourSection/>
          <ScrollFiveSection/>
        <ScrollSixSection/>
-       <ScrollSevenSection/> */}
+       <ScrollSevenSection/>
       </div>
     </div>
   )

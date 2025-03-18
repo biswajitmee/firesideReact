@@ -3,16 +3,7 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <div
-      style={{
-        position: 'fixed',
-        zIndex: '999',
-        width: '90vw',
-        height: '50px',
-        left: '5vw',
-        top: '25px'
-      }}
-    >
+    <div className='z-50 fixed mt-10 w-[90vw]' >
       <div className='gap-4 grid grid-cols-6'>
         <div className='col-start-1 col-end-1'>
           <Link
