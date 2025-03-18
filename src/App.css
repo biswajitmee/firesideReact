@@ -674,10 +674,6 @@ video {
   top: 2rem;
 }
 
-.top-\[20vh\]{
-  top: 20vh;
-}
-
 .top-\[40vh\]{
   top: 40vh;
 }
@@ -742,6 +738,10 @@ video {
   margin-top: 0.25rem;
 }
 
+.mt-10{
+  margin-top: 2.5rem;
+}
+
 .mt-2{
   margin-top: 0.5rem;
 }
@@ -768,10 +768,6 @@ video {
 
 .mt-\[4rem\]{
   margin-top: 4rem;
-}
-
-.mt-10{
-  margin-top: 2.5rem;
 }
 
 .block{
@@ -864,10 +860,6 @@ video {
 
 .w-\[32vw\]{
   width: 32vw;
-}
-
-.w-\[50vw\]{
-  width: 50vw;
 }
 
 .w-\[80vw\]{
@@ -1046,15 +1038,6 @@ video {
   background-color: #f3efec1a;
 }
 
-.bg-white{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-white\/70{
-  background-color: rgb(255 255 255 / 0.7);
-}
-
 .bg-green-700{
   --tw-bg-opacity: 1;
   background-color: rgb(21 128 61 / var(--tw-bg-opacity, 1));
@@ -1063,6 +1046,15 @@ video {
 .bg-red-800{
   --tw-bg-opacity: 1;
   background-color: rgb(153 27 27 / var(--tw-bg-opacity, 1));
+}
+
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-white\/70{
+  background-color: rgb(255 255 255 / 0.7);
 }
 
 .bg-top{
@@ -1488,6 +1480,7 @@ section {
   text-align: center;
   right: 2vw;
   height: 96vh;
+  width: 46.5vw;
   top: 2vh;
   background-color: #ef4c23;
   border-radius: 20px;
@@ -1755,10 +1748,6 @@ ul.circelInside {
 @media (min-width: 1024px){
   .lg\:left-\[28vw\]{
     left: 28vw;
-  }
-
-  .lg\:top-\[20vh\]{
-    top: 20vh;
   }
 
   .lg\:top-\[40vh\]{

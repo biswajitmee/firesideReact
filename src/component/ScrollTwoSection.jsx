@@ -131,7 +131,7 @@ function ScrollTwoSection() {
     box3TL
       .fromTo(
         box3Ref.current,
-        { width: 0, right: "0", top: "2vh", height: "96vh", autoAlpha: 1 },
+        { width: 0, right: "2vw", top: "2vh", height: "96vh", autoAlpha: 1 },
         { autoAlpha: 1, width: "46.5vw", duration: 15 }
       )
       .to(box3insidetext.current, {
