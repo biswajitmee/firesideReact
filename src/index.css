@@ -120,6 +120,17 @@
     background-image: url("/animation-bg.avif");
 
   }
+  .imgOverlayMobile {
+    position: absolute;
+    background-color: #fff;
+    width: 120vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    transform: scaleX(1.05);
+    background-image: url("/animation-bg.avif");
+
+  }
 
   /* .titleAbsolute {
     position: relative;

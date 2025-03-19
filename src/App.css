@@ -798,6 +798,10 @@ video {
   height: 20rem;
 }
 
+.h-96{
+  height: 24rem;
+}
+
 .h-\[60vh\]{
   height: 60vh;
 }
@@ -848,6 +852,10 @@ video {
 
 .w-4\/5{
   width: 80%;
+}
+
+.w-96{
+  width: 24rem;
 }
 
 .w-\[150vw\]{
@@ -926,6 +934,10 @@ video {
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.resize{
+  resize: both;
 }
 
 .grid-cols-1{
@@ -1043,9 +1055,19 @@ video {
   background-color: rgb(21 128 61 / var(--tw-bg-opacity, 1));
 }
 
+.bg-red-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
+}
+
 .bg-red-800{
   --tw-bg-opacity: 1;
   background-color: rgb(153 27 27 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
 }
 
 .bg-white{
@@ -1433,6 +1455,17 @@ section {
   position: absolute;
   background-color: #fff;
   width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  transform: scaleX(1.05);
+  background-image: url("/animation-bg.avif");
+}
+
+.imgOverlayMobile {
+  position: absolute;
+  background-color: #fff;
+  width: 120vw;
   height: 100vh;
   background-size: cover;
   background-position: center center;
