@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/all'
 
 gsap.registerPlugin(ScrollTrigger)
 
-function ScrollThreeSectionMobile() {
+function ScrollThreeSection() {
   const pinContainer = useRef(null)
   const scrollContainerRef = useRef(null)
   const insidePin = useRef(null)
@@ -141,8 +141,8 @@ function ScrollThreeSectionMobile() {
       <section className='flex justify-center items-center h-screen graybg'>
         <div className='flex flex-col items-center text-center'>
           <div className='textBox'>
-            <h1 className='font-IvyOraheadline2 text-2xl darkFont'>
-              TTThe first membership group designed specifically to help pediatric dentists
+            <h1 className='font-IvyOraheadline2 text-7xl darkFont'>
+              The first membership group designed specifically to help pediatric dentists
               <span className='font-IvyOraheadline'> like you grow</span>
             </h1>
           </div>
@@ -171,7 +171,7 @@ function ScrollThreeSectionMobile() {
                   <div className='grid grid-cols-2 p-10 w-screen h-80'>
                     <div className='leftAlignDiv flex justify-start items-center p-16'>
                       <h1 className='font-IvyOraheadline2 text-[4.5rem] leading-10'>
-                        SSStay independent , <br />
+                        Stay independent , <br />
                         <br />
                         <span className='font-IvyOraheadline'>
                           not isolated
@@ -363,4 +363,4 @@ function ScrollThreeSectionMobile() {
   )
 }
 
-export default ScrollThreeSectionMobile
+export default ScrollThreeSection

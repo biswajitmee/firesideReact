@@ -3,17 +3,17 @@ import { gsap } from 'gsap'
 import { ScrollTrigger, ScrollSmoother } from 'gsap/all'
 import ScrollOneSection from './component/scrollOneSection'
 import ScrollTwoSection from './component/scrollTwoSection'
-import ScrollThreeSection from './component/SscrollThreeSection'
+import ScrollThreeSection from './component/ScrollThreeSection'
 import ScrollFourSection from './component/scrollFourSection'
 import ScrollFiveSection from './component/ScrollFiveSection'
 import ScrollSixSection from './component/ScrollSixSection'
 import ScrollSevenSection from './component/scrollSevenSection'
 import ScrollTwoSectionMobile from './component/ScrollTwoSectionMobile'
-import ScrollThreeSectionMobile from './component/SscrollThreeSectionMobile'
+import ScrollThreeSectionMobile from './component/ScrollThreeSectionMobile'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
-export default function HomePage() {
+export default function HomePage () {
   const main = useRef()
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768) // Ensure initial check
 
@@ -37,11 +37,11 @@ export default function HomePage() {
       smooth: 2,
       effects: true,
       normalizeScroll: true,
-      smoothTouch: 0.1,
+      smoothTouch: 0.9
     })
 
     return () => {
-      smoother.kill()  
+      smoother.kill()
     }
   }, [])
 
@@ -50,17 +50,11 @@ export default function HomePage() {
       <div id='smooth-content'>
         <ScrollOneSection />
 
-        {/* Debugging Output */}
-        {/* <p className="font-bold text-center">{isMobile ? 'Mobile View' : 'Desktop View'}</p> */}
-
-        {/* Conditionally load components based on screen size */}
         {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
         {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
- 
-      
-        {/* <ScrollThreeSection /> */}
-        {/* <ScrollFourSection />
-        <ScrollFiveSection />
+
+        <ScrollFourSection />
+        {/*<ScrollFiveSection />
         <ScrollSixSection />
         <ScrollSevenSection /> */}
       </div>
