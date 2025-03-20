@@ -54,9 +54,9 @@ export default function HomePage () {
         {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
 
         <ScrollFourSection />
-        {/*<ScrollFiveSection />
+        <ScrollFiveSection />
         <ScrollSixSection />
-        <ScrollSevenSection /> */}
+        <ScrollSevenSection />
       </div>
     </div>
   )
