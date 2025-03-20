@@ -1519,6 +1519,42 @@ section {
   border-radius: 20px;
 }
 
+/* for mobile */
+
+.titleAbsolute3Mobile {
+  position: absolute;
+  text-align: center;
+  left: 2vw;
+  height: 46.5vh;
+  width: 90vw;
+  top: 2vh;
+  background-color: #3c4235;
+  border-radius: 20px;
+  background-size: cover;
+  background-image: url("/small-left-bg.avif");
+}
+
+.titleAbsolute33Mobile {
+  left: 2vh;
+  position: absolute;
+  text-align: center;
+  height: 1px;
+  top: 49.5vh;
+  background-color: #3c4235;
+  z-index: 999;
+  border-radius: 20px;
+}
+
+.titleAbsolute333Mobile {
+  position: absolute;
+  text-align: center;
+  width: 99vw;
+  height: 46.5vh;
+  bottom: 2vh;
+  background-color: #ef4c23;
+  border-radius: 20px;
+}
+
 .titleAbsolute3 h1 {
   font-size: 70px;
   line-height: 0.9;

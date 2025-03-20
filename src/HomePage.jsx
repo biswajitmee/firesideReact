@@ -9,6 +9,7 @@ import ScrollFiveSection from './component/ScrollFiveSection'
 import ScrollSixSection from './component/ScrollSixSection'
 import ScrollSevenSection from './component/scrollSevenSection'
 import ScrollTwoSectionMobile from './component/ScrollTwoSectionMobile'
+import ScrollThreeSectionMobile from './component/SscrollThreeSectionMobile'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -54,12 +55,14 @@ export default function HomePage() {
 
         {/* Conditionally load components based on screen size */}
         {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
-
-        <ScrollThreeSection />
-        <ScrollFourSection />
+        {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
+ 
+      
+        {/* <ScrollThreeSection /> */}
+        {/* <ScrollFourSection />
         <ScrollFiveSection />
         <ScrollSixSection />
-        <ScrollSevenSection />
+        <ScrollSevenSection /> */}
       </div>
     </div>
   )
