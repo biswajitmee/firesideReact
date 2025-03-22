@@ -74,13 +74,13 @@ function ScrollTwoSectionMobile () {
     collapsDiv
       .fromTo(
         bgbackdiv.current,
-        { width: '96vw', height: '96vh', left: '2vw', top: '2vh' },
+        { width: '100vw', height: '96vh', left:0,  top: 0 },
         {
-          width: '96vw',
+          width: '100vw',
           height: '44vh',
           delay: 10,
           duration: 30,
-          left: '2vw',
+          left: 0,
 
           // ease: CustomEase.create("custom", "M0,0 C0.174,0.193 0.569,0.18 0.756,0.263 0.98,0.362 0.98,0.829 1,1 "),
           ease: CustomEase.create(
@@ -152,8 +152,8 @@ function ScrollTwoSectionMobile () {
     box3TL
       .fromTo(
         box3Ref.current,
-        { height: 0, left: '2vw', bottom: 0, width: '90vw', autoAlpha: 1 },
-        { autoAlpha: 1, height: '46.5vh', duration: 15 }
+        { height: 0, left:0, bottom: 0, width: '100vw', autoAlpha: 1 },
+        { autoAlpha: 1, height: '49vh', duration: 15 }
       )
       .to(box3insidetext.current, {
         autoAlpha: 1,
@@ -181,7 +181,7 @@ function ScrollTwoSectionMobile () {
         box2Ref.current,
         {
           autoAlpha: 1, 
-          width: '99vw',
+          width: '100vw',
           top: '50vh',  
           height: 0,
           borderRadius: '20px',
@@ -189,20 +189,21 @@ function ScrollTwoSectionMobile () {
         },
         {
           autoAlpha: 1,
-          width: '99vw',
+          width: '100vw',
           duration: 60,
           left: 0,
-          right: '2vw',
-          top:'2vh',
-          bottom:'2vh',
+          right:0,
+          top:0,
+          bottom:0,
           zIndex: 999,
-          height: '96vh',
+          height: '100vh',
           backgroundColor: '#3c4235',
-          ease: 'power1.in'
+          ease: 'power1.in',
+          
         }
       )
-      .to(box1Ref.current, { y: '-50vw', duration: 60, ease: 'power1.in' }, '<')
-      .to(box3Ref.current, { y: '50vw', duration: 60, ease: 'power1.in' }, '<')
+      .to(box1Ref.current, { y: '-50vw', duration: 44, ease: 'power1.in' }, '<')
+      .to(box3Ref.current, { y: '50vw', duration: 44, ease: 'power1.in' }, '<')
       .to(
         logoIcon.current,
         {
@@ -274,18 +275,17 @@ function ScrollTwoSectionMobile () {
 
   return (
     <>
-      <section className='relative w-full h-screen graybg' ref={pinref}>
-        <div className='bgAnimation' ref={bgbackdiv}>
+      <section className='relative w-screen h-screen graybg' ref={pinref}>
+        <div className='bgAnimationMobile' ref={bgbackdiv}>
           <div className='imgOverlayMobile' ref={imgMove}></div>
 
-          <div className='top-[40vh] lg:top-[40vh] relative w-[90vw] lg:w-[100%] text-center'>
-            <div className='absolute bg-red-800 w-full h-full movingtext'>
+          <div className='top-[40vh] lg:top-[40vh] relative w-[100vw] lg:w-[100%] text-center'>
+            <div className='absolute p-2 w-full h-full movingtext'>
               <h1
                 ref={tltext1}
-                className='font-InterTight text-5xl lg:text-6xl lineheightfix'
+                className='font-InterTight text-4xl lg:text-6xl'
               >
-                RRunning a dental practice <br />
-                can be
+                Running a dental practice can be
                 <span className='font-IvyOraheadline'>
                   exhausting and isolating
                 </span>
@@ -295,7 +295,7 @@ function ScrollTwoSectionMobile () {
             <div className='absolute bg-green-700 w-full h-full movingtext'>
               <h1
                 ref={tltext2}
-                className='font-InterTight text-5xl lg:text-6xl'
+                className='font-InterTight text-4xl lg:text-6xl'
               >
                 with <span className='font-IvyOraheadline'>endless</span> <br />
                 responsiblites.
@@ -342,7 +342,7 @@ function ScrollTwoSectionMobile () {
         </div>
 
         <div className='titleAbsolute333Mobile' ref={box3Ref}>
-          <div className='flex justify-center items-center h-full movingtext'>
+          <div className='flex justify-center items-center w-full h-full movingtext'>
             <h1
               ref={box3insidetext}
               className='font-InterTight text-fuchsia-100'

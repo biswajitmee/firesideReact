@@ -108,6 +108,17 @@
     margin: auto;
 
   }
+  .bgAnimationMobile {
+    position: absolute;
+    left: 0;
+    width:100vw;
+    height: 96vh;
+    top: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: auto;
+
+  }
 
   .imgOverlay {
     position: absolute;
@@ -202,10 +213,10 @@
   .titleAbsolute3Mobile {
     position: absolute;
     text-align: center;
-    left: 2vw;
-    height: 46.5vh;
-    width: 90vw;
-    top: 2vh;
+    left:0;
+    height: 49vh;
+    width: 100vw;
+    top:0;
     background-color: #3c4235;
     border-radius: 20px;
     background-size: cover;
@@ -213,11 +224,11 @@
   }
 
   .titleAbsolute33Mobile {
-    left: 2vh;
+    left:0;
     position: absolute;
     text-align: center;
     height: 1px;
-    top: 49.5vh;
+    top: 50vh;
     background-color: #3c4235;
     z-index: 999;
     border-radius: 20px;
@@ -227,8 +238,8 @@
   .titleAbsolute333Mobile {
     position: absolute;
     text-align: center;
-    width: 99vw;
-    height: 46.5vh;
+    width: 100vw;
+    height: 49vh;
     bottom: 2vh;
     background-color: #ef4c23;
     border-radius: 20px;
@@ -298,7 +309,15 @@
 
   }
 
+  .bigImgBackMobile {
+    position: relative;
+    border-radius: 30px;
+    width: 100vw;
+    margin:0;
+    height: calc(100vh - 2px);
+    overflow: hidden;
 
+  }
 
 
   .bigImg {
@@ -311,6 +330,18 @@
     z-index: -1;
     scale: 1.5;
   }
+
+  .bigImgMobile {
+    width: 99vw;
+    margin: 0;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("/bigImgBG.avif");
+    z-index: -1;
+    scale: 1.5;
+  }
+
 
   .bigImg2 {
     background-image: url("/last-big-img.avif");
@@ -328,7 +359,6 @@
     background-image: url("/middle-box-img.avif");
     background-position: center center;
     background-size: cover;
-
     position: absolute;
     width: 130%;
     height: 100%;
@@ -336,8 +366,18 @@
     top: 0;
     background-color: #65c70b;
   }
-
-  /* .bigImg3 { scale:1.5;  } */
+  .bigImg3Mobile {
+    background-image: url("/middle-box-img.avif");
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    width: 130%;
+    height: 100%;
+    /* left: -40%; */
+    top: 0;
+    background-color: #65c70b;
+  }
+ 
 
   .movingdiv {
     overflow: hidden;
@@ -474,5 +514,44 @@
     margin: auto;
     opacity: 0;
   }
+
+  .menuIcon {
+    width: 30px;
+    height: 20px;
+    position: relative;
+ 
+  }
+  .menuIcon:hover{ cursor: pointer;}
+  .line1 {
+    height: 2px;
+    background: #ffffff;
+    position: absolute;
+    width: 30px;
+    top:0px;
+    border-radius: 10px;
+  }
+
+  .line2 {
+    height: 2px;
+    background: #ffffff;
+    position: absolute;
+    width: 30px;
+    top: 44%;
+    border-radius: 10px;
+  }
+
+  .line3 {
+    height: 2px;
+    background: #ffffff;
+    position: absolute;
+    width: 30px;
+    bottom: 1px;
+    border-radius: 10px;
+  }
+
+
+
+ 
+ul.openNavigation li{   padding: 10px;}
 
 }
