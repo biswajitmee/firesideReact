@@ -25,7 +25,7 @@ function ScrollOneSection() {
 
       const secondDivTimeline = gsap.timeline()
         .fromTo(secondDiv.current, { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration:3, ease: 'power1.in' })
-        .to(secondDiv.current, { autoAlpha: 0, duration: 1 }, '+=2'); // Fade out after delay
+        .to(secondDiv.current, { autoAlpha: 1, duration: 1 }, '+=2'); // Fade out after delay
 
       const thirdDivTimeline = gsap.timeline()
         .fromTo(thirdDiv.current, { autoAlpha: 0, scale: 1.9 }, { autoAlpha: 1, scale: 1.2, duration:3, ease: 'power1.in' });

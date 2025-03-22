@@ -730,6 +730,10 @@ video {
   grid-column-end: 7;
 }
 
+.m-0{
+  margin: 0px;
+}
+
 .m-10{
   margin: 2.5rem;
 }
@@ -752,6 +756,10 @@ video {
 
 .mb-4{
   margin-bottom: 1rem;
+}
+
+.mb-8{
+  margin-bottom: 2rem;
 }
 
 .ml-4{
@@ -1742,6 +1750,15 @@ section {
   scale: 1.5;
 }
 
+.bigImg2Mobile {
+  background-image: url("/last-big-img.avif");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
+}
+
 .bigImg3 {
   background-image: url("/middle-box-img.avif");
   background-position: center center;
@@ -1764,6 +1781,13 @@ section {
   /* left: -40%; */
   top: 0;
   background-color: #65c70b;
+}
+
+.bigImgBack2Mobile {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 100vw;
 }
 
 section {

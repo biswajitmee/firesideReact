@@ -49,7 +49,7 @@ export default function HomePage () {
   return (
     <div id='smooth-wrapper' ref={main}>
       <div id='smooth-content'>
-        <ScrollOneSection />
+        {/* <ScrollOneSection /> */}
 
         {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
         {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
