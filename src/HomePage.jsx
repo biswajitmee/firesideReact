@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger, ScrollSmoother } from 'gsap/all'
-import ScrollOneSection from './component/scrollOneSection'
+// import ScrollOneSection from './component/scrollOneSection'
 import ScrollTwoSection from './component/scrollTwoSection'
 import ScrollThreeSection from './component/ScrollThreeSection'
 import ScrollFourSection from './component/scrollFourSection'
