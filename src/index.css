@@ -355,6 +355,18 @@
 
   }
 
+  .bigImg2Mobile {
+    background-image: url("/last-big-img.avif");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+ 
+
+  }
+
+
   .bigImg3 {
     background-image: url("/middle-box-img.avif");
     background-position: center center;
@@ -412,7 +424,13 @@
     overflow: hidden;
 
   }
+  .bigImgBack2Mobile {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 100vw;
 
+  }
 
   .lastDiv {
     z-index: -9;

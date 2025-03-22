@@ -133,41 +133,40 @@ function ScrollThreeSection () {
         </div>
       </div>
 
-      <div className='h-screen section1'>
-        <div className='flex justify-center items-center w-screen h-screen text-white text-4xl'>
-          <div className='h-screen overflow-hidden bigImgBack'>
-            <div className='absolute h-screen bigImg2'></div>
+      <div className='h-screen'>
+        <div className='flex justify-center w-screen h-screen text-white text-4xl'>
+          <div className='h-screen overflow-hidden bigImgBack2Mobile'>
+            <div className='absolute h-screen bigImg2Mobile' data-speed="0.6"></div>
 
             <div className='content-end w-screen h-screen'>
-              <div className='grid grid-cols-2 p-10 w-screen h-80'>
-                <div className='leftAlignDiv flex justify-start items-center p-16'>
-                  <h1 className='font-IvyOraheadline2 text-[4.5rem] leading-10'>
-                    Stay independent , <br />
-                    <br />
+               <div className='m-0 p-6'>
+                <div className='items-center mb-8'>
+                  <h1 className='font-IvyOraheadline2 text-4xl text-center leading-10'>
+                    Stay independent, 
                     <span className='font-IvyOraheadline'>not isolated</span>
                   </h1>
                 </div>
 
-                <div className='rightAlignDiv flex justify-end items-center p-4'>
-                  <div className='backdrop-blur-md m-10 p-10 rounded-lg text-xl transparentBg'>
+                <div className='flex justify-end items-center'>
+                  <div className='backdrop-blur-md p-6 rounded-lg text-lg transparentBg'>
                     <p>
                       Get the support you need to grow your practice while
                       staying independent. We're bringing together the most
                       successful, likeminded independent practices.
                     </p>
                   </div>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <section className='z-0 flex justify-center items-center w-screen h-[60vh]'>
-        <div className='pt-50 max-w-[80%]'>
-          <h1 className='font-IvyOraheadline2 text-[4.5rem] text-black text-4xl text-center leading-10'>
+<br/>
+      <section className='z-0 flex justify-center items-center w-screen'>
+        <div className='pt-50'>
+          <h1 className='p-6 font-IvyOraheadline2 text-black text-4xl text-center leading-10'>
             You're ready to transform your practice,
-            <br /> <br />
+            <br /> 
             <span className='font-IvyOraheadline orngColor'>
               but not sell it?
             </span>
