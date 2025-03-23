@@ -16,8 +16,8 @@ function ScrollFourSectionMobile() {
   useEffect(() => {
     const pinCircelPin = pinCircel.current
 
-    const viewportHeight = window.innerHeight
-    const circleHeight = window.innerWidth // 50vh in pixels
+    const viewportHeight = document.documentElement.clientHeight
+    const circleHeight = document.documentElement.clientWidth // 50vh in pixels
     const lastPosition = (viewportHeight - circleHeight) / 2 // Center position calculation
 
 
