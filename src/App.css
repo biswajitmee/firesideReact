@@ -1032,8 +1032,16 @@ video {
   align-content: flex-end;
 }
 
+.items-end{
+  align-items: flex-end;
+}
+
 .items-center{
   align-items: center;
+}
+
+.items-baseline{
+  align-items: baseline;
 }
 
 .justify-start{
@@ -1242,6 +1250,26 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-\[6rem\]{
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.px-\[1rem\]{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-\[2rem\]{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .pl-10{
   padding-left: 2.5rem;
 }
@@ -1286,8 +1314,24 @@ video {
   padding-top: 3.3rem;
 }
 
+.pt-20{
+  padding-top: 5rem;
+}
+
+.pt-5{
+  padding-top: 1.25rem;
+}
+
+.pt-8{
+  padding-top: 2rem;
+}
+
 .text-center{
   text-align: center;
+}
+
+.text-right{
+  text-align: right;
 }
 
 .font-InterTight{
@@ -1379,6 +1423,10 @@ video {
   line-height: 1rem;
 }
 
+.text-\[0\.5rem\]{
+  font-size: 0.5rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -1405,6 +1453,10 @@ video {
 
 .leading-tight{
   line-height: 1.25;
+}
+
+.leading-3{
+  line-height: .75rem;
 }
 
 .text-\[\#232323\]{
@@ -2094,6 +2146,32 @@ ul.openNavigation li{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .lg\:items-end{
+    align-items: flex-end;
+  }
+
+  .lg\:justify-end{
+    justify-content: flex-end;
+  }
+
+  .lg\:px-\[6rem\]{
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  .lg\:py-\[6rem\]{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .lg\:text-left{
+    text-align: left;
+  }
+
+  .lg\:text-right{
+    text-align: right;
+  }
+
   .lg\:text-3xl{
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -2112,5 +2190,27 @@ ul.openNavigation li{
   .lg\:text-7xl{
     font-size: 4.5rem;
     line-height: 1;
+  }
+
+  .lg\:text-\[4\.6vw\]{
+    font-size: 4.6vw;
+  }
+
+  .lg\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:leading-\[5\.5rem\]{
+    line-height: 5.5rem;
+  }
+
+  .lg\:leading-\[4\.5rem\]{
+    line-height: 4.5rem;
   }
 }
