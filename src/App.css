@@ -1843,8 +1843,8 @@ section {
 }
 
 .leftBoxCircelMobile {
-  width: 100vw;
-  height: 100vw;
+  width: calc(100vw + 40px);
+  height: calc(100vw + 40px);
   border-radius: 100%;
   position: absolute;
   background-color: rgba(196, 196, 195, 0.70);
@@ -1852,8 +1852,8 @@ section {
 }
 
 .rightBoxCircelMobile {
-  width: 100vw;
-  height: 100vw;
+  width: calc(100vw + 40px);
+  height: calc(100vw + 40px);
   border-radius: 100%;
   position: absolute;
   background-color: rgba(196, 196, 195, 0.70);
@@ -1905,6 +1905,27 @@ ul.circelInside {
   padding: 0;
   margin: 0;
   background: none;
+}
+
+ul.circelInsideMobile {
+  padding:5px;
+  width: 100%;
+}
+
+.circelInsideMobile li {
+  width: 100%;
+  padding: 10px 5px 10px 5px;
+  background-color: rgba(227, 224, 221, 0.376);
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.circelInsideMobile li ul li {
+  list-style: disc;
+  padding: 0;
+  margin: 0;
+  background: none;
+  font-size: small;
 }
 
 .centerDiv3 {

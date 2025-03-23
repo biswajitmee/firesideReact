@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState, useEffect } from 'react'
+import React, {  useRef, useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger, ScrollSmoother } from 'gsap/all'
 import ScrollOneSection from './component/scrollOneSection'
@@ -29,9 +29,7 @@ export default function HomePage () {
     window.addEventListener('resize', checkScreenSize) // Listen for resize events
 
     return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
-
-  useLayoutEffect(() => {
+ 
     const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',

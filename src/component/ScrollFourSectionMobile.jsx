@@ -39,14 +39,14 @@ function ScrollFourSectionMobile() {
     // Move circles within the pinned section
     CircelPinlTL.fromTo(
       leftCircel.current,
-      { top: 0, opacity: 1 },
-      { top: lastPosition, duration: 14, ease: 'power2.out', opacity: 0.1 },
+      { top: "0px", opacity: 1 },
+      {  top: `${lastPosition - 20}px`, duration: 14, ease: 'power2.out', opacity: 0.1 },
       5 // Delay the start of this animation by 5 seconds
     )
       .fromTo(
         rightCircel.current,
-        { bottom:0, opacity: 1 },
-        { bottom: lastPosition, duration: 14, ease: 'power2.out', opacity: 0.1 },
+        { bottom:"-100px", opacity: 1 },
+        { bottom: `${lastPosition - 20}px`, duration: 14, ease: 'power2.out', opacity: 0.1 },
         '<' // Ensures it starts at the same time as the leftCircel animation
       )
 
@@ -61,7 +61,7 @@ function ScrollFourSectionMobile() {
         { display: 'block', opacity: 1, duration: 1 },
         '-=4'
       )
-      .to(middleCircel.current, { scale: 2.5, duration: 20 }, '-=2')
+      .to(middleCircel.current, { scale: 2.5, duration: 20 }, '-=5')
       .to(
         rectangle.current,
         { display: 'block', zIndex: 20, duration: 1 },
@@ -78,32 +78,33 @@ function ScrollFourSectionMobile() {
         ref={pinCircel}
       >
         <div
-          className='top-0 leftBoxCircelMobile z-10 absolute flex justify-center items-center p-4 rounded-full w-full h-full overflow-hidden'
+          className='top-0 leftBoxCircelMobile z-10 absolute flex justify-center items-center p-6 rounded-full w-full h-full overflow-hidden'
           ref={leftCircel}
         >
-          <div className='flex flex-col justify-center items-center bg-[#D8D4CF] p-2 w-4/5 h-full centerDiv'>
+          <div className='flex flex-col justify-center items-center p-2 w-4/5 h-full centerDiv'>
             <h1 className='font-IvyOraheadline2 text-[#232323] text-2xl'>Solo</h1>
-            <p className='mt-1 font-IvyOraheadline2 text-[#7A7876] text-xl'>Retain autonomy your practice, your way.</p>
-            <ul className='circelInside'>
+            <p className='mt-1 font-IvyOraheadline2 text-[#7A7876] text-lg text-center'>Retain autonomy your practice, your way.</p>
+            <ul className='circelInsideMobile'>
               <li>
                 <ul className='pl-2'>
-                  <li className='text-sm'>Industry confusing by design</li>
+                  <li >Industry confusing by design</li>
                 </ul>
               </li>
 
               <li>
                 <ul className='pl-2'>
-                  <li className='text-sm'>Pay too much or spend hours finding deals</li>
+                  <li>Pay too much or spend hours finding deals</li>
                 </ul>
               </li>
               <li>
                 <ul className='pl-2'>
-                  <li className='text-sm'>No Support</li>
+                  <li >No Support</li>
                 </ul>
               </li>
             </ul>
-            <p className='font-IvyOraheadline2 text-2xl text-center'>
-              <span className='font-IvyOraheadline font-medium text-[#EF4C23]'>Are you doing things the right way?</span> No-one <br /> to bounce ideas
+            <p className='font-IvyOraheadline2 text-lg text-center'>
+              <span className='font-IvyOraheadline font-sm text-[#EF4C23]'>Are you doing things the right way?</span>
+              <br/> No-one to bounce ideas
               off of.
             </p>
           </div>
@@ -119,21 +120,21 @@ function ScrollFourSectionMobile() {
               Best practices for greater profitability, negotiated <br /> group
               savings, corporate support.
             </p>
-            <ul className='circelInside'>
+            <ul className='circelInsideMobile'>
               <li>
                 <ul className='pl-2'>
-                  <li className='text-sm'>Intergration plan</li>
+                  <li >Intergration plan</li>
                 </ul>
               </li>
 
               <li>
                 <ul className='pl-2'>
-                  <li className='text-sm'>Staff disruption</li>
+                  <li >Staff disruption</li>
                 </ul>
               </li>
               <li>
                 <ul className='pl-2'>
-                  <li className='text-sm'>Lose autonomy</li>
+                  <li >Lose autonomy</li>
                 </ul>
               </li>
             </ul>
@@ -164,41 +165,46 @@ function ScrollFourSectionMobile() {
           </p>
           <ul className='circelInside'>
             <li>
-              <ul className='pl-12'>
-                <li className='text-[1.19vw] text-white'>Quick win savings + best practices</li>
+              <ul className='pl-2'>
+                <li className='text-white text-sm'>Quick win savings + best practices</li>
               </ul>
             </li>
 
             <li>
-              <ul className='pl-12'>
-                <li className='text-[1.19vw] text-white'>A place to connect</li>
+              <ul className='pl-2'>
+                <li className='text-white text-sm'>A place to connect</li>
               </ul>
             </li>
             <li>
-              <ul className='pl-12'>
-                <li className='text-[1.19vw] text-white'>Ask question + get advice</li>
+              <ul className='pl-2'>
+                <li className='text-white text-sm'>Ask question + get advice</li>
               </ul>
             </li>
           </ul>
-          <p className='font-IvyOraheadline2 text-[1.45vw] text-white text-center'>
+          <p className='font-IvyOraheadline2 text-white text-sm text-center'>
             All while <span className='font-IvyOraheadline text-[#ef4c23]'> staying independent!</span>
           </p>
         </div>
 
-        <div className='rectangle' ref={rectangle}>
-          <div className='flex flex-row items-center bg-[#3C4235]'>
-            <div className='flex justify-center items-center basis-1/2'>
-              <img className='w-[32vw]' src="/bg-red.avif" alt="" />
+        <div className='p-10 w-screen rectangleMobile' ref={rectangle}>
+          <div className='items-center bg-[#3C4235]'>
+            
+            <div className='flex justify-center items-center'>
+              <img className='w-[50vw]' src="/bg-red.avif" alt="" />
             </div>
-            <div className='basis-1/2'>
-              <h3 className='font-IvyOraheadline2 text-white text-5xl leading-[3.5rem]'><span className='font-IvyOraheadline'>Lay the right foundation</span><br /> for your practice.</h3>
-              <p className='mt-8 text-white text-lg'>Whether it's setting up your practice or finding ways to save, we're here to make the process smoother and less stressful.
+            
+            <div className='text-center' >
+              <h3 className='font-IvyOraheadline2 text-white text-2xl text-center'>
+                Lay the right foundation
+                 for your practice.</h3>
+              <p className='mt-8 text-white text-sm'>Whether it's setting up your practice or finding ways to save, we're here to make the process smoother and less stressful.
                 <br />
                 <br />
                 Learn from fellow dentists, share real experiences, and find comfort knowing you're part of a community that cares.
               </p>
-              <button className='bg-[#4F5348] mt-[4rem] px-8 py-4 rounded-xl font-medium text-[1.1rem]text-white text-white'>Community</button>
+              <button className='bg-[#4F5348] mt-[4rem] px-8 py-4 rounded-xl font-medium text-white text-sm'>Community</button>
             </div>
+
           </div>
         </div>
       </section>
