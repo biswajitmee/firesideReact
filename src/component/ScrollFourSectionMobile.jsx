@@ -16,9 +16,11 @@ function ScrollFourSectionMobile() {
   useEffect(() => {
     const pinCircelPin = pinCircel.current
 
-    const viewportWidth = window.innerWidth
-    const circleWidth = window.innerHeight // 50vh in pixels
-    const lastPosition = (viewportWidth - circleWidth) / 2 // Center position calculation
+    const viewportHeight = window.innerHeight
+    const circleHeight = window.innerWidth // 50vh in pixels
+    const lastPosition = (viewportHeight - circleHeight) / 2 // Center position calculation
+
+
 
     // Calculate the total duration of all animations
     const totalAnimationTime = 14 + 1 + 20 + 1 // Sum of all durations inside timeline
@@ -37,20 +39,20 @@ function ScrollFourSectionMobile() {
     // Move circles within the pinned section
     CircelPinlTL.fromTo(
       leftCircel.current,
-      { left: '7vw', opacity: 1 },
-      { left: lastPosition, duration: 14, ease: 'power2.out', opacity: 0.1 },
+      { top: 0, opacity: 1 },
+      { top: lastPosition, duration: 14, ease: 'power2.out', opacity: 0.1 },
       5 // Delay the start of this animation by 5 seconds
     )
       .fromTo(
         rightCircel.current,
-        { right: '7vw', opacity: 1 },
-        { right: lastPosition, duration: 14, ease: 'power2.out', opacity: 0.1 },
+        { bottom:0, opacity: 1 },
+        { bottom: lastPosition, duration: 14, ease: 'power2.out', opacity: 0.1 },
         '<' // Ensures it starts at the same time as the leftCircel animation
       )
 
       .fromTo(
         middleCircel.current,
-        { left: lastPosition, opacity: 0, visibility: 'hidden' },
+        { top: lastPosition, opacity: 0, visibility: 'hidden' },
         { opacity: 1, visibility: 'visible', ease: 'power2.out', duration: 1 },
         '-=4'
       )
@@ -76,27 +78,27 @@ function ScrollFourSectionMobile() {
         ref={pinCircel}
       >
         <div
-          className='leftBoxCircel z-10 absolute flex justify-center items-center p-4 rounded-full w-full h-full overflow-hidden -translate-y-1/2 transform'
+          className='top-0 leftBoxCircelMobile z-10 absolute flex justify-center items-center p-4 rounded-full w-full h-full overflow-hidden'
           ref={leftCircel}
         >
-          <div className='flex flex-col justify-center items-center bg-[#D8D4CF] p-6 w-4/5 h-full centerDiv'>
-            <h1 className='font-IvyOraheadline2 text-[#232323] text-5xl'>Solo</h1>
-            <p className='mt-1 font-IvyOraheadline2 text-[#7A7876] text-2xl'>Retain autonomy your practice, your way.</p>
+          <div className='flex flex-col justify-center items-center bg-[#D8D4CF] p-2 w-4/5 h-full centerDiv'>
+            <h1 className='font-IvyOraheadline2 text-[#232323] text-2xl'>Solo</h1>
+            <p className='mt-1 font-IvyOraheadline2 text-[#7A7876] text-xl'>Retain autonomy your practice, your way.</p>
             <ul className='circelInside'>
               <li>
-                <ul className='pl-12'>
-                  <li className='text-xl'>Industry confusing by design</li>
+                <ul className='pl-2'>
+                  <li className='text-sm'>Industry confusing by design</li>
                 </ul>
               </li>
 
               <li>
-                <ul className='pl-12'>
-                  <li className='text-xl'>Pay too much or spend hours finding deals</li>
+                <ul className='pl-2'>
+                  <li className='text-sm'>Pay too much or spend hours finding deals</li>
                 </ul>
               </li>
               <li>
-                <ul className='pl-12'>
-                  <li className='text-xl'>No Support</li>
+                <ul className='pl-2'>
+                  <li className='text-sm'>No Support</li>
                 </ul>
               </li>
             </ul>
@@ -108,30 +110,30 @@ function ScrollFourSectionMobile() {
         </div>
 
         <div
-          className='rightBoxCircel z-10 absolute flex justify-center items-center p-4 rounded-full -translate-y-1/2 transform'
+          className='rightBoxCircelMobile bottom-0 z-10 absolute flex justify-center items-center p-4 rounded-full'
           ref={rightCircel}
         >
-          <div className='flex flex-col justify-center items-center p-6 w-4/5 h-full centerDiv'>
-            <h1 className='font-IvyOraheadline2 text-[#232323] text-5xl'>DSO</h1>
-            <p className='mt-2 font-IvyOraheadline2 text-[#7A7876] text-2xl'>
+          <div className='flex flex-col justify-center items-center p-2 w-4/5 h-full centerDiv'>
+            <h1 className='font-IvyOraheadline2 text-[#232323] text-2xl'>DSO</h1>
+            <p className='mt-2 font-IvyOraheadline2 text-[#7A7876] text-xl'>
               Best practices for greater profitability, negotiated <br /> group
               savings, corporate support.
             </p>
             <ul className='circelInside'>
               <li>
-                <ul className='pl-12'>
-                  <li className='text-xl'>Intergration plan</li>
+                <ul className='pl-2'>
+                  <li className='text-sm'>Intergration plan</li>
                 </ul>
               </li>
 
               <li>
-                <ul className='pl-12'>
-                  <li className='text-xl'>Staff disruption</li>
+                <ul className='pl-2'>
+                  <li className='text-sm'>Staff disruption</li>
                 </ul>
               </li>
               <li>
-                <ul className='pl-12'>
-                  <li className='text-xl'>Lose autonomy</li>
+                <ul className='pl-2'>
+                  <li className='text-sm'>Lose autonomy</li>
                 </ul>
               </li>
             </ul>
@@ -142,7 +144,7 @@ function ScrollFourSectionMobile() {
         </div>
 
         <div
-          className='z-10 absolute flex justify-center items-center middleCircelBox'
+          className='z-10 absolute flex justify-center items-center middleCircelBoxMobile'
           ref={middleCircel}
         ></div>
         <div
@@ -184,11 +186,11 @@ function ScrollFourSectionMobile() {
         </div>
 
         <div className='rectangle' ref={rectangle}>
-          <div className='flex flex-row items-center bg-[#3C4235] p-[5rem]'>
+          <div className='flex flex-row items-center bg-[#3C4235]'>
             <div className='flex justify-center items-center basis-1/2'>
               <img className='w-[32vw]' src="/bg-red.avif" alt="" />
             </div>
-            <div className='p-[4rem] basis-1/2'>
+            <div className='basis-1/2'>
               <h3 className='font-IvyOraheadline2 text-white text-5xl leading-[3.5rem]'><span className='font-IvyOraheadline'>Lay the right foundation</span><br /> for your practice.</h3>
               <p className='mt-8 text-white text-lg'>Whether it's setting up your practice or finding ways to save, we're here to make the process smoother and less stressful.
                 <br />

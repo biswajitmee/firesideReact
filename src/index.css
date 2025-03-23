@@ -484,9 +484,37 @@
     top: 51%;
   }
 
+  .leftBoxCircelMobile {
+    width: 100vw;
+    height: 100vw;
+    border-radius: 100%;
+    position: absolute;
+    background-color: rgba(196, 196, 195, 0.70);
+    top: 0;
+  }
+
+
+  .rightBoxCircelMobile {
+    width: 100vw;
+    height: 100vw;
+    border-radius: 100%;
+    position: absolute;
+    background-color: rgba(196, 196, 195, 0.70);
+    bottom:0;
+  }
+
+
   .middleCircelBox {
     width: 100vh;
     height: 100vh;
+    border-radius: 100%;
+    position: absolute;
+    background-color: #3C4235;
+  }
+
+  .middleCircelBoxMobile {
+    width: 100vw;
+    height: 100vw;
     border-radius: 100%;
     position: absolute;
     background-color: #3C4235;

@@ -610,6 +610,10 @@ video {
   inset: 0px;
 }
 
+.bottom-0{
+  bottom: 0px;
+}
+
 .bottom-10{
   bottom: 2.5rem;
 }
@@ -1246,6 +1250,10 @@ video {
   padding-left: 3.5rem;
 }
 
+.pl-2{
+  padding-left: 0.5rem;
+}
+
 .pl-4{
   padding-left: 1rem;
 }
@@ -1834,9 +1842,35 @@ section {
   top: 51%;
 }
 
+.leftBoxCircelMobile {
+  width: 100vw;
+  height: 100vw;
+  border-radius: 100%;
+  position: absolute;
+  background-color: rgba(196, 196, 195, 0.70);
+  top: 0;
+}
+
+.rightBoxCircelMobile {
+  width: 100vw;
+  height: 100vw;
+  border-radius: 100%;
+  position: absolute;
+  background-color: rgba(196, 196, 195, 0.70);
+  bottom:0;
+}
+
 .middleCircelBox {
   width: 100vh;
   height: 100vh;
+  border-radius: 100%;
+  position: absolute;
+  background-color: #3C4235;
+}
+
+.middleCircelBoxMobile {
+  width: 100vw;
+  height: 100vw;
   border-radius: 100%;
   position: absolute;
   background-color: #3C4235;
