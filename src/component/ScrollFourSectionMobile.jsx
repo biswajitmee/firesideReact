@@ -74,7 +74,7 @@ function ScrollFourSectionMobile() {
   return (
     <>
       <section
-        className='relative flex justify-center items-center h-screen'
+        className='relative flex justify-center items-center h-full'
         ref={pinCircel}
       >
         <div

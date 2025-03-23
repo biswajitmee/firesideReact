@@ -38,7 +38,7 @@ export default function HomePage () {
       smooth: 2,
       effects: true,
       normalizeScroll: true,
-      smoothTouch: 0.9
+      smoothTouch: 0.4
     })
 
     return () => {
