@@ -926,6 +926,10 @@ video {
   width: 32vw;
 }
 
+.w-\[50vw\]{
+  width: 50vw;
+}
+
 .w-\[80vw\]{
   width: 80vw;
 }
@@ -1881,6 +1885,17 @@ section {
   width: calc(100vw - 17px);
   height: 100vh;
   border-radius: 50px;
+  background-color: #3C4235;
+  display: none;
+  z-index: -10;
+  left: 0;
+}
+
+.rectangleMobile {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  border-radius:20px;
   background-color: #3C4235;
   display: none;
   z-index: -10;
