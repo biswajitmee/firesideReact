@@ -1,127 +1,80 @@
-import React from 'react';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const ScrollSixSection = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const ScrollSixSectionMobile = () => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (window.innerWidth < 1024) {
+      const cardsWrappers = gsap.utils.toArray(".card-wrapper");
+      const cards = gsap.utils.toArray(".card");
+
+      cardsWrappers.forEach((wrapper, i) => {
+        const card = cards[i];
+        gsap.to(card, {
+          transformOrigin: "top center",
+          ease: "none",
+          scrollTrigger: {
+            trigger: wrapper,
+            start: "top " + (100 + 120 * i),
+            end: "bottom 800",
+            endTrigger: ".wrapper",
+            scrub: 5,
+            pin: wrapper,
+            pinSpacing: false,
+          },
+        });
+      });
+      
+    }
+  }, []);
+
   return (
     <>
-      <section className='flex items-center gap-x-4 px-[6rem] w-full h-[75vh]'>
-        {/* BOX ONE */}
-        <div
-          className='group relative flex-1 hover:flex-[1.2] h-full transition-all duration-1000'
-        >
-          <img
-            className='absolute opacity-100 group-hover:opacity-0 rounded-3xl w-full h-full object-center object-cover transition-all duration-1000 ease-in-out'
-            src="/ScrollSectionSiximg-1.avif"
-            alt=""
-          />
-          <video
-            className='rounded-3xl w-full h-full object-cover object-top'
-            autoPlay loop muted
-            src="ScrollSectionSixVideo-1.mp4"
-          ></video>
-
-          <div
-            className='bottom-4 left-4 absolute flex flex-col justify-center bg-[#f3efec1a] backdrop-blur-lg p-6 rounded-xl w-[240px] h-[90px]'
-          >
-            <h4 className='font-IvyOraheadline2 font-medium text-[#f3efec] text-[1.905vw]'>Dr. Lauren Dean</h4>
-            <p className='text-[#f3efec] text-[1.071vw]'>Dentist</p>
-          </div>
-
-          <div
-            className='top-0 right-0 absolute opacity-0 group-hover:opacity-100 cursor-pointer'
-          >
-            <div className='relative'>
-              <div className='top-14 right-14 z-20 absolute w-4 h-4'>
-                <img
-                  className='w-4 h-4 object-cover'
-                  src="SixSectionplayIcon.svg"
-                  alt="Play"
-                />
-              </div>
-              <div
-                className='top-8 right-8 z-10 absolute flex flex-col justify-center items-center bg-[#f3efec1a] opacity-100 backdrop-blur-lg p-8 rounded-full'
-              >
-
+    <div class="spacer"></div>
+    <div ref={containerRef} className="border-gray-300 border-t-2 border-b-2 wrapper">
+      <div className="mx-auto px-4 w-full cards">
+        {[1, 2, 3].map((index) => (
+          <div key={index} className="mb-20 last:mb-0 py-4 w-full perspective-500 card-wrapper">
+            <div className="group relative w-full h-[70vh] card">
+              <img
+                className="absolute opacity-100 group-hover:opacity-0 rounded-3xl w-full h-full object-center object-cover transition-all duration-1000 ease-in-out"
+                src={`/ScrollSectionSiximg-${index}.avif`}
+                alt=""
+              />
+              <video
+                className="rounded-3xl w-full h-full object-cover object-top"
+                autoPlay
+                loop
+                muted
+                src={`ScrollSectionSixVideo-${index}.mp4`}
+              ></video>
+              <div className="bottom-4 left-4 absolute flex flex-col justify-center bg-[#f3efec1a] backdrop-blur-lg p-6 rounded-xl w-[240px] h-[90px]">
+                <h4 className="font-IvyOraheadline2 font-medium text-[#f3efec] text-[4vw] lg:text-[1.905vw]">
+                  {getDoctorName(index)}
+                </h4>
+                <p className="text-[#f3efec] text-[2.5vw] lg:text-[1.071vw]">Dentist</p>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* BOX TWO */}
-        <div className='group relative flex-1 hover:flex-[1.2] h-full transition-all duration-1000'>
-          <img
-            className='absolute opacity-100 group-hover:opacity-0 rounded-3xl w-full h-full object-center object-cover transition-all duration-1000 ease-in-out'
-            src="/ScrollSectionSiximg-2.avif" alt=""
-          />
-          <video className='rounded-3xl w-full h-full object-cover object-top'
-            autoPlay loop muted src="ScrollSectionSixVideo-2.mp4"></video>
-
-          <div
-            className='bottom-4 left-4 absolute flex flex-col justify-center bg-[#f3efec1a] backdrop-blur-lg p-6 rounded-xl w-[240px] h-[90px]'
-          >
-            <h4 className='font-IvyOraheadline2 font-medium text-[#f3efec] text-[1.905vw]'>Dr. Jeff Flannery</h4>
-            <p className='text-[#f3efec] text-[1.071vw]'>Dentist</p>
-          </div>
-
-          <div
-            className='top-0 right-0 absolute opacity-0 group-hover:opacity-100 cursor-pointer'
-          >
-            <div className='reletive'>
-              <div className='top-14 right-14 z-20 absolute w-4 h-4'>
-                <img
-                  className='w-4 h-4 object-cover'
-                  src="SixSectionplayIcon.svg"
-                  alt="Play"
-                />
-              </div>
-              <div
-                className='top-8 right-8 z-10 absolute flex flex-col justify-center items-center bg-[#f3efec1a] opacity-100 backdrop-blur-lg p-8 rounded-full'
-              >
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* BOX THREE */}
-        <div
-          className='group relative flex-1 hover:flex-[1.2] h-full transition-all duration-1000'
-        >
-          <img
-            className='absolute opacity-100 group-hover:opacity-0 rounded-3xl w-full h-full object-center object-cover transition-all duration-1000 ease-in-out'
-            src="/ScrollSectionSiximg-3.avif" alt=""
-          />
-          <video className='rounded-3xl w-full h-full object-cover object-top'
-            autoPlay loop muted src="ScrollSectionSixVideo-3.mp4"></video>
-
-          <div
-            className='bottom-4 left-4 absolute flex flex-col justify-center bg-[#f3efec1a] backdrop-blur-lg p-6 rounded-xl w-[240px] h-[90px]'
-          >
-            <h4 className='font-IvyOraheadline2 font-medium text-[#f3efec] text-[1.905vw]'>Dr. Adrian Lovell</h4>
-            <p className='text-[#f3efec] text-[1.071vw]'>Dentist</p>
-          </div>
-
-          <div
-            className='top-0 right-0 absolute opacity-0 group-hover:opacity-100 cursor-pointer'
-          >
-            <div className='reletive'>
-              <div className='top-14 right-14 z-20 absolute w-4 h-4'>
-                <img
-                  className='w-4 h-4 object-cover'
-                  src="SixSectionplayIcon.svg"
-                  alt="Play"
-                />
-              </div>
-              <div
-                className='top-8 right-8 z-10 absolute flex flex-col justify-center items-center bg-[#f3efec1a] opacity-100 backdrop-blur-lg p-8 rounded-full'
-              >
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+    <div class="spacer"></div>
     </>
-  )
-}
+  );
+};
 
-export default ScrollSixSection;
+const getDoctorName = (index) => {
+  const names = [
+    "Dr. Lauren Dean",
+    "Dr. Jeff Flannery",
+    "Dr. Adrian Lovell",
+  ];
+  return names[index - 1] || "Unknown";
+};
+
+export default ScrollSixSectionMobile;

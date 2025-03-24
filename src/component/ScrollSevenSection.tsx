@@ -49,7 +49,7 @@ const ScrollSevenSection: React.FC = () => {
         <img
           data-speed='0.8'
           src='backgroundForrest.avif'
-          className='bg-top h-screen object-cover'
+          className='bg-top h-screen lg:h-auto object-cover'
         />
 
         <div className='bottom-14 lg:left-8 z-10 absolute pl-14 text-white'>
