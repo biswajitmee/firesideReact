@@ -19,9 +19,7 @@ const ScrollSixSectionMobile = () => {
           ease: "none",
           scrollTrigger: {
             trigger: wrapper,
-             start: "top" + (10 + 60 * i),
-            // start: i === 0 ? "top top" : "top " + (100 + 100 * i), // Ensure first pin starts at the top
-
+             start: "top " + (60 + 60 * i)+"vh",
             end: "bottom 700",
             endTrigger: ".wrapper",
             scrub: 5,
