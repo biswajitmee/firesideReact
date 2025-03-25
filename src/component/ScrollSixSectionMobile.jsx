@@ -15,7 +15,7 @@ const ScrollSixSectionMobile = () => {
       cardsWrappers.forEach((wrapper, i) => {
         const card = cards[i];
         gsap.to(card, {
-          transformOrigin: "top center",
+          transformOrigin: "top top",
           ease: "none",
           scrollTrigger: {
             trigger: wrapper,
