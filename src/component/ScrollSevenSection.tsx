@@ -45,7 +45,7 @@ const ScrollSevenSection: React.FC = () => {
 
   return (
     <>
-      <div className='relative lg:mt-40 rounded-3xl w-full h-screen overflow-hidden heroSection'>
+      <div className='relative mt-20 lg:mt-40 rounded-3xl w-full h-screen overflow-hidden heroSection'>
         <img
           data-speed='0.8'
           src='backgroundForrest.avif'
