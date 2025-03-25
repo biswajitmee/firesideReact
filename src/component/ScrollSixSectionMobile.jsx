@@ -19,7 +19,7 @@ const ScrollSixSectionMobile = () => {
           ease: "none",
           scrollTrigger: {
             trigger: wrapper,
-            start: "top " + (100 + 120 * i),
+            start: "top " + (100 + 100 * i),
             end: "bottom 800",
             endTrigger: ".wrapper",
             scrub: 5,
