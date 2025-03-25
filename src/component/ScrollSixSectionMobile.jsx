@@ -15,11 +15,13 @@ const ScrollSixSectionMobile = () => {
       cardsWrappers.forEach((wrapper, i) => {
         const card = cards[i];
         gsap.to(card, {
-          transformOrigin: "top top",
+          transformOrigin: "top center",
           ease: "none",
           scrollTrigger: {
             trigger: wrapper,
-            start: "top " + (10 + 90 * i),
+            // start: "top " + (60 + 90 * i),
+            start: i === 0 ? "top top" : "top " + (60 + 90 * i), // Ensure first pin starts at the top
+
             end: "bottom 800",
             endTrigger: ".wrapper",
             scrub: 5,
