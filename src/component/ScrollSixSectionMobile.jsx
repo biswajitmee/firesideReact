@@ -34,7 +34,7 @@ const ScrollSixSectionMobile = () => {
 
   return (
     <>
-    <div class="spacer"></div>
+  
     <div ref={containerRef} className="border-gray-300 wrapper">
       <div className="mx-auto px-4 w-full cards">
         {[1, 2, 3].map((index) => (
