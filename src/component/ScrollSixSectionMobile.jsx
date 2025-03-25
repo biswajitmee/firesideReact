@@ -19,7 +19,7 @@ const ScrollSixSectionMobile = () => {
           ease: "none",
           scrollTrigger: {
             trigger: wrapper,
-             start: "top " + (60 + 60 * i),
+             start: "top " + (10 + 60 * i),
             // start: i === 0 ? "top top" : "top " + (100 + 100 * i), // Ensure first pin starts at the top
 
             end: "bottom 700",
@@ -37,7 +37,7 @@ const ScrollSixSectionMobile = () => {
   return (
     <>
   
-    <div ref={containerRef} className="border-gray-300 wrapper">
+    <div ref={containerRef} className="bg-red-700 wrapper">
       <div className="mx-auto px-4 py-30 w-full h-full cards">
         {[1, 2, 3].map((index) => (
           <div key={index} className="mb-20 last:mb-0 py-4 w-full perspective-500 card-wrapper">
