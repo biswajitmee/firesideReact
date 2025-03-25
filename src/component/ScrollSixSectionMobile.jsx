@@ -19,7 +19,7 @@ const ScrollSixSectionMobile = () => {
           ease: "none",
           scrollTrigger: {
             trigger: wrapper,
-            start: "top " + (100 + 100 * i),
+            start: "top " + (10 + 90 * i),
             end: "bottom 800",
             endTrigger: ".wrapper",
             scrub: 5,
@@ -35,7 +35,7 @@ const ScrollSixSectionMobile = () => {
   return (
     <>
     <div class="spacer"></div>
-    <div ref={containerRef} className="border-gray-300 border-t-2 border-b-2 wrapper">
+    <div ref={containerRef} className="border-gray-300 wrapper">
       <div className="mx-auto px-4 w-full cards">
         {[1, 2, 3].map((index) => (
           <div key={index} className="mb-20 last:mb-0 py-4 w-full perspective-500 card-wrapper">
