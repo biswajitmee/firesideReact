@@ -31,15 +31,17 @@ function ScrollFourSectionMobile() {
         trigger: pinCircelPin,
         start: 'top top',
         end: endValue, // Dynamically set end value
-        scrub: true,
-        pin: true
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
       }
     })
 
     // Move circles within the pinned section
     CircelPinlTL.fromTo(
       leftCircel.current,
-      { top: "0px", opacity: 1 },
+      { top: 0, opacity: 1 },
       {  top: `${lastPosition - 20}px`, duration: 14, ease: 'power2.out', opacity: 0.1 },
       5 // Delay the start of this animation by 5 seconds
     )
@@ -74,7 +76,7 @@ function ScrollFourSectionMobile() {
   return (
     <>
       <section
-        className='relative flex justify-center items-center bg-blue-900 h-screen'
+        className='relative flex justify-center items-center h-screen'
         ref={pinCircel}
       >
         <div
@@ -208,6 +210,8 @@ function ScrollFourSectionMobile() {
           </div>
         </div>
       </section>
+
+      <div class="spacer"></div>
     </>
   )
 }

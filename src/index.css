@@ -48,11 +48,24 @@
 }
 
 @layer utilities {
-  body {
+  /* body {
     font-size: 16px;
     background-color: #E3E0DD;
+  } */
+
+
+  html, body {
+    font-size: 16px;
+    background-color: #E3E0DD;
+    overscroll-behavior: none; /* Prevent mobile bounce effect */
+    height: 100%;
+  }
+  
+  .pin-spacer {
+    min-height: 100vh !important; /* Force pinning to be accurate */
   }
 
+  
   .inter-tight-big {
     font-family: "Inter Tight", serif;
     font-optical-sizing: auto;

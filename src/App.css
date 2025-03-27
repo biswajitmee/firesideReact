@@ -710,20 +710,12 @@ video {
   grid-column-end: 7;
 }
 
-.m-0{
-  margin: 0px;
-}
-
 .m-10{
   margin: 2.5rem;
 }
 
 .m-2{
   margin: 0.5rem;
-}
-
-.m-4{
-  margin: 1rem;
 }
 
 .m-auto{
@@ -735,14 +727,8 @@ video {
   margin-right: auto;
 }
 
-.my-5{
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
-.my-20{
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+.mb-10{
+  margin-bottom: 2.5rem;
 }
 
 .mb-20{
@@ -751,10 +737,6 @@ video {
 
 .mb-4{
   margin-bottom: 1rem;
-}
-
-.mb-8{
-  margin-bottom: 2rem;
 }
 
 .ml-4{
@@ -781,8 +763,16 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-20{
+  margin-top: 5rem;
+}
+
 .mt-4{
   margin-top: 1rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
 }
 
 .mt-6{
@@ -799,10 +789,6 @@ video {
 
 .mt-\[4rem\]{
   margin-top: 4rem;
-}
-
-.mt-20{
-  margin-top: 5rem;
 }
 
 .block{
@@ -863,10 +849,6 @@ video {
 
 .h-screen{
   height: 100vh;
-}
-
-.h-60{
-  height: 15rem;
 }
 
 .min-h-screen{
@@ -1075,19 +1057,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.border-b-2{
-  border-bottom-width: 2px;
-}
-
-.border-t-2{
-  border-top-width: 2px;
-}
-
-.border-gray-300{
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
-}
-
 .bg-\[\#2f3d2c\]{
   --tw-bg-opacity: 1;
   background-color: rgb(47 61 44 / var(--tw-bg-opacity, 1));
@@ -1151,21 +1120,6 @@ video {
   background-color: rgb(255 255 255 / 0.7);
 }
 
-.bg-green-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
-}
-
-.bg-red-700{
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
-}
-
-.bg-blue-900{
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 58 138 / var(--tw-bg-opacity, 1));
-}
-
 .bg-top{
   background-position: top;
 }
@@ -1227,6 +1181,11 @@ video {
   padding-right: 1rem;
 }
 
+.px-5{
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1240,6 +1199,11 @@ video {
 .px-\[1rem\]{
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .py-2{
@@ -1267,16 +1231,6 @@ video {
   padding-bottom: 2rem;
 }
 
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.py-20{
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
 .pl-10{
   padding-left: 2.5rem;
 }
@@ -1301,16 +1255,16 @@ video {
   padding-right: 2.5rem;
 }
 
+.pt-10{
+  padding-top: 2.5rem;
+}
+
 .pt-12{
   padding-top: 3rem;
 }
 
 .pt-14{
   padding-top: 3.5rem;
-}
-
-.pt-2{
-  padding-top: 0.5rem;
 }
 
 .pt-5{
@@ -1430,6 +1384,10 @@ video {
   line-height: 2.5rem;
 }
 
+.leading-5{
+  line-height: 1.25rem;
+}
+
 .leading-\[3\.5rem\]{
   line-height: 3.5rem;
 }
@@ -1532,9 +1490,17 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body {
+/* body {
+    font-size: 16px;
+    background-color: #E3E0DD;
+  } */
+
+html, body {
   font-size: 16px;
   background-color: #E3E0DD;
+  overscroll-behavior: none;
+  /* Prevent mobile bounce effect */
+  height: 100%;
 }
 
 .lineheightfix {
@@ -1747,15 +1713,6 @@ section {
   overflow: hidden;
 }
 
-.bigImgBackMobile {
-  position: relative;
-  border-radius: 30px;
-  width: 100vw;
-  margin:0;
-  height: calc(100vh - 2px);
-  overflow: hidden;
-}
-
 .bigImg {
   width: 99vw;
   margin: 1px auto 1px calc(0.5vw - 8px);
@@ -1789,15 +1746,6 @@ section {
   scale: 1.5;
 }
 
-.bigImg2Mobile {
-  background-image: url("/last-big-img.avif");
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-position: center center;
-  z-index: -1;
-}
-
 .bigImg3 {
   background-image: url("/middle-box-img.avif");
   background-position: center center;
@@ -1820,13 +1768,6 @@ section {
   /* left: -40%; */
   top: 0;
   background-color: #65c70b;
-}
-
-.bigImgBack2Mobile {
-  position: relative;
-  border-radius: 30px;
-  overflow: hidden;
-  width: 100vw;
 }
 
 section {
@@ -2094,6 +2035,20 @@ ul.openNavigation li{
 
 .group:hover .group-hover\:opacity-0{
   opacity: 0;
+}
+
+@media (min-width: 640px){
+  .sm\:m-auto{
+    margin: auto;
+  }
+
+  .sm\:w-\[50vw\]{
+    width: 50vw;
+  }
+
+  .sm\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px){

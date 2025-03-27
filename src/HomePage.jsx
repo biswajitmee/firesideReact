@@ -54,11 +54,10 @@ export default function HomePage () {
 
         {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
         {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
+
         {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
 
- 
         <ScrollFiveSection />
-      
 
         {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
         {/* <ScrollSixSection /> */}

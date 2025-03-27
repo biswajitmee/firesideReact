@@ -338,7 +338,7 @@ function ScrollThreeSection() {
         </div>
       </div>
 
-      <section
+      <div
         className='z-0 flex justify-center items-center mt-[-70vh] w-screen h-[60vh]'
         ref={insidePin}
       >
@@ -358,7 +358,7 @@ function ScrollThreeSection() {
           </div>
 
         </div>
-      </section>
+      </div>
     </>
   )
 }
