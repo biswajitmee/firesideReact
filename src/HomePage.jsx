@@ -13,6 +13,8 @@ import ScrollThreeSectionMobile from './component/ScrollThreeSectionMobile'
 import ScrollFourSectionMobile from './component/ScrollFourSectionMobile'
 import ScrollSixSectionMobile from './component/ScrollSixSectionMobile'
 
+import Footer from './Footer'
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 export default function HomePage () {
@@ -48,21 +50,20 @@ export default function HomePage () {
   }, [])
 
   return (
-    <div id='smooth-wrapper' ref={main}>
-      <div id='smooth-content'>
-        <ScrollOneSection />
+    <>
+      <div id='smooth-wrapper' ref={main}>
+        <div id='smooth-content'>
+     
+            <ScrollOneSection />
 
-        {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
-        {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
-
-        {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
-
-        <ScrollFiveSection />
-
-        {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
-        {/* <ScrollSixSection /> */}
-        <ScrollSevenSection />
+            {/* {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
+            {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
+            {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
+            <ScrollFiveSection />
+            {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />} */}
+            <ScrollSevenSection />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
