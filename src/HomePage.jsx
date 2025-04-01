@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState, useEffect } from 'react'
+import { useLayoutEffect, useRef, useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger, ScrollSmoother } from 'gsap/all'
 import ScrollOneSection from './component/ScrollOneSection'
@@ -13,11 +13,11 @@ import ScrollThreeSectionMobile from './component/ScrollThreeSectionMobile'
 import ScrollFourSectionMobile from './component/ScrollFourSectionMobile'
 import ScrollSixSectionMobile from './component/ScrollSixSectionMobile'
 
-import Footer from './Footer'
+// import Footer from './Footer';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
-export default function HomePage () {
+export default function HomePage() {
   const main = useRef()
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768) // Ensure initial check
 
@@ -53,15 +53,14 @@ export default function HomePage () {
     <>
       <div id='smooth-wrapper' ref={main}>
         <div id='smooth-content'>
-     
-            <ScrollOneSection />
 
-            {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
-            {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
-            {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
-            <ScrollFiveSection />
-            {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
-            <ScrollSevenSection />
+          <ScrollOneSection />
+          {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
+          {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
+          {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
+          <ScrollFiveSection />
+          {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
+          <ScrollSevenSection />
         </div>
       </div>
     </>

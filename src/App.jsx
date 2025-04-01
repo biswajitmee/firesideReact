@@ -4,6 +4,7 @@ import NavBar from './NavBar'
 import Footer from './Footer'
 import MobileNavBar from './MobileNavBar'
 import HomePage from './HomePage'
+import AboutPage from './AboutPage'
 // import About from './About'
 // import Community from './Community'
 // import Blog from './Blog'
@@ -31,8 +32,8 @@ export default function App () {
 
       <Routes>
         <Route path='/' element={<HomePage />} />
-        {/* <Route path='/about' element={<About />} />
-        <Route path='/community' element={<Community />} />
+        <Route path='/about' element={<AboutPage />} />
+        {/* <Route path='/community' element={<Community />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/join' element={<Join />} /> */}
       </Routes>
