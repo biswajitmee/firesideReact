@@ -1,42 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar'
-import Footer from './Footer'
+import Loader from './Loader'
 import MobileNavBar from './MobileNavBar'
 import HomePage from './HomePage'
-// import About from './About'
-// import Community from './Community'
-// import Blog from './Blog'
-// import Join from './Join'
 
-export default function App () {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768) // Ensure initial check
+export default function App() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const checkScreenSize = () => {
-      const mobile = window.innerWidth <= 768
-      console.log('Screen size changed:', mobile ? 'Mobile' : 'Desktop') // Debugging log
-      setIsMobile(mobile)
+      setIsMobile(window.innerWidth <= 768)
     }
 
-    checkScreenSize() // Initial check
-    window.addEventListener('resize', checkScreenSize) // Listen for resize events
-
+    window.addEventListener('resize', checkScreenSize)
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
 
   return (
     <Router>
-      {isMobile ? <MobileNavBar /> : <NavBar />}
-
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        {/* <Route path='/about' element={<About />} />
-        <Route path='/community' element={<Community />} />
-        <Route path='/blog' element={<Blog />} />
-        <Route path='/join' element={<Join />} /> */}
-      </Routes>
-    
+      {isLoading ? (
+        <div className="z-[9999] fixed inset-0">
+          <Loader onComplete={() => setIsLoading(false)} />
+        </div>
+      ) : (
+        <>
+          {isMobile ? <MobileNavBar /> : <NavBar />}
+          <Routes>
+            <Route path="/" element={ <HomePage onReady={() => setIsHomePageReady(true)} />} />
+          </Routes>
+        </>
+      )}
     </Router>
   )
 }

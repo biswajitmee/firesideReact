@@ -54,18 +54,21 @@
   } */
 
 
-  html, body {
+  html,
+  body {
     font-size: 16px;
     background-color: #E3E0DD;
-    overscroll-behavior: none; /* Prevent mobile bounce effect */
+    overscroll-behavior: none;
+    /* Prevent mobile bounce effect */
     height: 100%;
   }
-  
+
   .pin-spacer {
-    min-height: 100vh !important; /* Force pinning to be accurate */
+    min-height: 100vh !important;
+    /* Force pinning to be accurate */
   }
 
-  
+
   .inter-tight-big {
     font-family: "Inter Tight", serif;
     font-optical-sizing: auto;
@@ -121,10 +124,11 @@
     margin: auto;
 
   }
+
   .bgAnimationMobile {
     position: absolute;
     left: 0;
-    width:100vw;
+    width: 100vw;
     height: 96vh;
     top: 0;
     border-radius: 20px;
@@ -226,10 +230,10 @@
   .titleAbsolute3Mobile {
     position: absolute;
     text-align: center;
-    left:0;
+    left: 0;
     height: 49vh;
     width: 100vw;
-    top:0;
+    top: 0;
     background-color: #3c4235;
     border-radius: 20px;
     background-size: cover;
@@ -237,7 +241,7 @@
   }
 
   .titleAbsolute33Mobile {
-    left:0;
+    left: 0;
     position: absolute;
     text-align: center;
     height: 1px;
@@ -326,7 +330,7 @@
     position: relative;
     border-radius: 30px;
     width: 100vw;
-    margin:0;
+    margin: 0;
     height: calc(100vh - 2px);
     overflow: hidden;
 
@@ -375,7 +379,7 @@
     background-size: cover;
     background-position: center center;
     z-index: -1;
- 
+
 
   }
 
@@ -391,6 +395,7 @@
     top: 0;
     background-color: #65c70b;
   }
+
   .bigImg3Mobile {
     background-image: url("/middle-box-img.avif");
     background-position: center center;
@@ -402,7 +407,7 @@
     top: 0;
     background-color: #65c70b;
   }
- 
+
 
   .movingdiv {
     overflow: hidden;
@@ -437,6 +442,7 @@
     overflow: hidden;
 
   }
+
   .bigImgBack2Mobile {
     position: relative;
     border-radius: 30px;
@@ -513,7 +519,7 @@
     border-radius: 100%;
     position: absolute;
     background-color: rgba(196, 196, 195, 0.70);
-    bottom:0;
+    bottom: 0;
   }
 
 
@@ -543,11 +549,12 @@
     z-index: -10;
     left: 0;
   }
+
   .rectangleMobile {
-    position: absolute; 
+    position: absolute;
     width: 100vw;
     height: 100vh;
-    border-radius:20px;
+    border-radius: 20px;
     background-color: #3C4235;
     display: none;
     z-index: -10;
@@ -578,7 +585,7 @@
 
 
   ul.circelInsideMobile {
-    padding:5px;
+    padding: 5px;
     width: 100%;
 
   }
@@ -615,15 +622,19 @@
     width: 30px;
     height: 20px;
     position: relative;
- 
+
   }
-  .menuIcon:hover{ cursor: pointer;}
+
+  .menuIcon:hover {
+    cursor: pointer;
+  }
+
   .line1 {
     height: 2px;
     background: #ffffff;
     position: absolute;
     width: 30px;
-    top:0px;
+    top: 0px;
     border-radius: 10px;
   }
 
@@ -645,12 +656,39 @@
     border-radius: 10px;
   }
 
-
-
  
-ul.openNavigation li{   padding: 10px;}
+  ul.openNavigation li {
+    padding: 10px;
+  }
 
 
- 
+
+
+  .largeInside {
+    position: absolute;
+    width:100vw;
+    height: 100vh;        
+    background-color: #2fd909;
+    transform: translate(50vw, 50vh);
+
+   
+  }
+
+  .smallOutside { 
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 50vw;
+    top:50vh;
+    overflow: hidden;
+    border-radius: 100%;
+  background-color: #d90986;
+  }
+
+
+
+
+
+
 
 }

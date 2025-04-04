@@ -170,10 +170,10 @@ const ScrollSevenSection: React.FC = () => {
         className='-z-10 relative bg-orange-600 mt-[-90vh] lg:mt-[-100vh] pt-20 w-screen h-[80vh] lg:h-[70vh] sectionTwo footer' 
         ref={footerRef}
       >
-        <div className='gap-4 grid grid-cols-1 lg:grid-cols-3'>
+        <div className='gap-4 grid grid-cols-1 lg:grid-cols-3 mx-10'>
           <div className='bg-red-700 h-full'>01</div>
-          <div className='bg-blue-700 h-full'>01</div>
-          <div className='bg-green-600 h-full'>09</div>
+          <div className='bg-blue-700 h-full'>02</div>
+          <div className='bg-green-600 h-full'>03</div>
         </div>
       </div>
     </>
