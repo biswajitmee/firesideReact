@@ -656,7 +656,7 @@
     border-radius: 10px;
   }
 
- 
+
   ul.openNavigation li {
     padding: 10px;
   }
@@ -666,28 +666,35 @@
 
   .largeInside {
     position: absolute;
-    width:100vw;
-    height: 100vh;        
+    width: 100vw;
+    height: 100vh;
     background-color: #2fd909;
     transform: translate(50vw, 50vh);
 
-   
+
   }
 
-  .smallOutside { 
+  .smallOutside {
     position: absolute;
     width: 200px;
     height: 200px;
     left: 50vw;
-    top:50vh;
+    top: 50vh;
     overflow: hidden;
     border-radius: 100%;
-  background-color: #d90986;
+    background-color: #d90986;
   }
 
 
 
-
+  .Loader {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 9999;
+    background-color: #2407e5;
+ 
+  }
 
 
 

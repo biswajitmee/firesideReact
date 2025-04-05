@@ -9,12 +9,18 @@ function Loader({ onComplete }) {
   const circleRef = useRef(null);
   const imgRefhidden = useRef(null);
   const LogoIconRef = useRef(null);
+  const loderBgRef = useRef(null);
+  
 
   useEffect(() => {
+
+    document.body.style.overflow = 'hidden';
+
+
     const tl = gsap.timeline();
 
     // Half Circle Loader Animation
-    gsap.set('#halfCircle', { drawSVG: '0% 0%' });
+    gsap.set('#halfCircle', { drawSVG: '0% 0%', stroke:"#2E3527" });
     tl.fromTo('#halfCircle', { drawSVG: '0% 0%' }, { drawSVG: '0% 100%', duration: 1, ease: 'none' });
     tl.to('#halfCircle', { drawSVG: '100% 100%', duration: 1, ease: 'none' });
     gsap.to('#halfCircle', {
@@ -65,11 +71,13 @@ function Loader({ onComplete }) {
     );
 
     tl2.to(imgRefhidden.current, { opacity: 0, duration: 0.5, ease: 'none' }, '-=1');
-    tl2.to(LogoIconRef.current, { opacity: 0 }, '<');
+    tl2.to(LogoIconRef.current, { opacity: 0 }, '-=1');
+    tl2.to(loderBgRef.current, { opacity: 0 }, '-=0.5');
 
     // Master Timeline
     const masterLoaderTL = gsap.timeline({
       onComplete: () => {
+        document.body.style.overflow = 'auto';
         onComplete(); // callback to hide loader
       }
     });
@@ -78,12 +86,13 @@ function Loader({ onComplete }) {
 
   return (
     <>
+    <div className='Loader' ref={loderBgRef}>
       {/* Spinning Half Circle Loader */}
       <div className="z-30 fixed inset-0 flex justify-center items-center mt-5 overflow-hidden">
         <div className="flex justify-center items-center w-80 h-80 logoLoader">
           <svg xmlns="http://www.w3.org/2000/svg" width="150" height="265" viewBox="0 0 265 265" fill="#EF4C23">
             <path id="circlePath" d="M 132.5,32.5 A 100,100 0 1,1 132.49,32.5" strokeWidth="40" fill="none" transform="rotate(120,132.5,132.5)" />
-            <path id="halfCircle" d="M 32.5,132.5 A 100,100 0 0,1 232.5,132.5" strokeWidth="65" stroke="#2E3527" fill="none" />
+            <path id="halfCircle" d="M 32.5,132.5 A 100,100 0 0,1 232.5,132.5" strokeWidth="65"  fill="none" />
           </svg>
         </div>
       </div>
@@ -112,6 +121,7 @@ function Loader({ onComplete }) {
               <circle ref={circleRef} cx="50%" cy="50%" r="0" fill="white" />
             </mask>
           </defs>
+         
           <image
             ref={imgRefhidden}
             href="backgroundForrest.avif"
@@ -121,6 +131,8 @@ function Loader({ onComplete }) {
             mask="url(#circleMask)"
           />
         </svg>
+      </div>
+
       </div>
     </>
   );
