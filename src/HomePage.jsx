@@ -13,20 +13,24 @@ import ScrollThreeSectionMobile from './component/ScrollThreeSectionMobile'
 import ScrollFourSectionMobile from './component/ScrollFourSectionMobile'
 import ScrollSixSectionMobile from './component/ScrollSixSectionMobile'
 
+ 
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
-export default function HomePage({ onReady }) {
+export default function HomePage() {
   const main = useRef()
-  const contentRef = useRef()
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768) // Ensure initial check
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768)
+      const mobile = window.innerWidth <= 768
+      console.log('Screen size changed:', mobile ? 'Mobile' : 'Desktop') // Debugging log
+      setIsMobile(mobile)
     }
 
-    checkScreenSize()
-    window.addEventListener('resize', checkScreenSize)
+    checkScreenSize() // Initial check
+    window.addEventListener('resize', checkScreenSize) // Listen for resize events
+
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
 
@@ -45,50 +49,20 @@ export default function HomePage({ onReady }) {
     }
   }, [])
 
-  // ✅ Track image & video load
-  useEffect(() => {
-    const images = contentRef.current?.querySelectorAll('img') || []
-    const videos = contentRef.current?.querySelectorAll('video') || []
-    const totalAssets = images.length + videos.length
-
-    if (totalAssets === 0) {
-      onReady?.()
-      return
-    }
-
-    let loaded = 0
-    const assetLoaded = () => {
-      loaded++
-      if (loaded === totalAssets) {
-        // Wait one frame
-        requestAnimationFrame(() => {
-          onReady?.()
-        })
-      }
-    }
-
-    images.forEach((img) => {
-      if (img.complete) assetLoaded()
-      else img.addEventListener('load', assetLoaded)
-    })
-
-    videos.forEach((video) => {
-      if (video.readyState >= 3) assetLoaded()
-      else video.addEventListener('loadeddata', assetLoaded)
-    })
-  }, [onReady])
-
   return (
-    <div id="smooth-wrapper" ref={main}>
-      <div id="smooth-content" ref={contentRef}>
-        <ScrollOneSection />
-        {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
-        {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
-        {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
-        <ScrollFiveSection />
-        {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
-        <ScrollSevenSection />
+    <>
+      <div id='smooth-wrapper' ref={main}>
+        <div id='smooth-content'>
+
+          <ScrollOneSection />
+          {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
+          {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
+          {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
+          <ScrollFiveSection />
+          {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
+          <ScrollSevenSection />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
