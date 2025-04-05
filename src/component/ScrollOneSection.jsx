@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { ScrollTrigger,SplitText } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
+
 
 function ScrollOneSection() {
   const videoSection = useRef(null);
@@ -45,6 +47,35 @@ function ScrollOneSection() {
         animation: masterTimeline,
         scrub: 1.5, // Adjusted for smoother scrolling
       });
+
+
+
+
+
+      var tl = gsap.timeline({ delay:5}),
+      mySplitText = new SplitText("#quote", { type: "words,chars" }),
+      chars = mySplitText.chars; //an array of all the divs that wrap each character
+    
+    gsap.set("#quote", { perspective: 400 });
+    
+    console.log(chars);
+    
+    tl.from(chars, {
+      duration: 0.8,
+      opacity: 0,
+      scale: 0,
+      y: 80,
+      rotationX: 180,
+      transformOrigin: "0% 50% -50",
+      ease: "back",
+      stagger: 0.01
+    });
+
+
+
+
+
+
     }, videoSection);
 
     return () => ctx.revert();
@@ -57,7 +88,7 @@ function ScrollOneSection() {
         <video className="top-0 left-0 absolute w-full h-full object-cover" src="/hero-section-video.mp4" autoPlay muted loop />
 
         <div className="bottom-14 left-8 z-10 absolute pl-4 text-white">
-          <h1 className="font-InterTight text-4xl lg:text-7xl">
+          <h1 className="font-InterTight text-4xl lg:text-7xl" id='quote'>
             <span className="block">Want more</span>
             <span className="block">for your practice?</span>
             <span className="block font-IvyOraheadline">

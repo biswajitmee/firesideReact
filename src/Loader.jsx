@@ -21,6 +21,11 @@ function Loader({ onComplete }) {
 
     // Half Circle Loader Animation
     gsap.set('#halfCircle', { drawSVG: '0% 0%', stroke:"#2E3527" });
+
+    // gsap.set(imgRefhidden.current, { opacity: 0.1 });
+
+    
+
     tl.fromTo('#halfCircle', { drawSVG: '0% 0%' }, { drawSVG: '0% 100%', duration: 1, ease: 'none' });
     tl.to('#halfCircle', { drawSVG: '100% 100%', duration: 1, ease: 'none' });
     gsap.to('#halfCircle', {
