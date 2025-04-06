@@ -150,7 +150,7 @@ const ScrollSevenSection: React.FC = () => {
         <div className='topGradiant bottom-0 z-50 absolute bg-gradient-to-t from-slate-50 w-screen h-80'></div>
       </section>
 
-      <div className='z-50 relative rounded-3xl w-full h-screen overflow-hidden sectionOne'>
+      <div className='z-50 relative rounded-3xl w-full h-[110vh] lg:h-[110vh] overflow-hidden sectionOne'>
         <video
           className='rounded-3xl w-full h-full object-cover'
           autoPlay
