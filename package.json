@@ -18,6 +18,7 @@
     "@react-three/drei": "^9.117.3",
     "@react-three/fiber": "^8.17.10",
     "@types/three": "^0.170.0",
+    "fa-icons": "^0.2.0",
     "gsap": "file:gsap-bonus.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

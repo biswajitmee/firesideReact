@@ -77,7 +77,7 @@ function Loader({ onComplete }) {
 
     tl2.to(imgRefhidden.current, { opacity: 0, duration: 0.5, ease: 'none' }, '-=1');
     tl2.to(LogoIconRef.current, { opacity: 0 }, '-=1');
-    tl2.to(loderBgRef.current, { opacity: 0 }, '-=0.5');
+    tl2.to(loderBgRef.current, { opacity: 0, display:"none" }, '-=0.5');
 
     // Master Timeline
     const masterLoaderTL = gsap.timeline({
