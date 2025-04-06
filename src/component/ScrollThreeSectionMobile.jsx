@@ -70,19 +70,19 @@ function ScrollThreeSectionMobile () {
         <div className='gap-4 grid grid-cols-1 sm:grid-cols-2'>
           <div className='left'>
             <div>
-              <div className='flex flex-col flex-1 justify-center bg-white shadow-lg p-6 rounded-xl'>
-                <img src='/icon1.svg' alt='Icon' className='mb-4 w-10 h-10' />
-                <h2 className='font-medium text-gray-600 text-3xl'>15-20%</h2>
-                <p className='text-gray-600 text-lg'>
+              <div className='flex flex-col flex-1 justify-center bg-white shadow-lg p-6 py-20 rounded-xl text-center'>
+                <img src='/icon1.svg' alt='Icon' className='justify-center m-auto mb-4 w-10 h-10 text-center' />
+                <h2 className='font-IvyOraheadline2 font-medium text-gray-600 text-3xl'>15-20%</h2>
+                <p className='text-gray-600 text-sm InterTight'>
                   Clinical Supply costs savings per year
                 </p>
               </div>
             </div>
             <div>
-              <div className='flex flex-col flex-1 justify-center bg-white shadow-lg mt-5 p-6 rounded-xl'>
-                <img src='/icon2.svg' alt='Icon' className='mb-4 w-10 h-10' />
-                <h2 className='font-medium text-gray-600 text-3xl'>20-100%</h2>
-                <p className='text-gray-600 text-lg'>
+              <div className='flex flex-col flex-1 justify-center bg-white shadow-lg mt-5 p-6 py-20 rounded-xl text-center'>
+                <img src='/icon2.svg' alt='Icon' className='justify-center m-auto mb-4 w-10 h-10 text-center' />
+                <h2 className='font-IvyOraheadline2 font-medium text-gray-600 text-3xl'>20-100%</h2>
+                <p className='text-gray-600 text-sm InterTight'>
                   Payment processing savings per year
                 </p>
               </div>
@@ -93,10 +93,10 @@ function ScrollThreeSectionMobile () {
               <div className='absolute w-screen h-screen bigImg3Mobile' data-speed="0.6"></div>
 
               <div className='bottom-5 left-1/2 absolute bg-white/70 backdrop-blur-md p-6 rounded-xl text-center -translate-x-1/2 transform'>
-                <h2 className='font-medium text-gray-600 text-3xl'>
+                <h2 className='font-IvyOraheadline2 font-medium text-gray-600 text-3xl'>
                   $15,000-$50,000+
                 </h2>
-                <p className='text-gray-600 text-lg'>
+                <p className='text-gray-600 text-sm InterTight'>
                   Total Estimated Profit increase by location
                 </p>
               </div>
@@ -106,19 +106,19 @@ function ScrollThreeSectionMobile () {
 
         <div className='gap-4 grid grid-cols-1 sm:grid-cols-2'>
           <div>
-            <div className='flex flex-col flex-1 justify-center bg-white shadow-lg mt-4 p-6 rounded-xl'>
-              <img src='/icon3.svg' alt='Icon' className='mb-4 w-10 h-10' />
-              <h2 className='font-medium text-gray-600 text-3xl'>150 hours</h2>
-              <p className='text-gray-600 text-lg'>
+            <div className='flex flex-col flex-1 justify-center bg-white shadow-lg mt-4 p-6 py-20 rounded-xl text-center'>
+              <img src='/icon3.svg' alt='Icon' className='m-auto mb-4 w-10 h-10' />
+              <h2 className='font-IvyOraheadline2 font-medium text-gray-600 text-3xl'>150 hours</h2>
+              <p className='text-gray-600 text-sm InterTight'>
                 Time and Labor savings per year
               </p>
             </div>
           </div>
           <div>
-            <div className='flex flex-col flex-1 justify-center bg-white shadow-lg mb-4 p-6 rounded-xl'>
-              <img src='/icon4.svg' alt='Icon' className='mb-4 w-10 h-10' />
-              <h2 className='font-medium text-gray-600 text-3xl'>$475/month</h2>
-              <p className='text-gray-600 text-lg'>
+            <div className='flex flex-col flex-1 justify-center bg-white shadow-lg mb-4 p-6 py-20 rounded-xl text-center'>
+              <img src='/icon4.svg' alt='Icon' className='m-auto mb-4 w-10 h-10' />
+              <h2 className='font-IvyOraheadline2 font-medium text-gray-600 text-3xl'>$475/month</h2>
+              <p className='text-gray-600 text-sm InterTight'>
                 Fireside Membership Fee
                 <br />
                 $125 for additional locations

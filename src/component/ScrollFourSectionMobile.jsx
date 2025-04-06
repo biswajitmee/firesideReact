@@ -47,8 +47,8 @@ function ScrollFourSectionMobile() {
     )
       .fromTo(
         rightCircel.current,
-        { bottom:"-100px", opacity: 1 },
-        { bottom: `${lastPosition - 20}px`, duration: 14, ease: 'power2.out', opacity: 0.1 },
+        { bottom:"-80px", opacity: 1 },
+        { bottom: `${lastPosition - 80}px`, duration: 14, ease: 'power2.out', opacity: 0.1 },
         '<' // Ensures it starts at the same time as the leftCircel animation
       )
 
@@ -60,7 +60,7 @@ function ScrollFourSectionMobile() {
       )
       .to(
         middleCircelContent.current,
-        { display: 'block', opacity: 1, duration: 1 },
+        { display: 'block', opacity: 1, duration: 1, position:"relative" },
         '-=4'
       )
       .to(middleCircel.current, { scale: 2.5, duration: 20 }, '-=5')
@@ -80,16 +80,16 @@ function ScrollFourSectionMobile() {
         ref={pinCircel}
       >
         <div
-          className='top-0 leftBoxCircelMobile z-10 absolute flex justify-center items-center p-6 rounded-full w-full h-full overflow-hidden'
+          className='top-0 leftBoxCircelMobile z-10 absolute flex justify-center items-center mt-16 rounded-full w-full h-full overflow-hidden'
           ref={leftCircel}
         >
           <div className='flex flex-col justify-center items-center p-2 w-4/5 h-full centerDiv'>
             <h1 className='font-IvyOraheadline2 text-[#232323] text-2xl'>Solo</h1>
-            <p className='mt-1 font-IvyOraheadline2 text-[#7A7876] text-lg text-center'>Retain autonomy your practice, your way.</p>
+            <p className='mt-1 font-IvyOraheadline2 text-[#a8a8a8] text-lg text-center'>Retain autonomy your practice, your way.</p>
             <ul className='circelInsideMobile'>
               <li>
                 <ul className='pl-2'>
-                  <li >Industry confusing by design</li>
+                  <li>Industry confusing by design</li>
                 </ul>
               </li>
 
@@ -105,7 +105,7 @@ function ScrollFourSectionMobile() {
               </li>
             </ul>
             <p className='font-IvyOraheadline2 text-lg text-center'>
-              <span className='font-IvyOraheadline font-sm text-[#EF4C23]'>Are you doing things the right way?</span>
+              <span className='font-IvyOraheadline font-sm text-[#ed3b34]'>Are you doing things the right way?</span>
               <br/> No-one to bounce ideas
               off of.
             </p>
@@ -118,7 +118,7 @@ function ScrollFourSectionMobile() {
         >
           <div className='flex flex-col justify-center items-center p-2 w-4/5 h-full centerDiv'>
             <h1 className='font-IvyOraheadline2 text-[#232323] text-2xl'>DSO</h1>
-            <p className='mt-2 font-IvyOraheadline2 text-[#7A7876] text-xl'>
+            <p className='mt-2 font-IvyOraheadline2 text-[#7A7876] text-xl text-center'>
               Best practices for greater profitability, negotiated <br /> group
               savings, corporate support.
             </p>
@@ -146,14 +146,20 @@ function ScrollFourSectionMobile() {
           </div>
         </div>
 
+    
+    
+    
         <div
           className='z-10 absolute flex justify-center items-center middleCircelBoxMobile'
           ref={middleCircel}
         ></div>
         <div
-          className='z-10 flex flex-col justify-center items-center p-6 pt-12 centerDiv3'
+          className='z-10 p-6 centerDiv3Mobile'
           ref={middleCircelContent}
         >
+       
+       
+       <div className='makeCenterHeight'>
           <div className='flex justify-center items-center'>
             <div>
               <img className='items-center w-12' src="/s4firsideLogo.png" alt="" />
@@ -161,11 +167,12 @@ function ScrollFourSectionMobile() {
             <div>
               <h4 className='ml-4 font-IvyOraheadline2 text-[2.857vw] text-white'>Fireside</h4>
             </div>
+            
           </div>
           <p className='font-IvyOraheadline2 text-[#AAA9A3] text-center'>
             Profitability and community.
           </p>
-          <ul className='circelInside'>
+          <ul className='circelInsideMobile'>
             <li>
               <ul className='pl-2'>
                 <li className='text-white text-sm'>Quick win savings + best practices</li>
@@ -186,7 +193,15 @@ function ScrollFourSectionMobile() {
           <p className='font-IvyOraheadline2 text-white text-sm text-center'>
             All while <span className='font-IvyOraheadline text-[#ef4c23]'> staying independent!</span>
           </p>
+          </div>
+
+
         </div>
+
+
+
+
+
 
         <div className='p-10 w-screen rectangleMobile' ref={rectangle}>
           <div className='items-center bg-[#3C4235]'>

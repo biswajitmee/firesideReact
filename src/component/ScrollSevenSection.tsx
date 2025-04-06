@@ -104,11 +104,11 @@ const ScrollSevenSection: React.FC = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-2 h-screen'>
           {/* Left Side */}
-          <div className='flex justify-center items-center m-auto lg:w-[55%] lg:h-screen'>
-            <h1 className='font-IvyOraheadline2 text-5xl'>
+          <div className='z-50 flex justify-center items-center lg:m-auto lg:w-[55%] h-full lg:h-screen'>
+            <h1 className='py-8 font-IvyOraheadline2 text-3xl lg:text-5xl'>
               Solutions
               <span className='font-IvyOraheadline orngColor'>
-                for every stage
+                for every <br /> stage 
               </span>
               of your practice
             </h1>
@@ -137,7 +137,7 @@ const ScrollSevenSection: React.FC = () => {
                 ].map((item, index) => (
                   <li
                     key={index}
-                    className='px-6 py-2 lg:py-4 rounded-lg font-normal text-sm lg:text-lg'
+                    className='px-6 py-2 lg:py-4 rounded-lg font-normal text-lg lg:text-3xl'
                   >
                     {item}
                   </li>
@@ -176,7 +176,7 @@ const ScrollSevenSection: React.FC = () => {
       </div>
 
       <div
-        className='-z-10 relative bg-[#4E4A46] mt-[-90vh] lg:mt-[-100vh] w-screen h-[80vh] lg:h-[70vh] sectionTwo footer'
+        className='-z-10 relative bg-[#4E4A46] mt-[-110vh] lg:mt-[-110vh] pt-10 w-screen h-[90vh] lg:h-[70vh] sectionTwo footer'
         ref={footerRef}
       >
         <div className='gap-4 grid grid-cols-1 lg:grid-cols-3 px-6 sm:px-24 sm:py-20'>
@@ -199,7 +199,7 @@ const ScrollSevenSection: React.FC = () => {
             </ul>
           </div>
  
-          <div className='flex justify-end sm:mt-4 h-full text-white text-right'>
+          <div className='flex justify-center lg:justify-end sm:mt-4 py-10 h-full text-white text-right'>
             <a className='block p-[.595vw] px-6 text-[1.4rem] sm:text-[1.6rem]' href="#">
               <BiLogoInstagramAlt />
             </a>

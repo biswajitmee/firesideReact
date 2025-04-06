@@ -828,6 +828,10 @@ video {
   margin-top: 3rem;
 }
 
+.mt-16{
+  margin-top: 4rem;
+}
+
 .mt-2{
   margin-top: 0.5rem;
 }
@@ -866,6 +870,14 @@ video {
 
 .mt-\[4rem\]{
   margin-top: 4rem;
+}
+
+.mt-\[-80vh\]{
+  margin-top: -80vh;
+}
+
+.mt-\[-110vh\]{
+  margin-top: -110vh;
 }
 
 .block{
@@ -938,6 +950,14 @@ video {
 
 .h-screen{
   height: 100vh;
+}
+
+.h-\[100vh\]{
+  height: 100vh;
+}
+
+.h-\[90vh\]{
+  height: 90vh;
 }
 
 .min-h-screen{
@@ -1415,6 +1435,11 @@ video {
   padding-bottom: 0.625rem;
 }
 
+.py-20{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1438,6 +1463,16 @@ video {
 .py-\[2rem\]{
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-10{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .pl-10{
@@ -1650,6 +1685,10 @@ video {
   line-height: 1.25rem;
 }
 
+.leading-7{
+  line-height: 1.75rem;
+}
+
 .leading-9{
   line-height: 2.25rem;
 }
@@ -1690,6 +1729,16 @@ video {
   color: rgb(239 76 35 / var(--tw-text-opacity, 1));
 }
 
+.text-\[\#a8a8a8\]{
+  --tw-text-opacity: 1;
+  color: rgb(168 168 168 / var(--tw-text-opacity, 1));
+}
+
+.text-\[\#ed3b34\]{
+  --tw-text-opacity: 1;
+  color: rgb(237 59 52 / var(--tw-text-opacity, 1));
+}
+
 .text-\[\#ef4c23\]{
   --tw-text-opacity: 1;
   color: rgb(239 76 35 / var(--tw-text-opacity, 1));
@@ -1708,6 +1757,11 @@ video {
 .text-fuchsia-100{
   --tw-text-opacity: 1;
   color: rgb(250 232 255 / var(--tw-text-opacity, 1));
+}
+
+.text-fuchsia-200{
+  --tw-text-opacity: 1;
+  color: rgb(245 208 254 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-500{
@@ -1921,6 +1975,7 @@ section {
 .titleAbsolute3Mobile {
   position: absolute;
   text-align: center;
+  font-size: 30px;
   left: 0;
   height: 49vh;
   width: 100vw;
@@ -1932,6 +1987,7 @@ section {
 }
 
 .titleAbsolute33Mobile {
+  width: 90vw;
   left: 0;
   position: absolute;
   text-align: center;
@@ -1946,6 +2002,7 @@ section {
   position: absolute;
   text-align: center;
   width: 100vw;
+  font-size: 30px;
   height: 49vh;
   bottom: 2vh;
   background-color: #ef4c23;
@@ -2187,10 +2244,10 @@ ul.circelInsideMobile {
 
 .circelInsideMobile li {
   width: 100%;
-  padding: 10px 5px 10px 5px;
+  padding: 10px 0px 10px 15px;
   background-color: rgba(227, 224, 221, 0.376);
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .circelInsideMobile li ul li {
@@ -2207,6 +2264,22 @@ ul.circelInsideMobile {
   width: 80vh;
   margin: auto;
   opacity: 0;
+}
+
+.centerDiv3Mobile {
+  position: relative;
+  display: none;
+  height: 100vh;
+  width: 80vh;
+  margin: auto;
+  opacity: 0;
+  left: 10vw;
+}
+
+.makeCenterHeight {
+  height: 300px;
+  position: absolute;
+  top: calc((100vh - 300px) / 2);
 }
 
 .menuIcon {
@@ -2519,12 +2592,20 @@ ul.openNavigation li {
     top: 40vh;
   }
 
+  .lg\:m-auto{
+    margin: auto;
+  }
+
   .lg\:mt-40{
     margin-top: 10rem;
   }
 
   .lg\:mt-\[-100vh\]{
     margin-top: -100vh;
+  }
+
+  .lg\:mt-\[-110vh\]{
+    margin-top: -110vh;
   }
 
   .lg\:h-\[70vh\]{
@@ -2537,6 +2618,10 @@ ul.openNavigation li {
 
   .lg\:h-screen{
     height: 100vh;
+  }
+
+  .lg\:h-\[80vh\]{
+    height: 80vh;
   }
 
   .lg\:w-\[100\%\]{
@@ -2656,6 +2741,11 @@ ul.openNavigation li {
   .lg\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:leading-\[4\.5rem\]{

@@ -209,7 +209,7 @@ function ScrollTwoSectionMobile () {
         {
           autoAlpha: 1,
           duration: 10,
-          scale: 0.3
+          scale: 0.8
         },
         '=-25'
       )
@@ -318,23 +318,23 @@ function ScrollTwoSectionMobile () {
         {/* expand big div */}
         <div className='titleAbsolute33Mobile' ref={box2Ref}>
           <div className='flex justify-center items-center h-full'>
-            <div className='z-0 absolute inset-0 flex justify-center items-center'>
+            <div className='z-0 absolute inset-0 flex justify-center items-center w-full'>
               <img
                 src='bg-icon-2.avif'
                 alt=''
-                style={{ width: '30vw' }}
+                className='w-screen'
                 ref={logoIcon}
               />
             </div>
             <div>          
               <h1
                 ref={box2insidetext}
-                className='font-InterTight text-fuchsia-100 text-center'
+                className='font-InterTight text-fuchsia-200 text-3xl text-center leading-7'
               >
-                That"s why we created
+              <p> That's why </p> <p>we createdd</p> 
               </h1>
-              <br />
-              <h1 className='font-IvyOraheadline orngColor' ref={firesideRef}>
+    <br />
+              <h1 className='font-IvyOraheadline text-3xl leading-10 orngColor' ref={firesideRef}>
                 Fireside
               </h1>
             </div>
