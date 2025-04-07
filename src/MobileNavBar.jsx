@@ -85,13 +85,13 @@ function MobileNavBar () {
               ref={openMenu}
               className='absolute bg-gray-800 rounded-lg w-full overflow-hidden openNavigation'
             >
-              <li className="p-2 text-white"> <Link to='/about' >
+              <li className="p-2 text-white"> <Link to='/about' onClick={() => isOpen && toggleMenu()} >
                 About
               </Link></li>
-              <li className="p-2 text-white"><Link to='/community'  >
+              <li className="p-2 text-white"><Link to='/community' onClick={() => isOpen && toggleMenu()}  >
                 Community
               </Link></li>
-              <li className="p-2 text-white"> <Link to='/blog' >
+              <li className="p-2 text-white"> <Link to='/blog' onClick={() => isOpen && toggleMenu()} >
                 Blog
               </Link></li>
 
