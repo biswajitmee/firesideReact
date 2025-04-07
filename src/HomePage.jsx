@@ -2,18 +2,21 @@ import React, { useLayoutEffect, useRef, useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger, ScrollSmoother } from 'gsap/all'
 
-import ScrollOneSection from './component/ScrollOneSection'
-import ScrollTwoSection from './component/ScrollTwoSection'
-import ScrollThreeSection from './component/ScrollThreeSection'
-import ScrollFourSection from './component/ScrollFourSection'
-import ScrollFiveSection from './component/ScrollFiveSection'
-import ScrollSixSection from './component/ScrollSixSection'
-import ScrollSevenSection from './component/ScrollSevenSection'
+import ScrollOneSection from './home/ScrollOneSection'
+import ScrollTwoSection from './home/ScrollTwoSection'
+import ScrollThreeSection from './home/ScrollThreeSection'
+import ScrollFourSection from './home/ScrollFourSection'
+import ScrollFiveSection from './home/ScrollFiveSection'
+import ScrollSixSection from './home/ScrollSixSection'
+import ScrollSevenSection from './home/ScrollSevenSection'
 
-import ScrollTwoSectionMobile from './component/ScrollTwoSectionMobile'
-import ScrollThreeSectionMobile from './component/ScrollThreeSectionMobile'
-import ScrollFourSectionMobile from './component/ScrollFourSectionMobile'
-import ScrollSixSectionMobile from './component/ScrollSixSectionMobile'
+import ScrollTwoSectionMobile from './home/ScrollTwoSectionMobile'
+import ScrollThreeSectionMobile from './home/ScrollThreeSectionMobile'
+import ScrollFourSectionMobile from './home/ScrollFourSectionMobile'
+import ScrollSixSectionMobile from './home/ScrollSixSectionMobile'
+
+
+import Loader from './Loader'
 
 // Prevent browser from restoring scroll position on refresh
 if (typeof window !== 'undefined') {
@@ -98,6 +101,8 @@ export default function HomePage({ onReady }) {
   }, [onReady])
 
   return (
+    <>
+ <Loader/> 
     <div id="smooth-wrapper" ref={main}>
       <div id="smooth-content" ref={contentRef}>
         <ScrollOneSection />
@@ -109,5 +114,6 @@ export default function HomePage({ onReady }) {
         <ScrollSevenSection />
       </div>
     </div>
+    </>
   )
 }

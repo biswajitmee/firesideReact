@@ -4,11 +4,9 @@ import NavBar from './NavBar'
  
 import MobileNavBar from './MobileNavBar'
 import HomePage from './HomePage'
-import Loader from './Loader'
-// import About from './About'
-// import Community from './Community'
-// import Blog from './Blog'
-// import Join from './Join'
+import About from './About/AboutPage'
+ 
+  
 
 export default function App () {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768) // Ensure initial check
@@ -29,16 +27,15 @@ export default function App () {
   return (
 <>
 
-<Loader/>
+{/* <Loader/> */}
     <Router>
       {isMobile ? <MobileNavBar /> : <NavBar />}
 
       <Routes>
         <Route path='/' element={<HomePage />} />
-        {/* <Route path='/about' element={<About />} />
-        <Route path='/community' element={<Community />} />
-        <Route path='/blog' element={<Blog />} />
-        <Route path='/join' element={<Join />} /> */}
+        <Route path='/About' element={<About/>} />
+        
+  
       </Routes>
     
     </Router>

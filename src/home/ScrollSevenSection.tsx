@@ -176,7 +176,7 @@ const ScrollSevenSection: React.FC = () => {
       </div>
 
       <div
-        className='-z-10 relative bg-[#4E4A46] mt-[-110vh] lg:mt-[-110vh] pt-10 w-screen h-[90vh] lg:h-[70vh] sectionTwo footer'
+        className='-z-10 relative bg-[#4E4A46] mt-[-110vh] lg:mt-[-110vh] pt-20 w-screen h-[90vh] lg:h-[70vh] sectionTwo footer'
         ref={footerRef}
       >
         <div className='gap-4 grid grid-cols-1 lg:grid-cols-3 px-6 sm:px-24 sm:py-20'>
@@ -191,7 +191,7 @@ const ScrollSevenSection: React.FC = () => {
             </div>
           </div>
  
-          <div className='flex justify-center my-[8vw] sm:my-0 sm:ml-20 h-full font-IvyOraheadline2 text-white sm:text-left text-center'>
+          <div className='flex justify-center my-[6vw] sm:my-0 sm:ml-20 h-full font-IvyOraheadline2 text-white sm:text-left text-center'>
             <ul>
               <li className='mt-4 text-[4.8vw] sm:text-[1.429vw]'>About</li>
               <li className='mt-4 text-[4.8vw] sm:text-[1.429vw]'>Community</li>
@@ -199,7 +199,7 @@ const ScrollSevenSection: React.FC = () => {
             </ul>
           </div>
  
-          <div className='flex justify-center lg:justify-end sm:mt-4 py-10 h-full text-white text-right'>
+          <div className='flex justify-center lg:justify-end sm:mt-4 py-8 h-full text-white text-right'>
             <a className='block p-[.595vw] px-6 text-[1.4rem] sm:text-[1.6rem]' href="#">
               <BiLogoInstagramAlt />
             </a>

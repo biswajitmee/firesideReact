@@ -775,9 +775,19 @@ video {
   margin-right: auto;
 }
 
-.my-\[8vw\]{
-  margin-top: 8vw;
-  margin-bottom: 8vw;
+.my-\[6vw\]{
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+}
+
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .mb-10{
@@ -860,24 +870,16 @@ video {
   margin-top: 2rem;
 }
 
+.mt-\[-110vh\]{
+  margin-top: -110vh;
+}
+
 .mt-\[-70vh\]{
   margin-top: -70vh;
 }
 
-.mt-\[-90vh\]{
-  margin-top: -90vh;
-}
-
 .mt-\[4rem\]{
   margin-top: 4rem;
-}
-
-.mt-\[-80vh\]{
-  margin-top: -80vh;
-}
-
-.mt-\[-110vh\]{
-  margin-top: -110vh;
 }
 
 .block{
@@ -908,6 +910,10 @@ video {
   height: 20rem;
 }
 
+.h-\[110vh\]{
+  height: 110vh;
+}
+
 .h-\[3px\]{
   height: 3px;
 }
@@ -932,16 +938,16 @@ video {
   height: 80px;
 }
 
-.h-\[80vh\]{
-  height: 80vh;
-}
-
 .h-\[88vh\]{
   height: 88vh;
 }
 
 .h-\[90px\]{
   height: 90px;
+}
+
+.h-\[90vh\]{
+  height: 90vh;
 }
 
 .h-full{
@@ -952,12 +958,12 @@ video {
   height: 100vh;
 }
 
-.h-\[100vh\]{
-  height: 100vh;
+.h-\[80\%\]{
+  height: 80%;
 }
 
-.h-\[90vh\]{
-  height: 90vh;
+.h-\[80vh\]{
+  height: 80vh;
 }
 
 .min-h-screen{
@@ -1130,12 +1136,20 @@ video {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
+.grid-rows-2{
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
 .flex-row{
   flex-direction: row;
 }
 
 .flex-col{
   flex-direction: column;
+}
+
+.flex-col-reverse{
+  flex-direction: column-reverse;
 }
 
 .flex-nowrap{
@@ -1293,8 +1307,9 @@ video {
   background-color: rgb(255 255 255 / 0.7);
 }
 
-.bg-\[url\(\'\/AboutHero2-img\.avif\'\)\]{
-  background-image: url('/AboutHero2-img.avif');
+.bg-red-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gradient-to-b{
@@ -1303,6 +1318,10 @@ video {
 
 .bg-gradient-to-t{
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\'\/AboutHero2-img\.avif\'\)\]{
+  background-image: url('/AboutHero2-img.avif');
 }
 
 .from-slate-50{
@@ -1455,6 +1474,11 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .py-\[10vw\]{
   padding-top: 10vw;
   padding-bottom: 10vw;
@@ -1465,14 +1489,9 @@ video {
   padding-bottom: 2rem;
 }
 
-.py-8{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .pl-10{
@@ -2331,6 +2350,30 @@ ul.openNavigation li {
   background-color: #3C4235;
 }
 
+.hero {
+  z-index: 10;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 4vw;
+  display: flex
+;
+  position: relative;
+}
+
+.about_hero_img {
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+
 /* Ivy Journal Thin */
 
 @font-face {
@@ -2600,12 +2643,24 @@ ul.openNavigation li {
     margin-top: 10rem;
   }
 
-  .lg\:mt-\[-100vh\]{
-    margin-top: -100vh;
-  }
-
   .lg\:mt-\[-110vh\]{
     margin-top: -110vh;
+  }
+
+  .lg\:block{
+    display: block;
+  }
+
+  .lg\:grid{
+    display: grid;
+  }
+
+  .lg\:hidden{
+    display: none;
+  }
+
+  .lg\:h-\[110vh\]{
+    height: 110vh;
   }
 
   .lg\:h-\[70vh\]{
@@ -2620,8 +2675,8 @@ ul.openNavigation li {
     height: 100vh;
   }
 
-  .lg\:h-\[80vh\]{
-    height: 80vh;
+  .lg\:h-\[90vh\]{
+    height: 90vh;
   }
 
   .lg\:w-\[100\%\]{
@@ -2642,6 +2697,10 @@ ul.openNavigation li {
 
   .lg\:w-\[60vw\]{
     width: 60vw;
+  }
+
+  .lg\:w-\[80\%\]{
+    width: 80%;
   }
 
   .lg\:grid-cols-2{
@@ -2741,11 +2800,6 @@ ul.openNavigation li {
   .lg\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .lg\:text-2xl{
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .lg\:leading-\[4\.5rem\]{
