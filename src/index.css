@@ -481,7 +481,7 @@
     position: absolute;
     /* margin-left: 250vw; */
   }
-  
+
   .section1,
   .section3 {
     width: 100vw;
@@ -731,7 +731,9 @@
 
   /* About CSS */
 
-.horizontalStart{ position: relative;}
+  .horizontalStart {
+    position: relative;
+  }
 
   .bigBgCover {
     position: relative;
@@ -741,21 +743,37 @@
     border-radius: 30px;
     overflow: hidden;
     /* background-image: url(./about-horizontalBG.avif); */
-    background-size:cover;
+    background-size: cover;
     background-position: bottom center;
     z-index: 2;
- 
+
   }
 
-.bigImgHere{ background-position: 50% 40%;}
+  .bigImgHere {
+    background-position: 50% 40%;
+  }
+
   .bgDark {
     width: 100vw;
     height: 100vh;
     position: absolute;
     /* left: -2vw; */
-    top:-0;
+    top: -0;
     background-color: #3C4235;
     z-index: 1;
+  }
+
+
+  .leading-11 {
+    line-height: 50px;
+  }
+
+  .leading-12 {
+    line-height: 60px;
+  }
+
+  .leading-13 {
+    line-height: 70px;
   }
 
 
@@ -764,5 +782,48 @@
 
 
 
+
+  /* 
+.About-bigImg {
+  width: 99vw;
+  margin: 1px auto 1px calc(0.5vw - 8px);
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("/bigImgBG.avif");
+  z-index: -1;
+  scale: 1.5;
+} */
+
+
+
+
+  .About-bigImg2 {
+    background-image: url("/about-last-img.avif");
+    width: 120%;
+    margin: 1px auto 1px;
+    height: 130%;
+    background-size: cover;
+ left: -30%;
+    z-index: -1;
+    scale: 1;
+top:-30%;
+  }
+
+
+
+  .About-bigImg3 {
+    background-image: url("/about-boy-img.avif");
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    width: 130%;
+    height: 80vh;
+    left:24%;
+    background-color: #65c70b;  
+
+  }
+
+ 
 
 }

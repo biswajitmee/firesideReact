@@ -7,6 +7,8 @@ gsap.registerPlugin(ScrollTrigger)
 function AboutHorizontalScroll () {
   const aboutHorizontal = useRef(null)
   const darkbg = useRef(null)
+  const addDarkBG = useRef(null)
+
   const bgImgCover = useRef(null)
 
   const text1 = useRef(null)
@@ -29,6 +31,8 @@ function AboutHorizontalScroll () {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const ScrollContainer = ScrollContainerRef.current
+      gsap.set(darkbg.current, { opacity: 0 })
+      gsap.set(addDarkBG.current, { autoAlpha: 0 })
 
       // Pinning section
       ScrollTrigger.create({
@@ -40,7 +44,6 @@ function AboutHorizontalScroll () {
         markers: true
       })
 
-      gsap.set(darkbg.current, { opacity: 0 })
       gsap
         .timeline({
           scrollTrigger: {
@@ -98,34 +101,7 @@ function AboutHorizontalScroll () {
           { opacity: 0, duration: 0.1, display: 'block' },
           '<'
         )
-
-      // const roundCircleTL = gsap.timeline()
-      // roundCircleTL
-      //   .fromTo(
-      //     circleRef.current,
-      //     { attr: { r: 0 } },
-      //     {
-      //       attr: {
-      //         r: Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2)
-      //       },
-      //       duration: 60,
-      //       ease: 'none'
-      //     }
-      //   )
-      //   .to(
-      //     imgRefhidden.current,
-      //     { opacity: 0, duration: 5, ease: 'none' },
-      //     '-=1'
-      //   )
-
-      // const roundCircleTL = gsap.timeline({
-      //         scrollTrigger: {
-      //           trigger: wrapperRef.current,
-      //           start: 'top top',
-      //           end: '100%',
-      //           scrub: true,
-      //         }
-      //       })
+        .to(addDarkBG.current, { autoAlpha: 1, duration: 0.1 }, '<')
 
       const roundCircleTL = gsap.timeline()
 
@@ -167,7 +143,7 @@ function AboutHorizontalScroll () {
           ease: 'none'
           //delay:0.4,
         },
-        '+=0.5'
+        '+=0.59'
       )
 
       // **4️⃣  `horizontalScrollTL` Starts**
@@ -176,7 +152,7 @@ function AboutHorizontalScroll () {
       // **5️⃣ Parallax Effects for Other Big Images**
       const parallaxElementsTL = gsap.timeline()
       const parallaxElements = [
-        { element: bigImgRef2.current, speed: 1.05 },
+        { element: bigImgRef2.current, speed: 0.95 },
         { element: bigImgRef3.current, speed: 1.1 }
       ]
 
@@ -260,31 +236,6 @@ function AboutHorizontalScroll () {
             ref={ScrollContainerRef}
           >
             <div className='relative h-screen section1'>
-              {/* <div className='absolute w-screen h-screen overflow-hidden'>
-                <svg width='100%' height='100%'>
-                  <defs>
-                    <mask id='circleMask'>
-                      <rect width='100%' height='100%' fill='black' />
-                      <circle
-                        ref={circleRef}
-                        cx='50%'
-                        cy='50%'
-                        r='0'
-                        fill='white'
-                      />
-                    </mask>
-                  </defs>
-                  <image
-                    ref={imgRefhidden}
-                    href='backgroundForrest.avif'
-                    width='100%'
-                    height='100%'
-                    preserveAspectRatio='xMidYMid slice'
-                    mask='url(#circleMask)'
-                  />
-                </svg>
-              </div> */}
-
               <svg width='0' height='0'>
                 <defs>
                   <mask
@@ -311,7 +262,7 @@ function AboutHorizontalScroll () {
                 </defs>
               </svg>
 
-              <div className='relative bg-[#3C4235] h-screen'>
+              <div className='relative bg-[#3C4235] h-screen' ref={addDarkBG}>
                 <div
                   className='z-50 absolute w-screen h-screen overflow-hidden circelAnimationWrapper'
                   style={{
@@ -324,7 +275,32 @@ function AboutHorizontalScroll () {
                   }}
                 >
                   <div className='absolute w-screen h-screen text-7xl text-center'>
-                    demo test
+                    <div className='content-end w-screen h-screen'>
+                      <div className='grid grid-cols-2 p-10 w-screen h-96'>
+                        <div className='flex justify-start items-center p-16'>
+                          <h1 className='font-IvyOraheadline2 text-[4.5rem] text-white text-left leading-13'>
+                            Driving growth
+                            <br />
+                            <span className='font-IvyOraheadline'>
+                              in independent
+                            </span>
+                            <br />
+                            pediatric dentistry
+                          </h1>
+                        </div>
+
+                        <div className='flex justify-end items-center p-4'>
+                          <div className='backdrop-blur-lg m-10 p-10 rounded-lg text-white text-xl text-left transparentBg'>
+                            <p>
+                              We’re shaping the future of independent pediatric
+                              practices by offering dentists access to the
+                              tools, community, and knowledge they need to
+                              succeed.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <video
                     ref={videoRef}
@@ -340,105 +316,37 @@ function AboutHorizontalScroll () {
 
               <div className='w-screen h-screen'></div>
             </div>
-            <div className='h-screen section2'>
-              <div className='flex justify-center items-center w-[100vw] min-w-[100vw] h-screen text-white text-4xl bigImgBack'>
-                <div className='flex flex-row w-full'>
-                  <div className='h-full basis-4/12'>
-                    <div className='relative min-h-screen'>
-                      <div className='bottom-10 left-40 absolute max-w-lg'>
-                        <h1 className='font-IvyOraheadline2 font-medium text-black text-7xl leading-tight'>
-                          Save money
-                        </h1>
-                        <h2 className='font-IvyOraheadline text-black text-7xl leading-tight'>
-                          without the hassle
-                        </h2>
-                        <p className='mt-4 text-gray-600 text-lg'>
-                          Gain access to exclusive deals and discounts that
-                          don't require hours of price-shopping.
-                        </p>
-                        <button className='bg-[#2f3d2c] hover:bg-[#263226] mt-6 px-6 py-3 rounded-lg font-medium text-white text-lg transition'>
-                          Learn more
-                        </button>
+            <div className='w-screen h-screen'>
+              <div className='m-auto w-[80vw]'>
+                <div className='flex justify-center items-center h-screen text-white text-4xl'>
+                  <div className='flex flex-row w-full'>
+                    <div className='h-full basis-5/12'>
+                      <div className='relative min-h-screen'>
+                        <div className='bottom-10 absolute max-w-lg'>
+                          <h1 className='font-IvyOraheadline2 font-medium text-black text-7xl leading-tight'>
+                            Save money
+                          </h1>
+                          <h2 className='font-IvyOraheadline text-black text-7xl leading-tight'>
+                            without the hassle
+                          </h2>
+                          <p className='mt-4 text-gray-600 text-lg'>
+                            Gain access to exclusive deals and discounts that
+                            don't require hours of price-shopping.
+                          </p>
+                          <button className='bg-[#2f3d2c] hover:bg-[#263226] mt-6 px-6 py-3 rounded-lg font-medium text-white text-lg transition'>
+                            Learn more
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className='h-screen basis-8/12'>
-                    <div className='flex gap-5 bg-[#F5F1EE] p-10 w-full h-screen'>
-                      <div className='flex flex-col justify-between gap-5 w-1/4 h-full'>
-                        <div className='flex flex-col flex-1 justify-center bg-white shadow-lg p-6 rounded-xl'>
-                          <img
-                            src='/icon1.svg'
-                            alt='Icon'
-                            className='mb-4 w-10 h-10'
-                          />
-                          <h2 className='font-medium text-gray-600 text-3xl'>
-                            15-20%
-                          </h2>
-                          <p className='text-gray-600 text-lg'>
-                            Clinical Supply costs savings per year
-                          </p>
-                        </div>
-                        <div className='flex flex-col flex-1 justify-center bg-white shadow-lg p-6 rounded-xl'>
-                          <img
-                            src='/icon2.svg'
-                            alt='Icon'
-                            className='mb-4 w-10 h-10'
-                          />
-                          <h2 className='font-medium text-gray-600 text-3xl'>
-                            20-100%
-                          </h2>
-                          <p className='text-gray-600 text-lg'>
-                            Payment processing savings per year
-                          </p>
-                        </div>
-                      </div>
 
-                      <div className='relative flex flex-1 justify-center items-center rounded-xl h-full overflow-hidden'>
-                        <div
-                          className='absolute h-screen bigImg3'
-                          ref={bigImgRef2}
-                        ></div>
-
-                        <div className='bottom-5 left-1/2 absolute bg-white/70 backdrop-blur-md p-6 rounded-xl text-center -translate-x-1/2 transform'>
-                          <h2 className='font-medium text-gray-600 text-3xl'>
-                            $15,000-$50,000+
-                          </h2>
-                          <p className='text-gray-600 text-lg'>
-                            Total Estimated Profit increase by location
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className='flex flex-col justify-between gap-5 w-1/4 h-full'>
-                        <div className='flex flex-col flex-1 justify-center bg-white shadow-lg p-6 rounded-xl'>
-                          <img
-                            src='/icon3.svg'
-                            alt='Icon'
-                            className='mb-4 w-10 h-10'
-                          />
-                          <h2 className='font-medium text-gray-600 text-3xl'>
-                            150 hours
-                          </h2>
-                          <p className='text-gray-600 text-lg'>
-                            Time and Labor savings per year
-                          </p>
-                        </div>
-                        <div className='flex flex-col flex-1 justify-center bg-white shadow-lg p-6 rounded-xl'>
-                          <img
-                            src='/icon4.svg'
-                            alt='Icon'
-                            className='mb-4 w-10 h-10'
-                          />
-                          <h2 className='font-medium text-gray-600 text-3xl'>
-                            $475/month
-                          </h2>
-                          <p className='text-gray-600 text-lg'>
-                            Fireside Membership Fee
-                            <br />
-                            $125 for additional locations
-                            <br />
-                            All backed by risk-free guarantee
-                          </p>
+                    <div className='h-screen basis-7/12'>
+                      <div className='relative flex flex-1 justify-center items-center m-auto mx-10 rounded-xl w-[80%] h-full overflow-hidden'>
+                        <div className='absolute mx-5 px-5 rounded-3xl w-full h-[80vh] overflow-hidden'>
+                          <div
+                            className='overflow-hidden About-bigImg3'
+                            ref={bigImgRef2}
+                          ></div>
                         </div>
                       </div>
                     </div>
@@ -447,10 +355,10 @@ function AboutHorizontalScroll () {
               </div>
             </div>
             <div className='h-screen section1'>
-              <div className='flex justify-center items-center w-screen h-screen text-white text-4xl'>
+              <div className='flex justify-center items-center w-[screen] h-screen text-white text-4xl'>
                 <div className='h-screen overflow-hidden bigImgBack'>
                   <div
-                    className='absolute h-screen bigImg2'
+                    className='absolute w-sc w-screen h-screen About-bigImg2'
                     ref={bigImgRef3}
                   ></div>
 
