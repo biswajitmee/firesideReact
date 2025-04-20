@@ -67,10 +67,11 @@ function ScrollThreeSection() {
 
     bigImgTL.fromTo(
       bigImg,
-      { x: 0 }, // Initial position
+      { x: 0,  }, // Initial position
       {
         x: () => -totalScrollWidth * (1 - bigImgSpeedFactor),
         ease: 'none',
+        
         scrollTrigger: {
           trigger: pinSection,
           start: 'right right',

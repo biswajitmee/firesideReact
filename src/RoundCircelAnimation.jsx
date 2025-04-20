@@ -21,9 +21,7 @@ function RoundCircelAnimation() {
       )
       tl.to(imgRefhidden.current,{ opacity:0,duration:0.5, ease: "none",},"-=1")
 
-      // You can chain more animations here if needed
-      // Example:
-      // tl.to(circleRef.current, { opacity: 0, duration: 1 });
+      
 
     });
 
@@ -45,6 +43,7 @@ function RoundCircelAnimation() {
           height="100%"
           preserveAspectRatio="xMidYMid slice"
           mask="url(#circleMask)"
+           
         />
       </svg>
     </div>

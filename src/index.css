@@ -476,6 +476,12 @@
     margin-left: 250vw;
   }
 
+  .scrollContainerAbout {
+    width: 300vw;
+    position: absolute;
+    /* margin-left: 250vw; */
+  }
+  
   .section1,
   .section3 {
     width: 100vw;
@@ -603,7 +609,7 @@
   }
 
   .circelInsideMobile li ul li {
- 
+
     list-style: disc;
     padding: 0;
     margin: 0;
@@ -635,7 +641,7 @@
   }
 
   .makeCenterHeight {
-    height: 300px; 
+    height: 300px;
     position: absolute;
     top: calc((100vh - 300px) / 2);
 
@@ -718,32 +724,45 @@
     position: fixed;
     z-index: 9999;
     background-color: #3C4235;
+
+  }
+
+
+
+  /* About CSS */
+
+.horizontalStart{ position: relative;}
+
+  .bigBgCover {
+    position: relative;
+    width: 96vw;
+    margin: auto;
+    height: 94vh;
+    border-radius: 30px;
+    overflow: hidden;
+    /* background-image: url(./about-horizontalBG.avif); */
+    background-size:cover;
+    background-position: bottom center;
+    z-index: 2;
  
   }
 
-  .hero {
-    z-index: 10;
-    flex-flow: column;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
+.bigImgHere{ background-position: 50% 40%;}
+  .bgDark {
+    width: 100vw;
     height: 100vh;
-    padding-bottom: 4vw;
-    display: flex
-;
-    position: relative;
-}
-
-  .about_hero_img {
-    z-index: -1;
-    object-fit: cover;
-    width: 100%;
-    max-width: none;
-    height: 100%;
     position: absolute;
-    inset: 0%;
-}
-  
+    /* left: -2vw; */
+    top:-0;
+    background-color: #3C4235;
+    z-index: 1;
+  }
+
+
+
+
+
+
 
 
 }

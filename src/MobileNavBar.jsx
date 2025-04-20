@@ -27,20 +27,32 @@ function MobileNavBar () {
         { height: '0px', padding: 0, margin: 0 },
         { height: '180px', duration: 0.8, ease: 'power2.out' }
       )
+
+
+
+      
   }, [])
 
   // ✅ Function to toggle menu animations
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-    if (isOpen) {
-      menuIconTL.current.reverse()
-      openMenuTL.current.reverse()
-    } else {
+    if (menuIconTL.current.reversed()) {
       menuIconTL.current.play()
       openMenuTL.current.play()
+      setIsOpen(true)
+    } else {
+      menuIconTL.current.reverse()
+      openMenuTL.current.reverse()
+      setIsOpen(false)
     }
   }
-
+  
+  const closeMenu = () => {
+    menuIconTL.current.reverse()
+    openMenuTL.current.reverse()
+    setIsOpen(false)
+  }
+  
+  
   return (
     <div className='z-50 fixed mt-2 w-[90vw]'>
       <div className='items-center gap-4 grid grid-cols-12'>
@@ -85,19 +97,21 @@ function MobileNavBar () {
               ref={openMenu}
               className='absolute bg-gray-800 rounded-lg w-full overflow-hidden openNavigation'
             >
-              <li className="p-2 text-white"> <Link to='/about' onClick={() => isOpen && toggleMenu()} >
-                About
-              </Link></li>
-              <li className="p-2 text-white"><Link to='/community' onClick={() => isOpen && toggleMenu()}  >
-                Community
-              </Link></li>
-              <li className="p-2 text-white"> <Link to='/blog' onClick={() => isOpen && toggleMenu()} >
-                Blog
-              </Link></li>
-
-             
-              
-             
+              <li className='p-2 text-white'>
+                <Link to='/about' onClick={closeMenu}>
+                  About
+                </Link>
+              </li>
+              <li className='p-2 text-white'>
+                <Link to='/community' onClick={closeMenu}>
+                  Community
+                </Link>
+              </li>
+              <li className='p-2 text-white'>
+                <Link to='/blog' onClick={closeMenu}>
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
