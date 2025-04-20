@@ -959,6 +959,10 @@ video {
   height: 80px;
 }
 
+.h-\[80vh\]{
+  height: 80vh;
+}
+
 .h-\[90px\]{
   height: 90px;
 }
@@ -1063,6 +1067,10 @@ video {
   width: 90vw;
 }
 
+.w-\[screen\]{
+  width: screen;
+}
+
 .w-full{
   width: 100%;
 }
@@ -1099,8 +1107,12 @@ video {
   flex-basis: 33.333333%;
 }
 
-.basis-6\/12{
-  flex-basis: 50%;
+.basis-5\/12{
+  flex-basis: 41.666667%;
+}
+
+.basis-7\/12{
+  flex-basis: 58.333333%;
 }
 
 .basis-8\/12{
@@ -1341,11 +1353,6 @@ video {
   background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
 }
 
-.bg-red-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
-}
-
 .bg-red-700{
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
@@ -1378,11 +1385,6 @@ video {
 .bg-yellow-500{
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
-}
-
-.bg-yellow-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[url\(\'\.\/about-horizontalBG\.avif\'\)\]{
@@ -2418,12 +2420,12 @@ ul.openNavigation li {
   border-radius: 30px;
   overflow: hidden;
   /* background-image: url(./about-horizontalBG.avif); */
-  background-size:cover;
+  background-size: cover;
   background-position: bottom center;
   z-index: 2;
 }
 
-.bigImgHere{
+.bigImgHere {
   background-position: 50% 40%;
 }
 
@@ -2432,12 +2434,12 @@ ul.openNavigation li {
   height: 100vh;
   position: absolute;
   /* left: -2vw; */
-  top:-0;
+  top: -0;
   background-color: #3C4235;
   z-index: 1;
 }
 
-.leading-13{
+.leading-13 {
   line-height: 70px;
 }
 
@@ -2455,12 +2457,14 @@ ul.openNavigation li {
 
 .About-bigImg2 {
   background-image: url("/about-last-img.avif");
-  width: 99vw;
-  margin: 1px auto 1px ;
-  height: 100vh;
+  width: 120%;
+  margin: 1px auto 1px;
+  height: 130%;
   background-size: cover;
+  left: -30%;
   z-index: -1;
-  scale:1;
+  scale: 1;
+  top:-30%;
 }
 
 .About-bigImg3 {
@@ -2468,21 +2472,11 @@ ul.openNavigation li {
   background-position: center center;
   background-size: cover;
   position: absolute;
-  width: 150%;
-  height: 60vh;
-  left: -150%;
-  top: 20vh;
+  width: 130%;
+  height: 80vh;
+  left:24%;
   background-color: #65c70b;
-  border-radius: 50px;
-  overflow: hidden;
 }
-
-/* .AboutbigImg3{  background-image: url("/about-boy-img.avif");
-  background-position: center center;
-  background-size: cover; 
- position: absolute;
- scale: 1.5;
-} */
 
 /* Ivy Journal Thin */
 
