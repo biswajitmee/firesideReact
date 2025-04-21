@@ -774,16 +774,6 @@ video {
   margin: auto;
 }
 
-.mx-10{
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
-}
-
-.mx-5{
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-}
-
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -927,6 +917,10 @@ video {
   height: 170vh;
 }
 
+.h-\[2000vh\]{
+  height: 2000vh;
+}
+
 .h-\[300vh\]{
   height: 300vh;
 }
@@ -969,10 +963,6 @@ video {
 
 .h-\[90vh\]{
   height: 90vh;
-}
-
-.h-\[955vh\]{
-  height: 955vh;
 }
 
 .h-full{
@@ -1107,12 +1097,8 @@ video {
   flex-basis: 33.333333%;
 }
 
-.basis-5\/12{
-  flex-basis: 41.666667%;
-}
-
-.basis-7\/12{
-  flex-basis: 58.333333%;
+.basis-6\/12{
+  flex-basis: 50%;
 }
 
 .basis-8\/12{
@@ -2455,27 +2441,27 @@ ul.openNavigation li {
   scale: 1.5;
 } */
 
-.About-bigImg2 {
+.About-bigImg33 {
   background-image: url("/about-last-img.avif");
-  width: 120%;
+  width: 110%;
   margin: 1px auto 1px;
   height: 130%;
   background-size: cover;
-  left: -30%;
+  left: -65%;
   z-index: -1;
   scale: 1;
   top:-30%;
 }
 
-.About-bigImg3 {
+.About-bigImg2 {
   background-image: url("/about-boy-img.avif");
-  background-position: center center;
   background-size: cover;
   position: absolute;
-  width: 130%;
-  height: 80vh;
-  left:24%;
+  width: 150%;
+  height: 170%;
+  left: -100%;
   background-color: #65c70b;
+  top:-70%;
 }
 
 /* Ivy Journal Thin */

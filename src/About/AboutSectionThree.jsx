@@ -135,7 +135,7 @@ function AboutSectionThree () {
          
         <AboutHorizontalScroll />
       </div>
-      <div className='bg-yellow-500 h-screen'></div>
+      <div className='bg-yellow-500 h-screen'> new section here</div>
     </>
   )
 }

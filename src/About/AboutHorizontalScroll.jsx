@@ -26,7 +26,7 @@ function AboutHorizontalScroll () {
 
   const imgRefhidden = useRef(null)
 
-  const scrollSpeedFactor = 2
+  const scrollSpeedFactor = 4
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -38,7 +38,7 @@ function AboutHorizontalScroll () {
       ScrollTrigger.create({
         trigger: aboutHorizontal.current,
         start: 'top top',
-        end: '+=950%',
+        end: '+=1900%',
         pin: true,
         scrub: true,
         markers: true
@@ -143,7 +143,7 @@ function AboutHorizontalScroll () {
           ease: 'none'
           //delay:0.4,
         },
-        '+=0.59'
+        '+=0.20'
       )
 
       // **4️⃣  `horizontalScrollTL` Starts**
@@ -152,7 +152,7 @@ function AboutHorizontalScroll () {
       // **5️⃣ Parallax Effects for Other Big Images**
       const parallaxElementsTL = gsap.timeline()
       const parallaxElements = [
-        { element: bigImgRef2.current, speed: 0.95 },
+        { element: bigImgRef2.current, speed: 1.05 },
         { element: bigImgRef3.current, speed: 1.1 }
       ]
 
@@ -320,7 +320,7 @@ function AboutHorizontalScroll () {
               <div className='m-auto w-[80vw]'>
                 <div className='flex justify-center items-center h-screen text-white text-4xl'>
                   <div className='flex flex-row w-full'>
-                    <div className='h-full basis-7/12'>
+                    <div className='h-full basis-6/12'>
                       <div className='relative min-h-screen'>
                         <div className='bottom-10 absolute max-w-lg'>
                           <h1 className='font-IvyOraheadline2 font-medium text-black text-7xl leading-tight'>
@@ -340,11 +340,11 @@ function AboutHorizontalScroll () {
                       </div>
                     </div>
 
-                    <div className='h-screen basis-5/12'>
+                    <div className='h-screen basis-6/12'>
                       <div className='relative flex flex-1 justify-center items-center m-auto rounded-xl h-full overflow-hidden'>
                         <div className='absolute rounded-3xl w-full h-[80vh] overflow-hidden'>
                           <div
-                            className='overflow-hidden About-bigImg3'
+                            className='overflow-hidden About-bigImg2'
                             ref={bigImgRef2}
                           ></div>
                         </div>
@@ -358,7 +358,7 @@ function AboutHorizontalScroll () {
               <div className='flex justify-center items-center w-[screen] h-screen text-white text-4xl'>
                 <div className='h-screen overflow-hidden bigImgBack'>
                   <div
-                    className='absolute w-sc w-screen h-screen About-bigImg2'
+                    className='absolute w-sc w-screen h-screen About-bigImg33'
                     ref={bigImgRef3}
                   ></div>
 
@@ -433,7 +433,7 @@ function AboutHorizontalScroll () {
         </div>
       </div>
       {/* Scroll after */}
-      <div className='h-[955vh]'>Keep Scrolling</div>
+      <div className='h-[2000vh]'>Keep Scrolling</div>
       {/* <div className='bg-yellow-400 h-[305vh]'>Keep Scrolling</div> */}
     </>
   )

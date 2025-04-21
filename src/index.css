@@ -798,30 +798,30 @@
 
 
 
-  .About-bigImg2 {
+  .About-bigImg33 {
     background-image: url("/about-last-img.avif");
-    width: 120%;
+    width: 110%;
     margin: 1px auto 1px;
     height: 130%;
     background-size: cover;
- left: -30%;
+    left: -65%;
     z-index: -1;
     scale: 1;
-top:-30%;
+    top:-30%;
   }
 
 
 
-  .About-bigImg3 {
+  .About-bigImg2 {
     background-image: url("/about-boy-img.avif");
-    background-position: center center;
+   
     background-size: cover;
     position: absolute;
-    width: 130%;
-    height: 80vh;
-    left:24%;
+    width: 150%;
+    height: 170%;
+    left: -100%;
     background-color: #65c70b;  
-
+    top:-70%;
   }
 
  
