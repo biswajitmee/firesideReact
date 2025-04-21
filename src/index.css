@@ -814,14 +814,14 @@
 
   .About-bigImg2 {
     background-image: url("/about-boy-img.avif");
-   
+  
     background-size: cover;
     position: absolute;
-    width: 150%;
-    height: 170%;
-    left: -100%;
+    width: 130%;
+    height: 150%;
+    left: -110%;
     background-color: #65c70b;  
-    top:-70%;
+    top:-50%;
   }
 
  

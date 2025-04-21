@@ -11,6 +11,10 @@ function AboutHorizontalScroll () {
 
   const bgImgCover = useRef(null)
 
+
+  const leftText = useRef(null)
+  const rightText = useRef(null)
+
   const text1 = useRef(null)
   const text2 = useRef(null)
 
@@ -30,63 +34,56 @@ function AboutHorizontalScroll () {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const ScrollContainer = ScrollContainerRef.current
-      gsap.set(darkbg.current, { opacity: 0 })
-      gsap.set(addDarkBG.current, { autoAlpha: 0 })
+      const ScrollContainer = ScrollContainerRef.current;
+      const bgImgCoverEl = bgImgCover.current;
 
-      // Pinning section
+      gsap.set(darkbg.current, { opacity: 0 });
+      gsap.set(addDarkBG.current, { autoAlpha: 0 });
+
+      // Pin section
       ScrollTrigger.create({
         trigger: aboutHorizontal.current,
         start: 'top top',
-        end: '+=1900%',
+        end: '+=1895%',
         pin: true,
         scrub: true,
-        markers: true
-      })
+        markers: true,
+      });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: aboutHorizontal.current,
-            start: 'top top',
-            end: '+=100', // or '+=100vh'
-            scrub: true
-          }
-        })
-        .to(darkbg.current, { opacity: 1, duration: 6 }, '<')
+      // Dark background fade in
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutHorizontal.current,
+          start: 'top top',
+          end: '+=100',
+          scrub: true,
+        },
+      }).to(darkbg.current, { opacity: 1, duration: 6 }, '<');
 
-      const bgImgCoverEl = bgImgCover.current
-      gsap.set(bgImgCoverEl, { scale: 0.7 })
+      // Background image scale animation
+      gsap.set(bgImgCoverEl, { scale: 0.7 });
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: bgImgCoverEl,
+          start: 'top bottom',
+          end: 'top center',
+          scrub: true,
+        },
+      }).to(bgImgCoverEl, { scale: 1, ease: 'none' });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: bgImgCoverEl,
-            start: 'top bottom',
-            end: 'top center',
-            scrub: true
-          }
-        })
-        .to(bgImgCoverEl, { scale: 1, ease: 'none' })
-
-      const text1Tl = gsap.timeline()
-      const text2Tl = gsap.timeline()
-
+      // Text 1 animation
+      const text1Tl = gsap.timeline();
       text1Tl
         .fromTo(
           text1.current,
-          { autoAlpha: 0, scale: 0.9, display: 'none', ease: 'power2.Out' },
-          {
-            autoAlpha: 1,
-            scale: 0.9,
-            duration: 6,
-            display: 'block',
-            ease: 'power4.in'
-          }
+          { autoAlpha: 0, scale: 0.9, display: 'none' },
+          { autoAlpha: 1, scale: 0.9, duration: 6, display: 'block' }
         )
         .to(text1.current, { scale: 1.2, duration: 5 })
-        .to(text1.current, { autoAlpha: 0, duration: 10, display: 'none' })
+        .to(text1.current, { autoAlpha: 0, duration: 10, display: 'none' });
 
+      // Text 2 animation
+      const text2Tl = gsap.timeline();
       text2Tl
         .fromTo(
           text2.current,
@@ -96,107 +93,97 @@ function AboutHorizontalScroll () {
         .to(text2.current, { scale: 1.2, duration: 10 })
         .to(text2.current, { autoAlpha: 0, duration: 10 })
         .to(text2.current, { display: 'none' })
-        .to(
-          darkbg.current,
-          { opacity: 0, duration: 0.1, display: 'block' },
-          '<'
-        )
-        .to(addDarkBG.current, { autoAlpha: 1, duration: 0.1 }, '<')
+        .to(darkbg.current, { opacity: 0, duration: 0.1 }, '<')
+        .to(addDarkBG.current, { autoAlpha: 1, duration: 0.1 }, '<');
 
-      const roundCircleTL = gsap.timeline()
-
+      // Round circle mask animation
+      const roundCircleTL = gsap.timeline();
       roundCircleTL
         .fromTo(
           circleRef.current,
           { attr: { r: 0 } },
           {
             attr: {
-              r: Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2)
+              r: Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2),
             },
             duration: 60,
-            ease: 'none'
+            ease: 'none',
           }
         )
-        .to(videoRef.current, {
-          opacity: 0,
-          duration: 0,
-          ease: 'none'
-        })
+        .fromTo(
+          leftText.current,
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 10 },
+          '-=30'
+        )
+        .fromTo(
+          rightText.current,
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 10 },
+          '-=32' // this syncs with the start of the leftText animation
+        );
+        // .to(videoRef.current, { opacity: 0, duration: 0 });
 
       const totalScrollWidth =
-        (ScrollContainer.scrollWidth - window.innerWidth) * scrollSpeedFactor
+        (ScrollContainer.scrollWidth - window.innerWidth) * scrollSpeedFactor;
 
-      // **2️⃣ Horizontal Scroll Animation (Starts AFTER delay)**
+      // Horizontal scroll animation
       const horizontalScrollTL = gsap.timeline({
         scrollTrigger: {
           trigger: ScrollContainer,
           start: 'top top',
           end: `+=${totalScrollWidth}`,
-          scrub: true
-        }
-      })
-
-      horizontalScrollTL.to(
-        ScrollContainer,
-        {
-          x: '-200vw',
-          ease: 'none'
-          //delay:0.4,
+          scrub: true,
         },
-        '+=0.20'
-      )
+      });
 
-      // **4️⃣  `horizontalScrollTL` Starts**
-      const bigImgSpeedFactor = 1.2
+      horizontalScrollTL.to(ScrollContainer, {
+        x: '-200vw',
+        ease: 'none',
+      }, '+=0.20');
 
-      // **5️⃣ Parallax Effects for Other Big Images**
-      const parallaxElementsTL = gsap.timeline()
+      // Parallax effect on additional images
       const parallaxElements = [
         { element: bigImgRef2.current, speed: 1.05 },
-        { element: bigImgRef3.current, speed: 1.1 }
-      ]
+        { element: bigImgRef3.current, speed: 1.1 },
+      ];
 
       parallaxElements.forEach(({ element, speed }) => {
         if (element) {
-          parallaxElementsTL.add(
-            gsap.to(element, {
-              x: () => -totalScrollWidth * (1 - speed),
-              ease: 'none',
-              scrollTrigger: {
-                trigger: element,
-                start: 'left right',
-                end: 'right left',
-                scrub: true,
-                containerAnimation: horizontalScrollTL
-              }
-            })
-          )
+          gsap.to(element, {
+            x: () => -totalScrollWidth * (1 - speed),
+            ease: 'none',
+            scrollTrigger: {
+              trigger: element,
+              start: 'left right',
+              end: 'right left',
+              scrub: true,
+              containerAnimation: horizontalScrollTL,
+            },
+          });
         }
-      })
+      });
 
-      // Master timeline that scrolls through both
-      const horizontalTLmster = gsap.timeline()
-
-      horizontalTLmster
+      // Master timeline
+      const masterTL = gsap.timeline();
+      masterTL
         .add(text1Tl)
         .add(text2Tl)
         .add(roundCircleTL)
-        .add(horizontalScrollTL)
+        .add(horizontalScrollTL);
 
       ScrollTrigger.create({
         trigger: bgImgCover.current,
         start: 'bottom center',
         end: '+=4000',
-        animation: horizontalTLmster,
-        scrub: true
-      })
-    }, aboutHorizontal) // 👈 important for proper scoping
+        animation: masterTL,
+        scrub: true,
+      });
 
-    return () => {
-      ctx.revert()
-    }
-    // 👈 cleans up on unmount
-  }, [])
+    }, aboutHorizontal);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -278,7 +265,7 @@ function AboutHorizontalScroll () {
                     <div className='content-end w-screen h-screen'>
                       <div className='grid grid-cols-2 p-10 w-screen h-96'>
                         <div className='flex justify-start items-center p-16'>
-                          <h1 className='font-IvyOraheadline2 text-[4.5rem] text-white text-left leading-13'>
+                          <h1 className='font-IvyOraheadline2 text-[4.5rem] text-white text-left leading-13' ref={leftText}>
                             Driving growth
                             <br />
                             <span className='font-IvyOraheadline'>
@@ -290,8 +277,8 @@ function AboutHorizontalScroll () {
                         </div>
 
                         <div className='flex justify-end items-center p-4'>
-                          <div className='backdrop-blur-lg m-10 p-10 rounded-lg text-white text-xl text-left transparentBg'>
-                            <p>
+                          <div className='backdrop-blur-lg m-10 p-10 rounded-lg text-white text-xl text-left transparentBg' ref={rightText}>
+                            <p >
                               We’re shaping the future of independent pediatric
                               practices by offering dentists access to the
                               tools, community, and knowledge they need to
@@ -433,7 +420,7 @@ function AboutHorizontalScroll () {
         </div>
       </div>
       {/* Scroll after */}
-      <div className='h-[2000vh]'>Keep Scrolling</div>
+      <div className='h-[1900vh]'>Keep Scrolling</div>
       {/* <div className='bg-yellow-400 h-[305vh]'>Keep Scrolling</div> */}
     </>
   )
