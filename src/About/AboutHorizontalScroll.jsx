@@ -50,7 +50,8 @@ function AboutHorizontalScroll () {
         markers: true,
       });
 
-      // Dark background fade in
+      // Dark background fade inwho understand your journey
+
       gsap.timeline({
         scrollTrigger: {
           trigger: aboutHorizontal.current,
@@ -109,19 +110,11 @@ function AboutHorizontalScroll () {
             duration: 60,
             ease: 'none',
           }
+        ).fromTo(leftText.current,
+          {autoAlpha:0, duration:2},{autoAlpha:1, duration:2}
+        ).fromTo(rightText.current,
+          {autoAlpha:0, duration:2},{autoAlpha:1, duration:2},'<'
         )
-        .fromTo(
-          leftText.current,
-          { autoAlpha: 0 },
-          { autoAlpha: 1, duration: 10 },
-          '-=30'
-        )
-        .fromTo(
-          rightText.current,
-          { autoAlpha: 0 },
-          { autoAlpha: 1, duration: 10 },
-          '-=32' // this syncs with the start of the leftText animation
-        );
         // .to(videoRef.current, { opacity: 0, duration: 0 });
 
       const totalScrollWidth =
@@ -191,7 +184,49 @@ function AboutHorizontalScroll () {
 
       {/* Pinned Section */}
       <div className='relative'>
-        <div ref={aboutHorizontal} className='z-0 absolute h-[300vh]'>
+      <div
+          className='top-36 z-50 absolute inset-0 bg-white bigBgCover'
+          ref={bgImgCover}
+        >
+          <div className="flex justify-center items-center bg-[url('./about-horizontalBG.avif')] bg-red-700 bg-cover lg:px-64 w-full h-full text-center lg:bigImgHere">
+            <div>
+              <h1 className='font-IvyOraheadline2 text-white text-xl lg:text-7xl'>
+                Supported by experts <br />
+                <span className='font-IvyOraheadline'>
+                  who understand your journey
+                </span>
+              </h1>
+              <h2 className='lg:px-40 lg:py-14 text-white text-xl text-center'>
+                Our founders and advisors, suppliers are practicing pediatric
+                dentists who know exactly what it takes to grow a
+                practice—because they’ve been in your shoes.
+              </h2>
+
+              <div class='justify-items-center gap-4 md:gap-4 grid grid-cols-3 md:grid-cols-5'>
+                <div class='flex justify-center items-center bg-red-200 w-24 h-24'>
+                  1
+                </div>
+                <div class='flex justify-center items-center bg-green-200 w-24 h-24'>
+                  2
+                </div>
+                <div class='flex justify-center items-center bg-blue-200 w-24 h-24'>
+                  3
+                </div>
+
+                <div class='flex justify-center gap-4 col-span-3 md:col-span-1'>
+                  <div class='flex justify-center items-center bg-yellow-200 w-24 h-24'>
+                    4
+                  </div>
+                  <div class='flex justify-center items-center bg-purple-200 w-24 h-24'>
+                    5
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div ref={aboutHorizontal} className='z-0 absolute mt-[-100vh] h-[300vh]'>
           <div
             className='z-0 fixed inset-0 bg-black/30 bgDark'
             ref={darkbg}
@@ -277,8 +312,8 @@ function AboutHorizontalScroll () {
                         </div>
 
                         <div className='flex justify-end items-center p-4'>
-                          <div className='backdrop-blur-lg m-10 p-10 rounded-lg text-white text-xl text-left transparentBg' ref={rightText}>
-                            <p >
+                          <div className='backdrop-blur-lg m-10 p-10 rounded-lg text-white text-xl text-left transparentBg'  ref={rightText}>
+                            <p>
                               We’re shaping the future of independent pediatric
                               practices by offering dentists access to the
                               tools, community, and knowledge they need to
@@ -377,47 +412,7 @@ function AboutHorizontalScroll () {
             </div>
           </div>
         </div>
-        <div
-          className='top-36 z-50 absolute inset-0 bg-white bigBgCover'
-          ref={bgImgCover}
-        >
-          <div className="flex justify-center items-center bg-[url('./about-horizontalBG.avif')] bg-cover lg:px-64 w-full h-full text-center bigImgHere">
-            <div>
-              <h1 className='font-IvyOraheadline2 text-white text-xl lg:text-7xl'>
-                Supported by experts <br />
-                <span className='font-IvyOraheadline'>
-                  who understand your journey
-                </span>
-              </h1>
-              <h2 className='lg:px-40 lg:py-14 text-white text-xl text-center'>
-                Our founders and advisors, suppliers are practicing pediatric
-                dentists who know exactly what it takes to grow a
-                practice—because they’ve been in your shoes.
-              </h2>
 
-              <div class='justify-items-center gap-4 md:gap-4 grid grid-cols-3 md:grid-cols-5'>
-                <div class='flex justify-center items-center bg-red-200 w-24 h-24'>
-                  1
-                </div>
-                <div class='flex justify-center items-center bg-green-200 w-24 h-24'>
-                  2
-                </div>
-                <div class='flex justify-center items-center bg-blue-200 w-24 h-24'>
-                  3
-                </div>
-
-                <div class='flex justify-center gap-4 col-span-3 md:col-span-1'>
-                  <div class='flex justify-center items-center bg-yellow-200 w-24 h-24'>
-                    4
-                  </div>
-                  <div class='flex justify-center items-center bg-purple-200 w-24 h-24'>
-                    5
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       {/* Scroll after */}
       <div className='h-[1900vh]'>Keep Scrolling</div>

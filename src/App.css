@@ -873,6 +873,14 @@ video {
   margin-top: 4rem;
 }
 
+.mt-\[100vh\]{
+  margin-top: 100vh;
+}
+
+.mt-\[-100vh\]{
+  margin-top: -100vh;
+}
+
 .block{
   display: block;
 }
@@ -913,12 +921,12 @@ video {
   height: 110vh;
 }
 
-.h-\[170vh\]{
-  height: 170vh;
+.h-\[1200vh\]{
+  height: 1200vh;
 }
 
-.h-\[2000vh\]{
-  height: 2000vh;
+.h-\[170vh\]{
+  height: 170vh;
 }
 
 .h-\[300vh\]{
@@ -973,12 +981,20 @@ video {
   height: 100vh;
 }
 
-.h-\[1800vh\]{
-  height: 1800vh;
+.h-\[100vh\]{
+  height: 100vh;
+}
+
+.h-\[120vh\]{
+  height: 120vh;
 }
 
 .h-\[1900vh\]{
   height: 1900vh;
+}
+
+.h-\[150vh\]{
+  height: 150vh;
 }
 
 .min-h-screen{
@@ -1035,10 +1051,6 @@ video {
 
 .w-\[240px\]{
   width: 240px;
-}
-
-.w-\[300vw\]{
-  width: 300vw;
 }
 
 .w-\[32vw\]{
@@ -1216,12 +1228,6 @@ video {
        column-gap: 1rem;
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
 .overflow-hidden{
   overflow: hidden;
 }
@@ -1327,6 +1333,11 @@ video {
   background-color: rgb(187 247 208 / var(--tw-bg-opacity, 1));
 }
 
+.bg-green-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
+}
+
 .bg-green-700{
   --tw-bg-opacity: 1;
   background-color: rgb(21 128 61 / var(--tw-bg-opacity, 1));
@@ -1335,11 +1346,6 @@ video {
 .bg-purple-200{
   --tw-bg-opacity: 1;
   background-color: rgb(233 213 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-purple-700{
-  --tw-bg-opacity: 1;
-  background-color: rgb(126 34 206 / var(--tw-bg-opacity, 1));
 }
 
 .bg-red-200{
@@ -1488,11 +1494,6 @@ video {
   padding-right: 1.5rem;
 }
 
-.px-64{
-  padding-left: 16rem;
-  padding-right: 16rem;
-}
-
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
@@ -1556,6 +1557,11 @@ video {
 .py-\[2rem\]{
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-64{
+  padding-left: 16rem;
+  padding-right: 16rem;
 }
 
 .pb-16{
@@ -2754,8 +2760,16 @@ ul.openNavigation li {
     display: none;
   }
 
+  .lg\:h-\[100vh\]{
+    height: 100vh;
+  }
+
   .lg\:h-\[110vh\]{
     height: 110vh;
+  }
+
+  .lg\:h-\[1900vh\]{
+    height: 1900vh;
   }
 
   .lg\:h-\[70vh\]{
@@ -2919,5 +2933,9 @@ ul.openNavigation li {
 
   .lg\:leading-\[4\.5rem\]{
     line-height: 4.5rem;
+  }
+
+  .lg\:bigImgHere {
+    background-position: 50% 40%;
   }
 }

@@ -1,12 +1,16 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef ,useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 
 import AboutHorizontalScroll from './AboutHorizontalScroll'
+import AboutHorizontalScrollMobile from './AboutHorizontalScrollMobile'
 
 gsap.registerPlugin(ScrollTrigger)
 
 function AboutSectionThree () {
+  const [isMobile, setIsMobile] = useState(false)
+
+
   const wrapperAboutPin = useRef(null)
 
   const card1 = useRef(null)
@@ -14,6 +18,17 @@ function AboutSectionThree () {
   const card3 = useRef(null)
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+
+  useEffect(() => {
+    if (!wrapperAboutPin.current || isMobile) return
+
     gsap.set(card1.current, { y: 0, zIndex: 10 })
     gsap.set(card2.current, { y: 200, zIndex: 20 })
     gsap.set(card3.current, { y: 400, zIndex: 30 })
@@ -59,7 +74,7 @@ function AboutSectionThree () {
         </div>
 
         <div
-          className='relative m-auto w-[80%] h-[170vh]'
+          className='relative m-auto w-[80%] h-[100vh]'
           ref={wrapperAboutPin}
         >
           <div
@@ -133,9 +148,15 @@ function AboutSectionThree () {
         </div>
 
          
-        <AboutHorizontalScroll />
+        {/* <AboutHorizontalScroll /> */}
+        {/* <AboutHorizontalScrollMobile/>  load when mobile */}
+
+        {isMobile ? <AboutHorizontalScrollMobile /> : <AboutHorizontalScroll />}
+
+
       </div>
       <div className='bg-yellow-500 h-screen'> new section here</div>
+      <div className='bg-green-500 h-screen'> new section here</div>
     </>
   )
 }
