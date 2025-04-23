@@ -72,26 +72,29 @@ function AboutHorizontalScroll () {
         },
       }).to(bgImgCoverEl, { scale: 1, ease: 'none' });
 
+
+      gsap.set(text1.current, {  display: 'block'});
+      gsap.set(text2.current, { display: 'none' });
       // Text 1 animation
       const text1Tl = gsap.timeline();
       text1Tl
         .fromTo(
           text1.current,
-          { autoAlpha: 0, scale: 0.9, display: 'none' },
-          { autoAlpha: 1, scale: 0.9, duration: 6, display: 'block' }
+          { autoAlpha: 0, scale: 0.9, display: 'block'  },
+          { autoAlpha: 1, scale: 1.2, duration: 15,  }
         )
-        .to(text1.current, { scale: 1.2, duration: 5 })
+       
         .to(text1.current, { autoAlpha: 0, duration: 10, display: 'none' });
 
       // Text 2 animation
-      const text2Tl = gsap.timeline();
+      const text2Tl = gsap.timeline({delay:5});
       text2Tl
         .fromTo(
           text2.current,
-          { autoAlpha: 0, scale: 0.9, display: 'none' },
-          { autoAlpha: 1, scale: 0.9, duration: 0.1, display: 'block' }
+          { autoAlpha: 0, scale: 0.8,  display: 'block'  },
+          { autoAlpha: 1, scale: 1.2, duration: 30,   }
         )
-        .to(text2.current, { scale: 1.2, duration: 10 })
+ 
         .to(text2.current, { autoAlpha: 0, duration: 10 })
         .to(text2.current, { display: 'none' })
         .to(darkbg.current, { opacity: 0, duration: 0.1 }, '<')
@@ -233,13 +236,18 @@ function AboutHorizontalScroll () {
           ></div>
 
           <div className='z-20 absolute inset-0 flex flex-col justify-center items-center px-64 w-screen h-screen text-center'>
+          
+          
+          
             <h1
-              className='hidden z-20 opacity-0 font-IvyOraheadline2 text-white text-5xl'
+              className='hidden z-20 opacity-0 pt-32 font-IvyOraheadline2 text-white text-5xl'
               ref={text1}
             >
               We’re committed to understanding the unique needs of independent
               dentists and creating tools that truly support growth and success.
             </h1>
+
+
 
             <h1
               className='hidden z-10 opacity-0 px-10 font-IvyOraheadline2 text-white text-5xl text-center leading-snug'
@@ -249,6 +257,9 @@ function AboutHorizontalScroll () {
               scalable solutions that empower dentists to focus on what matters
               most: delivering exceptional care, while building
             </h1>
+
+
+
           </div>
 
           {/* RoundCircelAnimation element will be here */}
