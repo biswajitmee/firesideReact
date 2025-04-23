@@ -66,7 +66,7 @@ function AboutHorizontalScroll () {
       gsap.timeline({
         scrollTrigger: {
           trigger: bgImgCoverEl,
-          start: 'top bottom',
+          start: 'top top+=80%',
           end: 'top center',
           scrub: true,
         },
@@ -185,7 +185,7 @@ function AboutHorizontalScroll () {
       {/* Pinned Section */}
       <div className='relative'>
       <div
-          className='top-36 z-50 absolute inset-0 bg-white bigBgCover'
+          className='z-50 absolute inset-0 bg-white bigBgCover'
           ref={bgImgCover}
         >
           <div className="flex justify-center items-center bg-[url('./about-horizontalBG.avif')] bg-red-700 bg-cover lg:px-64 w-full h-full text-center lg:bigImgHere">
