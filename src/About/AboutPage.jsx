@@ -23,7 +23,7 @@ function About () {
 
     const timer = setTimeout(() => {
       setIsLoaded(true)
-    }, 300) // Adjust timing as needed
+    }, 1000) // Adjust timing as needed
 
     return () => {
       clearTimeout(timer)
