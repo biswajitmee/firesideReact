@@ -751,6 +751,7 @@
 
   .bigImgHere {
     background-position: 50% 40%;
+    
   }
 
   .bgDark {
@@ -759,7 +760,7 @@
     position: absolute;
     /* left: -2vw; */
     top: -0;
-    background-color: #3C4235;
+    /* background-color: #3C4235; */
     z-index: 1;
   }
 

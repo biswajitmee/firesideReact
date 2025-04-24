@@ -97,6 +97,10 @@ function AboutHorizontalScroll () {
  
         .to(text2.current, { autoAlpha: 0, duration: 10 })
         .to(text2.current, { display: 'none' })
+
+        const darkTL = gsap.timeline({delay:5});
+        darkTL.fromTo(darkbg.current, { opacity: 1, duration: 0.1 },{ opacity: 0, duration:2 },
+        )
         .to(darkbg.current, { opacity: 0, duration: 0.1 }, '<')
         .to(addDarkBG.current, { autoAlpha: 1, duration: 0.1 }, '<');
 
@@ -191,7 +195,7 @@ function AboutHorizontalScroll () {
           className='z-50 absolute inset-0 bg-white bigBgCover'
           ref={bgImgCover}
         >
-          <div className="flex justify-center items-center bg-[url('./about-horizontalBG.avif')] bg-red-700 bg-cover lg:px-64 w-full h-full text-center lg:bigImgHere">
+          <div className="flex justify-center items-center bg-[url('/freeImage.jpg')] bg-cover lg:px-64 w-full h-full text-center lg:bigImgHere">
             <div>
               <h1 className='font-IvyOraheadline2 text-white text-xl lg:text-7xl'>
                 Supported by experts <br />
@@ -337,7 +341,7 @@ function AboutHorizontalScroll () {
                   </div>
                   <video
                     ref={videoRef}
-                    src='aboutVideoBG.mp4'
+                    src='freeVideo.mp4'
                     autoPlay
                     muted
                     loop

@@ -861,6 +861,10 @@ video {
   margin-top: 2rem;
 }
 
+.mt-\[-100vh\]{
+  margin-top: -100vh;
+}
+
 .mt-\[-110vh\]{
   margin-top: -110vh;
 }
@@ -871,14 +875,6 @@ video {
 
 .mt-\[4rem\]{
   margin-top: 4rem;
-}
-
-.mt-\[100vh\]{
-  margin-top: 100vh;
-}
-
-.mt-\[-100vh\]{
-  margin-top: -100vh;
 }
 
 .block{
@@ -917,16 +913,16 @@ video {
   height: 24rem;
 }
 
+.h-\[100vh\]{
+  height: 100vh;
+}
+
 .h-\[110vh\]{
   height: 110vh;
 }
 
-.h-\[1200vh\]{
-  height: 1200vh;
-}
-
-.h-\[170vh\]{
-  height: 170vh;
+.h-\[1900vh\]{
+  height: 1900vh;
 }
 
 .h-\[300vh\]{
@@ -979,22 +975,6 @@ video {
 
 .h-screen{
   height: 100vh;
-}
-
-.h-\[100vh\]{
-  height: 100vh;
-}
-
-.h-\[120vh\]{
-  height: 120vh;
-}
-
-.h-\[1900vh\]{
-  height: 1900vh;
-}
-
-.h-\[150vh\]{
-  height: 150vh;
 }
 
 .min-h-screen{
@@ -1353,11 +1333,6 @@ video {
   background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
 }
 
-.bg-red-700{
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
-}
-
 .bg-red-800{
   --tw-bg-opacity: 1;
   background-color: rgb(153 27 27 / var(--tw-bg-opacity, 1));
@@ -1391,12 +1366,20 @@ video {
   background-image: url('./about-horizontalBG.avif');
 }
 
+.bg-\[url\(\'\/freeImage\.jpeg\'\)\]{
+  background-image: url('/freeImage.jpeg');
+}
+
 .bg-gradient-to-b{
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-t{
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\'\/freeImage\.jpg\'\)\]{
+  background-image: url('/freeImage.jpg');
 }
 
 .from-slate-50{
@@ -1494,6 +1477,11 @@ video {
   padding-right: 1.5rem;
 }
 
+.px-64{
+  padding-left: 16rem;
+  padding-right: 16rem;
+}
+
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
@@ -1559,11 +1547,6 @@ video {
   padding-bottom: 2rem;
 }
 
-.px-64{
-  padding-left: 16rem;
-  padding-right: 16rem;
-}
-
 .pb-16{
   padding-bottom: 4rem;
 }
@@ -1618,10 +1601,6 @@ video {
 
 .pt-8{
   padding-top: 2rem;
-}
-
-.pt-40{
-  padding-top: 10rem;
 }
 
 .text-left{
@@ -2439,7 +2418,7 @@ ul.openNavigation li {
   position: absolute;
   /* left: -2vw; */
   top: -0;
-  background-color: #3C4235;
+  /* background-color: #3C4235; */
   z-index: 1;
 }
 
@@ -2770,10 +2749,6 @@ ul.openNavigation li {
 
   .lg\:h-\[110vh\]{
     height: 110vh;
-  }
-
-  .lg\:h-\[1900vh\]{
-    height: 1900vh;
   }
 
   .lg\:h-\[70vh\]{
