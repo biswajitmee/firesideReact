@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import AboutSectionOne from './AboutSectionOne'
 import AboutSectionTwo from './AboutSectionTwo'
 import AboutSectionThree from './AboutSectionThree'
@@ -9,8 +9,10 @@ import { ScrollSmoother } from 'gsap/all'
 gsap.registerPlugin(ScrollSmoother)
 
 function About () {
+  const [isLoaded, setIsLoaded] = useState(false)
+
   useEffect(() => {
-    ScrollSmoother.create({
+    const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
       smooth: 2,
@@ -18,15 +20,30 @@ function About () {
       normalizeScroll: true,
       smoothTouch: 0.4
     })
-  })
+
+    const timer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 300) // Adjust timing as needed
+
+    return () => {
+      clearTimeout(timer)
+      smoother.kill() // Clean up ScrollSmoother on unmount
+    }
+  }, [])
 
   return (
     <>
       <div id='smooth-wrapper'>
         <div id='smooth-content'>
-          <AboutSectionOne />
-          <AboutSectionTwo />
-          <AboutSectionThree />
+          {isLoaded ? (
+            <>
+              <AboutSectionOne />
+              <AboutSectionTwo />
+              <AboutSectionThree />
+            </>
+          ) : (
+            <div className='p-10 text-white text-center'>Loading...</div>
+          )}
         </div>
       </div>
     </>
