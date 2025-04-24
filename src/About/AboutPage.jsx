@@ -12,22 +12,27 @@ function About () {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    const smoother = ScrollSmoother.create({
-      wrapper: '#smooth-wrapper',
-      content: '#smooth-content',
-      smooth: 2,
-      effects: true,
-      normalizeScroll: true,
-      smoothTouch: 0.4
-    })
-
-    const timer = setTimeout(() => {
+    const handleLoad = () => {
+      ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 2,
+        effects: true,
+        normalizeScroll: true,
+        smoothTouch: 0.4
+      })
       setIsLoaded(true)
-    }, 1000) // Adjust timing as needed
+    }
+
+    // If already loaded (like via navigation), call directly
+    if (document.readyState === 'complete') {
+      handleLoad()
+    } else {
+      window.addEventListener('load', handleLoad)
+    }
 
     return () => {
-      clearTimeout(timer)
-      smoother.kill() // Clean up ScrollSmoother on unmount
+      window.removeEventListener('load', handleLoad)
     }
   }, [])
 
@@ -42,7 +47,7 @@ function About () {
               <AboutSectionThree />
             </>
           ) : (
-            <div className='p-10 text-white text-center'>Loading...</div>
+            <div className='p-10 text-white text-center'>Loading About Page...</div>
           )}
         </div>
       </div>
