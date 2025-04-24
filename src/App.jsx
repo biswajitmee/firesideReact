@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar'
- 
+
 import MobileNavBar from './MobileNavBar'
 import HomePage from './HomePage'
 import About from './About/AboutPage'
- 
-  
 
 export default function App () {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768) // Ensure initial check
@@ -25,21 +23,15 @@ export default function App () {
   }, [])
 
   return (
-<>
+    <>
+      <Router>
+        {isMobile ? <MobileNavBar /> : <NavBar />}
 
-{/* <Loader/> */}
-    <Router>
-      {isMobile ? <MobileNavBar /> : <NavBar />}
-
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/About' element={<About/>} />
-        
-  
-      </Routes>
-    
-    </Router>
-
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </Router>
     </>
   )
 }

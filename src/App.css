@@ -1366,8 +1366,8 @@ video {
   background-image: url('./about-horizontalBG.avif');
 }
 
-.bg-\[url\(\'\/freeImage\.jpeg\'\)\]{
-  background-image: url('/freeImage.jpeg');
+.bg-\[url\(\'\/freeImage\.jpg\'\)\]{
+  background-image: url('/freeImage.jpg');
 }
 
 .bg-gradient-to-b{
@@ -1376,10 +1376,6 @@ video {
 
 .bg-gradient-to-t{
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'\/freeImage\.jpg\'\)\]{
-  background-image: url('/freeImage.jpg');
 }
 
 .from-slate-50{

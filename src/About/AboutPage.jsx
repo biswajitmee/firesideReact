@@ -3,7 +3,6 @@ import AboutSectionOne from './AboutSectionOne'
 import AboutSectionTwo from './AboutSectionTwo'
 import AboutSectionThree from './AboutSectionThree'
 
-import RoundCircelAnimation from './RoundCircelAnimation'
 import { gsap } from 'gsap'
 import { ScrollSmoother } from 'gsap/all'
 
@@ -28,7 +27,6 @@ function About () {
           <AboutSectionOne />
           <AboutSectionTwo />
           <AboutSectionThree />
-    {/* <RoundCircelAnimation /> */}
         </div>
       </div>
     </>
