@@ -29,19 +29,12 @@ export default function App () {
       <Router>
         {isMobile ? <MobileNavBar /> : <NavBar />}
 
-        {/* <Routes>
+        <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/About' element={<About />} />
-          <Route path='/CommunitySection' element={<CommunitySection />} />
-          <Route path='/BlogSection' element={<BlogSection />} />
-        </Routes> */}
-
-<Routes>
-  <Route path='/' element={<HomePage />} />
-  <Route path='/about' element={<About />} />
-  <Route path='/community' element={<CommunitySection />} />
-  <Route path='/blog' element={<BlogSection />} />
-  </Routes>
+          <Route path='/about' element={<About />} />
+          <Route path='/community' element={<CommunitySection />} />
+          <Route path='/blog' element={<BlogSection />} />
+        </Routes>
       </Router>
     </>
   )
