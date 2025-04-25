@@ -5,6 +5,8 @@ import NavBar from './NavBar'
 import MobileNavBar from './MobileNavBar'
 import HomePage from './HomePage'
 import About from './About/AboutPage'
+import CommunitySection from './community/CommunitySection'
+import BlogSection from './blog/BlogSection'
 
 export default function App () {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768) // Ensure initial check
@@ -27,10 +29,19 @@ export default function App () {
       <Router>
         {isMobile ? <MobileNavBar /> : <NavBar />}
 
-        <Routes>
+        {/* <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/About' element={<About />} />
-        </Routes>
+          <Route path='/CommunitySection' element={<CommunitySection />} />
+          <Route path='/BlogSection' element={<BlogSection />} />
+        </Routes> */}
+
+<Routes>
+  <Route path='/' element={<HomePage />} />
+  <Route path='/about' element={<About />} />
+  <Route path='/community' element={<CommunitySection />} />
+  <Route path='/blog' element={<BlogSection />} />
+  </Routes>
       </Router>
     </>
   )
