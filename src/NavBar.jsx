@@ -16,7 +16,7 @@ function NavBar() {
         <div className='col-span-2 col-end-7 menuGrid'>
           <div className='flex flex-nowrap rounded-lg text-white nav-bg'>
             <Link
-              to='/about'
+              to='/About'
               className='flex flex-1 justify-center items-center p-3 text-center'
             >
               About
