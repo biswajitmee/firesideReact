@@ -119,7 +119,7 @@ function NavBar({ onNavigate }) {
           <NavLink
             to='/home'
             className='flex flex-1 justify-center items-center p-3 text-center'
-            onClick={() => onNavigate('/')} // Trigger loader on menu click
+            onClick={() => onNavigate('/home')} // Trigger loader on menu click
           >
             <div className='bg-white rounded-lg w-10 h-10 logoBox'></div>
           </NavLink>
