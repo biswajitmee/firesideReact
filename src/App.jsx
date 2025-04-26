@@ -156,7 +156,7 @@ function AppContent() {
         <NavBar onNavigate={handleRouteChange} />
       )}
       <Routes>
-      <Route path='/home' element={<HomePage />} />
+      <Route path='/' element={<HomePage />} /> 
         <Route path='/about' element={<About />} />
         <Route path='/community' element={<CommunitySection />} />
         <Route path='/blog' element={<BlogSection />} />
