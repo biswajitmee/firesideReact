@@ -148,7 +148,7 @@ function AppContent() {
   return (
     <>
       {/* <PageLoader show={showLoader} onComplete={handleLoaderComplete} /> */}
-      <PageLoader show={showLoader} onComplete={handleLoaderComplete} />
+      {/* <PageLoader show={showLoader} onComplete={handleLoaderComplete} /> */}
 
       {isMobile ? (
         <MobileNavBar onNavigate={handleRouteChange} />
