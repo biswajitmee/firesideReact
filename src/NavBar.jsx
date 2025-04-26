@@ -116,13 +116,12 @@ function NavBar({ onNavigate }) {
     <div className='z-50 fixed mt-10 w-[90vw]'>
       <div className='gap-4 grid grid-cols-6'>
         <div className='col-start-1 col-end-1'>
-          <NavLink
-            to='/'
-            className='flex flex-1 justify-center items-center p-3 text-center'
-            onClick={() => onNavigate('/')} // Trigger loader on menu click
-          >
-            <div className='bg-white rounded-lg w-10 h-10 logoBox'></div>
-          </NavLink>
+          <Link
+             to='/'
+              className='flex flex-1 justify-center items-center p-3 text-center'
+           >
+              <div className='bg-white rounded-lg w-10 h-10 logoBox'></div>
+            </Link>
         </div>
 
         <div className='col-span-2 col-end-7 menuGrid'>
