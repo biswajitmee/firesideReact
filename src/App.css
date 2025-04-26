@@ -2560,10 +2560,6 @@ ul.openNavigation li {
   background-color: rgb(38 50 38 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:font-bold:hover{
-  font-weight: 700;
-}
-
 .group:hover .group-hover\:opacity-0{
   opacity: 0;
 }
