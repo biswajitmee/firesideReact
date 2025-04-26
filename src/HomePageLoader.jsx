@@ -5,7 +5,7 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
 
 gsap.registerPlugin(MotionPathPlugin, DrawSVGPlugin);
 
-function Loader({ onComplete }) {
+function HomePageLoader({ onComplete }) {
   const circleRef = useRef(null);
   const imgRefhidden = useRef(null);
   const LogoIconRef = useRef(null);
@@ -143,4 +143,4 @@ function Loader({ onComplete }) {
   );
 }
 
-export default Loader;
+export default HomePageLoader;

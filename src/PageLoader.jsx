@@ -13,17 +13,29 @@ const PageLoader = ({ show, onComplete }) => {
       })
 
       pageLoaderTL
-        .set(loaderRef.current, { y: '100vh', display: 'block' }) // reset position
-        .to(loaderRef.current, { y: '0vh', duration: 1 })
-        .to(loaderRef.current, { y: '-100vh', duration: 1, delay: 0.5 })
+        .set(loaderRef.current, { y: '100vh', display: 'block' , width:'100vw', height:'100vh', overflow:'hidden'}) // reset position
+        .to(loaderRef.current, { y: '0vh', duration: 1 , backgroundColor:'green'})
+        .to(loaderRef.current, { y: '-100vh', duration: 1, delay: 0.5 , })
+        .to(loaderRef.current, {display:'none',})
     }
   }, [show, onComplete])
 
   return (
     <div
       ref={loaderRef}
-      className='top-0 left-0 z-50 fixed bg-blue-800 w-screen h-screen'
+      className='hidden top-0 left-0 z-10 fixed bg-yellow-500 w-screen h-screen overflow-hidden'
       style={{ display: 'none' }} // hidden by default, shown via GSAP
+
+
+
+
+
+
+
+
+
+
+
     />
   )
 }

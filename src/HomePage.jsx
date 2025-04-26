@@ -15,8 +15,7 @@ import ScrollThreeSectionMobile from './home/ScrollThreeSectionMobile'
 import ScrollFourSectionMobile from './home/ScrollFourSectionMobile'
 import ScrollSixSectionMobile from './home/ScrollSixSectionMobile'
 
-
-import Loader from './Loader'
+import HomePageLoader from './homePageLoader'
 
 // Prevent browser from restoring scroll position on refresh
 if (typeof window !== 'undefined') {
@@ -45,7 +44,6 @@ export default function HomePage({ onReady }) {
 
   // ScrollSmoother + ScrollToTop + Asset tracking
   useLayoutEffect(() => {
-    // Create smoother instance
     const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
@@ -78,7 +76,7 @@ export default function HomePage({ onReady }) {
       if (loaded === totalAssets) {
         requestAnimationFrame(() => {
           smoother.scrollTo(0, true)
-          onReady?.()
+          onReady?.() // Trigger completion after all assets loaded
         })
       }
     }
@@ -102,18 +100,18 @@ export default function HomePage({ onReady }) {
 
   return (
     <>
- <Loader/> 
-    <div id="smooth-wrapper" ref={main}>
-      <div id="smooth-content" ref={contentRef}>
-        <ScrollOneSection />
-        {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
-        {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
-        {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
-        <ScrollFiveSection />
-        {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
-        <ScrollSevenSection />
+      <HomePageLoader /> {/* Make sure loader works independently */}
+      <div id="smooth-wrapper" ref={main}>
+        <div id="smooth-content" ref={contentRef}>
+          <ScrollOneSection />
+          {isMobile ? <ScrollTwoSectionMobile /> : <ScrollTwoSection />}
+          {isMobile ? <ScrollThreeSectionMobile /> : <ScrollThreeSection />}
+          {isMobile ? <ScrollFourSectionMobile /> : <ScrollFourSection />}
+          <ScrollFiveSection />
+          {isMobile ? <ScrollSixSectionMobile /> : <ScrollSixSection />}
+          <ScrollSevenSection />
+        </div>
       </div>
-    </div>
     </>
   )
 }
