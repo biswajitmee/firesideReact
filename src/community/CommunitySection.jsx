@@ -33,7 +33,7 @@ function CommunitySection () {
     <>
       <div id='smooth-wrapper'>
         <div id='smooth-content'>
-          {isLoaded ? (
+          {/* {isLoaded ? ( */}
             <>
             <div className='bg-blue-600 w-screen h-screen'>
 
@@ -41,9 +41,9 @@ function CommunitySection () {
             </div>
               
             </>
-          ) : (
-            <div className='p-10 text-white text-center'>Loading...</div>
-          )}
+          {/* ) : ( */}
+            {/* <div className='p-10 text-white text-center'>Loading...</div> */}
+          {/* )} */}
         </div>
       </div>
     </>

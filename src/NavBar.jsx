@@ -103,58 +103,152 @@
 // export default NavBar
 
 
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+// import React from 'react'
+// import { NavLink } from 'react-router-dom'
+
+// function NavBar({ onNavigate }) {
+//   const navLinkClass = ({ isActive }) =>
+//     `flex flex-1 justify-center items-center p-3 text-center transition-all duration-300 ${
+//       isActive ? 'bg-white text-black rounded-md font-semibold' : 'text-white'
+//     }`
+
+//   return (
+//     <div className='z-10 fixed mt-10 w-[90vw]'>
+//       <div className='gap-4 grid grid-cols-6'>
+//         <div className='col-start-1 col-end-1'>
+//           <NavLink
+//             to='/'
+//             className='flex flex-1 justify-center items-center p-3 text-center'
+//             onClick={() => onNavigate('/')} // Trigger loader on menu click
+//             // onClick={() => onNavigate('/about')}
+//           >
+//             <div className='bg-white rounded-lg w-10 h-10 logoBox'></div>
+//           </NavLink>
+//         </div>
+
+//         <div className='col-span-2 col-end-7 menuGrid'>
+//           <div className='flex flex-nowrap rounded-lg nav-bg'>
+//             <NavLink to='/about' className={navLinkClass} onClick={() => onNavigate('/about')}>
+//               About
+//             </NavLink>
+//             <NavLink to='/community' className={navLinkClass} onClick={() => onNavigate('/community')}>
+//               Community
+//             </NavLink>
+//             <NavLink to='/blog' className={navLinkClass} onClick={() => onNavigate('/blog')}>
+//               Blog
+//             </NavLink>
+//             <NavLink
+//               to='/join'
+              
+//               className={({ isActive }) =>
+//                 `flex flex-1 justify-center items-center m-2 p-3 rounded-lg text-center transition-all duration-300 ${
+//                   isActive
+//                     ? 'bg-white text-black font-semibold'
+//                     : 'btn-color text-white'
+//                 }`
+//               }
+//               onClick={() => onNavigate('/join')}
+//             >
+//               Join Us
+//             </NavLink>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default NavBar
+
+
+// import React from 'react';
+// import { NavLink } from 'react-router-dom';
+
+// function NavBar({ onNavigate }) {
+//   const navLinkClass = ({ isActive }) =>
+//     `flex flex-1 justify-center items-center p-3 text-center transition-all duration-300 ${
+//       isActive ? 'bg-white text-black rounded-md font-semibold' : 'text-white'
+//     }`;
+
+//   return (
+//     <div className="z-10 fixed mt-10 w-[90vw]">
+//       <div className="gap-4 grid grid-cols-6">
+//         <div className="col-start-1 col-end-1">
+//           <NavLink to="/" className="flex flex-1 justify-center items-center p-3 text-center" onClick={() => onNavigate('/')}>
+//             <div className="bg-white rounded-lg w-10 h-10 logoBox"></div>
+//           </NavLink>
+//         </div>
+//         <div className="col-span-2 col-end-7 menuGrid">
+//           <div className="flex flex-nowrap rounded-lg nav-bg">
+//             <NavLink to="/about" className={navLinkClass} onClick={() => onNavigate('/about')}>
+//               About
+//             </NavLink>
+//             <NavLink to="/community" className={navLinkClass} onClick={() => onNavigate('/community')}>
+//               Community
+//             </NavLink>
+//             <NavLink to="/blog" className={navLinkClass} onClick={() => onNavigate('/blog')}>
+//               Blog
+//             </NavLink>
+//             <NavLink to="/join" className={navLinkClass} onClick={() => onNavigate('/join')}>
+//               Join Us
+//             </NavLink>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default NavBar;
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function NavBar({ onNavigate }) {
-  const navLinkClass = ({ isActive }) =>
-    `flex flex-1 justify-center items-center p-3 text-center transition-all duration-300 ${
-      isActive ? 'bg-white text-black rounded-md font-semibold' : 'text-white'
-    }`
+  const navigate = useNavigate(); // This will handle the navigation internally
+  
+  const navLinkClass = `flex flex-1 justify-center items-center p-3 text-center transition-all duration-300 text-white`;
+
+  const handleClick = (e, path) => {
+    e.preventDefault(); // Stop immediate link jumping
+    onNavigate();       // Trigger loader animation
+    setTimeout(() => {
+      navigate(path);   // Navigate after the animation delay
+    }, 1000); // Adjust delay to match your animation timing
+  };
 
   return (
-    <div className='z-10 fixed mt-10 w-[90vw]'>
-      <div className='gap-4 grid grid-cols-6'>
-        <div className='col-start-1 col-end-1'>
-          <NavLink
-            to='/'
-            className='flex flex-1 justify-center items-center p-3 text-center'
-            onClick={() => onNavigate('/')} // Trigger loader on menu click
-            // onClick={() => onNavigate('/about')}
+    <div className="z-10 fixed mt-10 w-[90vw]">
+      <div className="gap-4 grid grid-cols-6">
+        <div className="col-start-1 col-end-1">
+          <button
+            className="flex flex-1 justify-center items-center p-3 text-center"
+            onClick={(e) => handleClick(e, '/')}
           >
-            <div className='bg-white rounded-lg w-10 h-10 logoBox'></div>
-          </NavLink>
+            <div className="bg-white rounded-lg w-10 h-10 logoBox"></div>
+          </button>
         </div>
 
-        <div className='col-span-2 col-end-7 menuGrid'>
-          <div className='flex flex-nowrap rounded-lg nav-bg'>
-            <NavLink to='/about' className={navLinkClass} onClick={() => onNavigate('/about')}>
+        <div className="col-span-2 col-end-7 menuGrid">
+          <div className="flex flex-nowrap rounded-lg nav-bg">
+            <button className={navLinkClass} onClick={(e) => handleClick(e, '/about')}>
               About
-            </NavLink>
-            <NavLink to='/community' className={navLinkClass} onClick={() => onNavigate('/community')}>
+            </button>
+            <button className={navLinkClass} onClick={(e) => handleClick(e, '/community')}>
               Community
-            </NavLink>
-            <NavLink to='/blog' className={navLinkClass} onClick={() => onNavigate('/blog')}>
+            </button>
+            <button className={navLinkClass} onClick={(e) => handleClick(e, '/blog')}>
               Blog
-            </NavLink>
-            <NavLink
-              to='/join'
-              className={({ isActive }) =>
-                `flex flex-1 justify-center items-center m-2 p-3 rounded-lg text-center transition-all duration-300 ${
-                  isActive
-                    ? 'bg-white text-black font-semibold'
-                    : 'btn-color text-white'
-                }`
-              }
-              onClick={() => onNavigate('/join')}
-            >
+            </button>
+            <button className={navLinkClass} onClick={(e) => handleClick(e, '/join')}>
               Join Us
-            </NavLink>
+            </button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;
+
