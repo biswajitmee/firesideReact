@@ -83,7 +83,7 @@ function PageLoader({ nextPath, onFinish }) {
       { y: '100%' },
       {
         y: '0%',
-        duration: 0.8,
+        duration: 1,
         ease: 'power4.out',
         onComplete: () => {
           if (!hasNavigated.current) {
@@ -98,8 +98,8 @@ function PageLoader({ nextPath, onFinish }) {
     .to(loaderRef.current,
       {
         y: '-100%',
-        duration: 0.8,
-        delay: 0.5,
+        duration: 1,
+        delay: 2,
         ease: 'power4.in',
         onComplete: () => {
           onFinish();
