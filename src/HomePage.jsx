@@ -15,7 +15,7 @@ import ScrollThreeSectionMobile from './home/ScrollThreeSectionMobile'
 import ScrollFourSectionMobile from './home/ScrollFourSectionMobile'
 import ScrollSixSectionMobile from './home/ScrollSixSectionMobile'
 
-import HomePageLoader from './homePageLoader'
+import HomePageLoader from './HomePageLoader'
 
 // Prevent browser from restoring scroll position on refresh
 if (typeof window !== 'undefined') {
