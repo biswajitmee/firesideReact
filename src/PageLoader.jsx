@@ -112,7 +112,7 @@ function PageLoader({ nextPath, onFinish }) {
   return (
     <div
       ref={loaderRef}
-      className="top-0 left-0 z-[9999] fixed bg-black w-screen h-screen"
+      className="top-0 left-0 z-[9999] fixed bg-[#3C4235] w-screen h-screen"
       style={{ pointerEvents: 'none' }}
     />
   );
