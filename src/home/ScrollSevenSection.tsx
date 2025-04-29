@@ -82,7 +82,7 @@ const ScrollSevenSection: React.FC = () => {
       <div className='relative mt-20 lg:mt-40 rounded-3xl w-full h-screen overflow-hidden heroSection'>
         <img
           data-speed='0.8'
-          src='backgroundForrest.avif'
+          src='https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/backgroundForrest-scaled.avif'
           className='bg-top h-screen lg:h-auto object-cover'
         />
 
@@ -151,14 +151,15 @@ const ScrollSevenSection: React.FC = () => {
       </section>
 
       <div className='z-50 relative rounded-3xl w-full h-[110vh] lg:h-[110vh] overflow-hidden sectionOne'>
-        <video
-          className='rounded-3xl w-full h-full object-cover'
-          autoPlay
-          loop
-          muted
-          src="ScrollSectionNinVideo.mp4"
-        >
-        </video>
+      <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="rounded-3xl w-full h-full object-cover"
+  src="https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/ScrollSectionNinVideo-1.mp4"
+/>
+
  
         <div className='top-1/2 left-1/2 absolute bg-[#06060666] backdrop-blur-lg p-10 px-4 rounded-2xl w-[90vw] lg:w-[60vw] -translate-x-1/2 -translate-y-1/2'>
           <div className='flex flex-col items-center text-center'>

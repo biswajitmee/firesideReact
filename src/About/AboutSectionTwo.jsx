@@ -14,7 +14,7 @@ function AboutSectionTwo() {
               autoPlay
               loop
               muted
-              src="AboutSectionTwoVideo1.mp4"
+              src="https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/AboutSectionTwoVideo1-1.mp4"
             ></video>
 
             <div className='top-1/2 right-[55%] z-10 absolute bg-[#f3efec1a] p-8 rounded-full w-[80px] h-[80px]'>

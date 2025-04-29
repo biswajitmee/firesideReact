@@ -44,48 +44,8 @@
 // }
 
 
-// import { useState } from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import NavBar from './NavBar';
-// import PageLoader from './PageLoader';
-// import HomePage from './HomePage';
-// import About from './About/AboutPage';
-// import CommunitySection from './community/CommunitySection';
-// import BlogSection from './blog/BlogSection';
-
-// function App() {
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [nextPath, setNextPath] = useState(null);
-
-//   const handleNavigate = (path) => {
-//     if (!isLoading) { // avoid double click
-//       setNextPath(path);
-//       setIsLoading(true);
-//     }
-//   };
-
-//   return (
-//     <div className="relative">
-//       <NavBar onNavigate={handleNavigate} />
-
-//       <Routes>
-//         <Route path="/" element={<HomePage />} />
-//         <Route path="/about" element={<About />} />
-//         <Route path="/community" element={<CommunitySection />} />
-//         <Route path="/blog" element={<BlogSection />} />
-//       </Routes>
-
-//       {isLoading && <PageLoader nextPath={nextPath} setIsLoading={setIsLoading} />}
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
 import { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import PageLoader from './PageLoader';
 import HomePage from './HomePage';
@@ -94,48 +54,88 @@ import CommunitySection from './community/CommunitySection';
 import BlogSection from './blog/BlogSection';
 
 function App() {
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [nextPath, setNextPath] = useState(null);
 
   const handleNavigate = (path) => {
-    if (isLoading) return; // Prevent double click
-
-    setIsLoading(true);
-    setNextPath(path);
-
-    // After 1 second, navigate
-    setTimeout(() => {
-      navigate(path);
-    }, 1500);
-
-    // After 4 seconds, hide loader
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 4000);
+    if (!isLoading) { // avoid double click
+      setNextPath(path);
+      setIsLoading(true);
+    }
   };
 
   return (
     <div className="relative">
       <NavBar onNavigate={handleNavigate} />
 
-      {/* Disable page interaction while loading */}
-      <div className={`${isLoading ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'} transition-opacity duration-500`}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/community" element={<CommunitySection />} />
-          <Route path="/blog" element={<BlogSection />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/community" element={<CommunitySection />} />
+        <Route path="/blog" element={<BlogSection />} />
+      </Routes>
 
-      {/* Page Loader */}
-      {isLoading && <PageLoader />}
+      {isLoading && <PageLoader nextPath={nextPath} setIsLoading={setIsLoading} />}
     </div>
   );
 }
 
 export default App;
+
+
+
+// import { useState } from 'react';
+// import { Routes, Route, useNavigate } from 'react-router-dom';
+// import NavBar from './NavBar';
+// import PageLoader from './PageLoader';
+// import HomePage from './HomePage';
+// import About from './About/AboutPage';
+// import CommunitySection from './community/CommunitySection';
+// import BlogSection from './blog/BlogSection';
+
+// function App() {
+//   const navigate = useNavigate();
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [nextPath, setNextPath] = useState(null);
+
+//   const handleNavigate = (path) => {
+//     if (isLoading) return; // Prevent double click
+
+//     setIsLoading(true);
+//     setNextPath(path);
+
+//     // After 1 second, navigate
+//     setTimeout(() => {
+//       navigate(path);
+//     }, 1500);
+
+//     // After 4 seconds, hide loader
+//     setTimeout(() => {
+//       setIsLoading(false);
+//     }, 4000);
+//   };
+
+//   return (
+//     <div className="relative">
+//       <NavBar onNavigate={handleNavigate} />
+
+//       {/* Disable page interaction while loading */}
+//       <div className={`${isLoading ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'} transition-opacity duration-500`}>
+//         <Routes>
+//           <Route path="/" element={<HomePage />} />
+//           <Route path="/about" element={<About />} />
+//           <Route path="/community" element={<CommunitySection />} />
+//           <Route path="/blog" element={<BlogSection />} />
+//         </Routes>
+//       </div>
+
+//       {/* Page Loader */}
+//       {isLoading && <PageLoader />}
+//     </div>
+//   );
+// }
+
+// export default App;
 
 
 

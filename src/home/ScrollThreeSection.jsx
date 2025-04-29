@@ -84,7 +84,7 @@ function ScrollThreeSection() {
     // **5️⃣ Parallax Effects for Other Big Images**
     const parallaxElementsTL = gsap.timeline()
     const parallaxElements = [
-      { element: bigImgRef2.current, speed: 1.1 },
+      { element: bigImgRef2.current, speed: 1.05 },
       { element: bigImgRef3.current, speed: 1.1 }
     ]
 
@@ -251,7 +251,7 @@ function ScrollThreeSection() {
 
 
                       <div
-                        className='absolute h-screen AboutbigImg3'
+                        className='absolute h-screen About-bigImg2'
                         ref={bigImgRef2}
                       ></div>
 

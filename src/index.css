@@ -145,8 +145,9 @@
     background-size: cover;
     background-position: center center;
     transform: scaleX(1.05);
-    background-image: url("/animation-bg.avif");
-
+    /* background-image: url("/animation-bg.avif"); */
+    background-image: url("https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/animation-bg-scaled.avif");
+    
   }
 
   .imgOverlayMobile {
@@ -198,7 +199,7 @@
     background-color: #3c4235;
     border-radius: 20px;
     background-size: cover;
-    background-image: url("/small-left-bg.avif");
+    background-image: url("https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/small-left-bg.avif");
   }
 
   .titleAbsolute33 {
@@ -346,7 +347,7 @@
     height: 100vh;
     background-size: cover;
     background-position: center center;
-    background-image: url("/bigImgBG.avif");
+    background-image: url("https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/bigImgBG-scaled.avif");
     z-index: -1;
     scale: 1.5;
   }
@@ -815,7 +816,7 @@
 
 
   .About-bigImg33 {
-    background-image: url("/about-last-img.avif");
+    background-image: url("https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/about-last-img-scaled.avif");
     width: 110%;
     margin: 1px auto 1px;
     height: 130%;
@@ -826,11 +827,20 @@
     top:-30%;
   }
 
-
-
   .About-bigImg2 {
-    background-image: url("/about-boy-img.avif");
+    background-image: url("/middle-box-img.avif");
   
+    background-size: cover;
+    position: absolute;
+    width: 130%;
+    height: 150%;
+    left: -50%;
+    background-color: #65c70b;  
+    top:-50%;
+  }
+
+  .About-bigImg22 {
+    background-image: url("https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/about-boy-img.avif");  
     background-size: cover;
     position: absolute;
     width: 130%;
@@ -839,6 +849,9 @@
     background-color: #65c70b;  
     top:-50%;
   }
+
+
+
 
  
 

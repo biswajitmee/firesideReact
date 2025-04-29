@@ -34,7 +34,7 @@ const ScrollSixSectionMobile = () => {
 
   return (
     <>
-  
+  {/* https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/ScrollSectionSixVideo-1.mp4 */}
     <div ref={containerRef} className="wrapper">
       <div className="mx-auto px-4 py-30 w-full h-full cards">
         {[1, 2, 3].map((index) => (
@@ -50,7 +50,7 @@ const ScrollSixSectionMobile = () => {
                 autoPlay
                 loop
                 muted
-                src={`ScrollSectionSixVideo-${index}.mp4`}
+                src={`https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/ScrollSectionSixVideo-${index}.mp4`}
               ></video>
               <div className="bottom-4 left-4 absolute flex flex-col justify-center bg-[#f3efec1a] backdrop-blur-lg p-6 rounded-xl w-[240px] h-[90px]">
                 <h4 className="font-IvyOraheadline2 font-medium text-[#f3efec] text-[4vw] lg:text-[1.905vw]">

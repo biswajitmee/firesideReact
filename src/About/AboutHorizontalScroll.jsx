@@ -195,7 +195,7 @@ function AboutHorizontalScroll () {
           className='z-50 absolute inset-0 bg-white bigBgCover'
           ref={bgImgCover}
         >
-          <div className="flex justify-center items-center bg-[url('/freeImage.jpg')] bg-cover lg:px-64 w-full h-full text-center lg:bigImgHere">
+          <div className="flex justify-center items-center bg-[url('https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/about-horizontalBG-scaled.avif')] bg-cover lg:px-64 w-full h-full text-center lg:bigImgHere">
             <div>
               <h1 className='font-IvyOraheadline2 text-white text-xl lg:text-7xl'>
                 Supported by experts <br />
@@ -341,7 +341,7 @@ function AboutHorizontalScroll () {
                   </div>
                   <video
                     ref={videoRef}
-                    src='freeVideo.mp4'
+                    src='https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/aboutVideoBG.mp4'
                     autoPlay
                     muted
                     loop
@@ -381,7 +381,7 @@ function AboutHorizontalScroll () {
                       <div className='relative flex flex-1 justify-center items-center m-auto rounded-xl h-full overflow-hidden'>
                         <div className='absolute rounded-3xl w-full h-[80vh] overflow-hidden'>
                           <div
-                            className='overflow-hidden About-bigImg2'
+                            className='overflow-hidden About-bigImg22'
                             ref={bigImgRef2}
                           ></div>
                         </div>

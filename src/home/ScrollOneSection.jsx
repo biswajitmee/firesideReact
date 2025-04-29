@@ -85,7 +85,7 @@ function ScrollOneSection() {
     <>
       {/* ✅ Hero Section with Video */}
       <div className="z-50 relative w-full h-screen overflow-hidden heroSection" ref={videoSection}>
-        <video className="top-0 left-0 absolute w-full h-full object-cover" src="/hero-section-video.mp4" autoPlay muted loop />
+        <video className="top-0 left-0 absolute w-full h-full object-cover" src="https://dev-oasisapi.pantheonsite.io/wp-content/uploads/2025/04/hero-section-video.mp4" autoPlay muted loop />
 
         <div className="bottom-14 left-8 z-10 absolute pl-4 text-white">
           <h1 className="font-InterTight text-4xl lg:text-7xl" id='quote'>
