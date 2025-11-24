@@ -52,14 +52,14 @@ function AboutHorizontalScroll () {
 
       // Dark background fade inwho understand your journey
 
-      gsap.timeline({
+      gsap.timeline({ 
         scrollTrigger: {
           trigger: aboutHorizontal.current,
-          start: 'top top',
+          start: 'top top+=80%',
           end: '+=100',
           scrub: true,
         },
-      }).to(darkbg.current, { opacity: 1, duration: 6 }, '<');
+      }).to(darkbg.current, { opacity: 0, duration: 6 }, '<');
 
       // Background image scale animation
       gsap.set(bgImgCoverEl, { scale: 0.7 });
@@ -102,7 +102,7 @@ function AboutHorizontalScroll () {
         darkTL.fromTo(darkbg.current, { opacity: 1, duration: 0.1 },{ opacity: 0, duration:2 },
         )
         .to(darkbg.current, { opacity: 0, duration: 0.1 }, '<')
-        .to(addDarkBG.current, { autoAlpha: 1, duration: 0.1 }, '<');
+        .to(addDarkBG.current, { autoAlpha: 1, duration: 1 }, '<');
 
       // Round circle mask animation
       const roundCircleTL = gsap.timeline();
@@ -233,7 +233,7 @@ function AboutHorizontalScroll () {
           </div>
         </div>
         
-        <div ref={aboutHorizontal} className='z-0 absolute mt-[-100vh] h-[300vh]'>
+        <div ref={aboutHorizontal} className='z-0 absolute mt-[-120vh] h-[300vh]'>
           <div
             className='z-0 fixed inset-0 bg-black/30 bgDark'
             ref={darkbg}

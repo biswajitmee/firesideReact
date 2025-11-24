@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AboutSectionOne from './AboutSectionOne'
 import AboutSectionTwo from './AboutSectionTwo'
 import AboutSectionThree from './AboutSectionThree'
-
+ 
 import { gsap } from 'gsap'
 import { ScrollSmoother } from 'gsap/all'
 
@@ -40,6 +40,7 @@ function About () {
               <AboutSectionOne />
               <AboutSectionTwo />
               <AboutSectionThree />
+              
             </>
           ) : (
             <div className='p-10 text-white text-center'>Loading...</div>

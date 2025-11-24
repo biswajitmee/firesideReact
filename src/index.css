@@ -747,8 +747,21 @@
     background-size: cover;
     background-position: bottom center;
     z-index: 2;
-
   }
+
+  .bigBgCoverMobile {
+    position: relative;
+    width: 100vw;
+    margin: auto;
+    height: 94vh;
+    border-radius: 30px;
+    overflow: hidden;
+    /* background-image: url(./about-horizontalBG.avif); */
+    background-size: cover;
+    background-position: bottom center;
+    z-index: 2;
+  }
+
 
   .bigImgHere {
     background-position: 50% 40%;

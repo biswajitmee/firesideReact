@@ -35,7 +35,7 @@ function AboutHorizontalScrollMobile () {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const ScrollContainer = ScrollContainerRef.current;
-      // const bgImgCoverEl = bgImgCover.current;
+       const bgImgCoverEl = bgImgCover.current;
 
       // gsap.set(darkbg.current, { opacity: 0 });
       // gsap.set(addDarkBG.current, { autoAlpha: 0 });
@@ -61,15 +61,15 @@ function AboutHorizontalScrollMobile () {
       // }).to(darkbg.current, { opacity: 1, duration: 6 }, '<');
 
       // Background image scale animation
-      // gsap.set(bgImgCoverEl, { scale: 0.7 });
-      // gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: bgImgCoverEl,
-      //     start: 'top bottom',
-      //     end: 'top center',
-      //     scrub: true,
-      //   },
-      // }).to(bgImgCoverEl, { scale: 1, ease: 'none' });
+      gsap.set(bgImgCoverEl, { scale: 0.7 });
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: bgImgCoverEl,
+          start: 'top bottom',
+          end: 'top center',
+          scrub: true,
+        },
+      }).to(bgImgCoverEl, { scale: 1, ease: 'none' });
 
       // Text 1 animation
       const text1Tl = gsap.timeline();
@@ -317,7 +317,7 @@ function AboutHorizontalScrollMobile () {
           </div>
         </div>
         <div
-          className='top-36 z-50 absolute inset-0 bg-white bigBgCover'
+          className='top-36 z-50 absolute inset-0 bg-white bigBgCoverMobile'
           ref={bgImgCover}
         >
           <div className="flex justify-center items-center bg-[url('./about-horizontalBG.avif')] bg-cover lg:px-64 w-full h-full text-center bigImgHere">

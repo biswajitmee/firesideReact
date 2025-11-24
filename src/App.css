@@ -873,12 +873,12 @@ video {
   margin-top: 2rem;
 }
 
-.mt-\[-100vh\]{
-  margin-top: -100vh;
-}
-
 .mt-\[-110vh\]{
   margin-top: -110vh;
+}
+
+.mt-\[-120vh\]{
+  margin-top: -120vh;
 }
 
 .mt-\[-70vh\]{
@@ -2439,6 +2439,19 @@ ul.openNavigation li {
 .bigBgCover {
   position: relative;
   width: 96vw;
+  margin: auto;
+  height: 94vh;
+  border-radius: 30px;
+  overflow: hidden;
+  /* background-image: url(./about-horizontalBG.avif); */
+  background-size: cover;
+  background-position: bottom center;
+  z-index: 2;
+}
+
+.bigBgCoverMobile {
+  position: relative;
+  width: 100vw;
   margin: auto;
   height: 94vh;
   border-radius: 30px;
