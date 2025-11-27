@@ -4,7 +4,77 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A demo Gsap Work by Biswajit</title>
+    <title>Gsap explore by Biswajit</title>
+     <script>
+    // Prevent browser auto restore and force top before any JS runs
+    if ('scrollRestoration' in history) {
+      try { history.scrollRestoration = 'manual'; } catch(e) {}
+    }
+    try { window.scrollTo(0, 0); } catch(e) {}
+  </script>
+  <script>
+  // ensure no browser auto-restore
+  if ('scrollRestoration' in history) {
+    try { history.scrollRestoration = 'manual'; } catch(e) {}
+  }
+  try { window.scrollTo(0, 0); } catch(e) {}
+
+  (function() {
+    // adjust this breakpoint to your app's cutoff (px)
+    const BREAKPOINT_PX = 768;
+
+    // initial desktop/mobile state
+    let isDesktop = window.innerWidth >= BREAKPOINT_PX;
+
+    // debounce helper
+    let t = null;
+    const DEBOUNCE_MS = 150;
+
+    function scheduleReload() {
+      if (t) clearTimeout(t);
+      t = setTimeout(() => {
+        // guard: only reload if state actually changed
+        const nowDesktop = window.innerWidth >= BREAKPOINT_PX;
+        if (nowDesktop === isDesktop) return;
+        isDesktop = nowDesktop;
+
+        // ensure top before reload
+        try { window.scrollTo(0, 0); } catch(e) {}
+        // small delay to allow paint/scroll to settle on some devices
+        setTimeout(() => {
+          try {
+            // attempt to avoid bfcache restoring old pos: set manual then reload
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+          } catch(e) {}
+          location.reload();
+        }, 60);
+      }, DEBOUNCE_MS);
+    }
+
+    // matchMedia listener (preferred)
+    try {
+      const mq = window.matchMedia(`(min-width: ${BREAKPOINT_PX}px)`);
+      // Some browsers fire 'change' with initial value; we only care about later changes
+      mq.addEventListener
+        ? mq.addEventListener('change', scheduleReload)
+        : mq.addListener(scheduleReload);
+    } catch (e) {
+      // fallback to resize/orientation events
+      window.addEventListener('resize', scheduleReload);
+      window.addEventListener('orientationchange', scheduleReload);
+    }
+
+    // also watch resize/orientation as extra safety
+    window.addEventListener('resize', scheduleReload);
+    window.addEventListener('orientationchange', scheduleReload);
+
+    // cleanup on unload (optional)
+    window.addEventListener('beforeunload', () => {
+      try { window.scrollTo(0, 0); } catch(e) {}
+    });
+  })();
+</script>
+
   </head>
   <body>
     <div id="root"></div>
