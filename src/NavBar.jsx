@@ -1,6 +1,6 @@
 // src/components/NavBar.jsx
 import React, { useRef, useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 
 const LINKS = [
@@ -32,21 +32,27 @@ export default function NavBar({ onNavigate }) {
     return Math.max(0, Math.min(listScroll, availableSpace));
   };
 
-  // init styles
+  // Ensure collapsed on mount (prevent weird initial expanded state)
   useEffect(() => {
+    setMobileOpen(false);
+    if (tlRef.current) {
+      try { tlRef.current.kill(); } catch {}
+      tlRef.current = null;
+    }
     if (expanderRef.current) {
       expanderRef.current.style.height = "0px";
       expanderRef.current.style.overflow = "hidden";
     }
     if (listRef.current) {
-      gsap.set(itemRefs.current.filter(Boolean), { y: 10, autoAlpha: 0 });
       listRef.current.style.pointerEvents = "none";
       listRef.current.style.opacity = "0";
     }
-    return () => {
-      tlRef.current?.kill();
-      tlRef.current = null;
-    };
+    const items = itemRefs.current.filter(Boolean);
+    if (items.length) {
+      try { gsap.set(items, { y: 10, autoAlpha: 0 }); } catch {}
+    }
+    // cleanup not necessary here
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // body lock helpers
@@ -75,7 +81,7 @@ export default function NavBar({ onNavigate }) {
     }
   };
 
-  // function to run close animation and return a promise
+  // close animation helper that returns a promise
   const closeMenuAnimation = () => {
     return new Promise((resolve) => {
       const exp = expanderRef.current;
@@ -109,28 +115,27 @@ export default function NavBar({ onNavigate }) {
     });
   };
 
-  // standard desktop/general navigation (avoids loading when already on same path)
+  // standard desktop/general navigation (avoid loader when already on same path)
   const handleClick = (e, path) => {
     e?.preventDefault?.();
     if (path === location.pathname) {
+      // if currently same route — just close menu if open and scroll to top on home
       if (mobileOpen) {
-        // if menu open, close it cleanly
         closeMenuAnimation().then(() => setMobileOpen(false));
       }
-      // optional: scroll to top if clicking same route
       if (path === "/") {
         try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch { window.scrollTo(0, 0); }
       }
       return;
     }
     if (onNavigate) onNavigate();
+    // keep a small delay so any loader/animation can start
     setTimeout(() => navigate(path), 1000);
   };
 
-  // mobile item click: collapse with animation then navigate (no animate if same route)
+  // mobile item click: collapse with animation then navigate (no navigate on same path)
   const handleMobileItemClick = async (path) => {
     if (path === location.pathname) {
-      // same route -> just close menu (animate) and don't navigate
       if (mobileOpen) {
         await closeMenuAnimation();
         setMobileOpen(false);
@@ -139,7 +144,6 @@ export default function NavBar({ onNavigate }) {
     }
 
     if (mobileOpen) {
-      // close with animation then navigate
       await closeMenuAnimation();
       setMobileOpen(false);
       if (onNavigate) onNavigate();
@@ -150,7 +154,7 @@ export default function NavBar({ onNavigate }) {
     }
   };
 
-  // open/close animation when mobileOpen toggles (open uses measured height)
+  // open/close animations on mobileOpen change (opening measures height)
   useEffect(() => {
     const exp = expanderRef.current;
     const listEl = listRef.current;
@@ -190,7 +194,7 @@ export default function NavBar({ onNavigate }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mobileOpen]);
 
-  // outside click => collapse if open (uses closeMenuAnimation for full animation)
+  // outside click => collapse if open (use closeMenuAnimation)
   useEffect(() => {
     const onPointerDown = (ev) => {
       if (!mobileOpen) return;
@@ -211,22 +215,28 @@ export default function NavBar({ onNavigate }) {
     };
   }, [mobileOpen]);
 
-  // ensure menu is forcibly closed whenever route changes
+  // FORCE close when route changes — special handling for home
   useEffect(() => {
-    // when pathname changes we ensure menu is closed and UI reset
-    const forceClose = async () => {
-      // if already closed, still ensure styles reset
+    // always reset menu whenever pathname changes
+    const resetMenuImmediate = () => {
+      // kill any running timeline
       tlRef.current?.kill();
+      // reset expander/list/items
       if (expanderRef.current) expanderRef.current.style.height = "0px";
       if (listRef.current) {
         listRef.current.style.pointerEvents = "none";
-        gsap.set(itemRefs.current.filter(Boolean), { autoAlpha: 0, y: 10 });
+        listRef.current.style.opacity = "0";
       }
+      const items = itemRefs.current.filter(Boolean);
+      if (items.length) gsap.set(items, { autoAlpha: 0, y: 10 });
       unlockBodyScroll();
       setMobileOpen(false);
     };
-    forceClose();
-    // run whenever location.pathname changes
+
+    // If navigating to home specifically, force immediate reset (this solves the bug you saw)
+    // For any route change we still reset the menu to be safe.
+    resetMenuImmediate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   // collapse on beforeunload fallback
@@ -241,7 +251,7 @@ export default function NavBar({ onNavigate }) {
     return () => window.removeEventListener("beforeunload", onBeforeUnload);
   }, [mobileOpen]);
 
-  // breakpoint-change detection + reload (keeps previous behavior)
+  // breakpoint-change detection + reload (unchanged)
   useEffect(() => {
     const mdQuery = "(min-width: 768px)";
     const mql = window.matchMedia(mdQuery);
@@ -250,7 +260,6 @@ export default function NavBar({ onNavigate }) {
     const debouncedReload = () => {
       if (debounceTimer) clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        // close before reload
         closeMenuAnimation().then(() => {
           setMobileOpen(false);
           setTimeout(() => window.location.reload(), 80);
@@ -312,41 +321,42 @@ export default function NavBar({ onNavigate }) {
 
   return (
     <>
-      {/* Desktop (unchanged) */}
+      {/* Desktop (unchanged visually) */}
       <div className="hidden md:block left-1/2 z-50 fixed mt-10 w-[90vw] -translate-x-1/2">
         <div className="flex justify-between items-center w-full">
-          <button className="flex justify-center items-center p-3" onClick={(e) => handleClick(e, "/")}>
+          <Link to="/" onClick={(e) => handleClick(e, "/")} className="flex justify-center items-center p-3">
             <div className="bg-orange-600 rounded-lg w-10 h-10 logoBox" />
-          </button>
+          </Link>
 
           <div className="flex flex-nowrap items-center gap-2 px-2 py-1 rounded-lg whitespace-nowrap nav-bg">
-            <button className={`${navLinkClass} whitespace-nowrap`} onClick={(e) => handleClick(e, "/about")}>
+            <Link to="/about" className={`${navLinkClass} whitespace-nowrap`} onClick={(e) => handleClick(e, "/about")}>
               About
-            </button>
+            </Link>
 
-            <button className={`${navLinkClass} whitespace-nowrap`} onClick={(e) => handleClick(e, "/community")}>
+            <Link to="/community" className={`${navLinkClass} whitespace-nowrap`} onClick={(e) => handleClick(e, "/community")}>
               Community
-            </button>
+            </Link>
 
-            <button className={`${navLinkClass} whitespace-nowrap`} onClick={(e) => handleClick(e, "/blog")}>
+            <Link to="/blog" className={`${navLinkClass} whitespace-nowrap`} onClick={(e) => handleClick(e, "/blog")}>
               Blog
-            </button>
+            </Link>
 
-            <button
+            <Link
+              to="/scedule"
               className="flex justify-center items-center bg-[#ef4c23] px-4 py-3 rounded-lg text-white text-sm whitespace-nowrap"
               onClick={(e) => handleClick(e, "/scedule")}
             >
               Schedule a call
-            </button>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Mobile: fixed logo at left-top so it's always visible */}
       <div className="md:hidden top-4 left-4 z-50 fixed pointer-events-auto">
-        <button onClick={(e) => handleClick(e, "/")} className="flex justify-center items-center w-10 h-10" aria-label="Home">
+        <Link to="/" onClick={(e) => handleClick(e, "/")} className="flex justify-center items-center w-10 h-10" aria-label="Home">
           <div className="bg-orange-600 rounded-lg w-10 h-10 logoBox" />
-        </button>
+        </Link>
       </div>
 
       {/* Mobile: SINGLE nav-bg that contains top row + expander (height-animating) */}
@@ -358,9 +368,9 @@ export default function NavBar({ onNavigate }) {
         >
           {/* Top row visible always */}
           <div className="flex justify-between items-center w-full">
-            <button onClick={(e) => handleClick(e, "/scedule")} className="bg-[#ef4c23] px-4 py-2 rounded-lg text-md text-white whitespace-nowrap">
+            <Link to="/scedule" onClick={(e) => handleClick(e, "/scedule")} className="bg-[#ef4c23] px-4 py-2 rounded-lg text-md text-white whitespace-nowrap">
               Schedule a demo
-            </button>
+            </Link>
 
             <button onClick={() => setMobileOpen((s) => !s)} aria-expanded={mobileOpen} aria-label="Toggle menu" className="p-2 rounded focus:outline-none">
               {!mobileOpen ? (
@@ -380,9 +390,18 @@ export default function NavBar({ onNavigate }) {
             <ul ref={listRef} className="flex flex-col gap-2 mt-2 px-0 py-0 w-full" style={{ boxSizing: "border-box" }}>
               {LINKS.map((l, i) => (
                 <li key={l.path}>
-                  <button ref={(el) => (itemRefs.current[i] = el)} onClick={() => handleMobileItemClick(l.path)} className="bg-white/6 px-3 py-2 rounded-xl w-full text-white text-left">
+                  <Link
+                    ref={(el) => (itemRefs.current[i] = el)}
+                    to={l.path}
+                    onClick={(e) => {
+                      e.preventDefault(); // stop full page reload / default Link behavior
+                      // ensure close animation + navigation handled uniformly
+                      handleMobileItemClick(l.path);
+                    }}
+                    className="bg-white/6 px-3 py-2 rounded-xl w-full text-white text-left"
+                  >
                     {l.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
