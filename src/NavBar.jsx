@@ -1,6 +1,6 @@
 // src/components/NavBar.jsx
 import React, { useRef, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 
 const LINKS = [
@@ -11,6 +11,7 @@ const LINKS = [
 
 export default function NavBar({ onNavigate }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinkClass = `flex flex-1 justify-center items-center p-3 text-center transition-all duration-300 text-white`;
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,17 +22,11 @@ export default function NavBar({ onNavigate }) {
   const itemRefs = useRef([]);
   const tlRef = useRef(null);
 
-  const handleClick = (e, path) => {
-    e?.preventDefault?.();
-    if (onNavigate) onNavigate();
-    setTimeout(() => navigate(path), 1000);
-  };
-
-  // compute space for expander
+  // helper: compute allowed height for expander (space below nav-bg)
   const computeTargetHeight = () => {
     const navBgRect = navBgRef.current?.getBoundingClientRect();
     if (!navBgRect) return 0;
-    const margin = 12;
+    const margin = 12; // breathing room
     const availableSpace = Math.max(0, window.innerHeight - navBgRect.bottom - margin);
     const listScroll = listRef.current ? listRef.current.scrollHeight : 0;
     return Math.max(0, Math.min(listScroll, availableSpace));
@@ -48,14 +43,13 @@ export default function NavBar({ onNavigate }) {
       listRef.current.style.pointerEvents = "none";
       listRef.current.style.opacity = "0";
     }
-
     return () => {
       tlRef.current?.kill();
       tlRef.current = null;
     };
   }, []);
 
-  // lock/unlock body scroll with padding compensation
+  // body lock helpers
   const lockBodyScroll = () => {
     const doc = document.documentElement;
     const body = document.body;
@@ -81,7 +75,82 @@ export default function NavBar({ onNavigate }) {
     }
   };
 
-  // open/close animations (height-based)
+  // function to run close animation and return a promise
+  const closeMenuAnimation = () => {
+    return new Promise((resolve) => {
+      const exp = expanderRef.current;
+      const listEl = listRef.current;
+      const items = itemRefs.current.filter(Boolean);
+      if (!exp || !listEl) {
+        resolve();
+        return;
+      }
+
+      tlRef.current?.kill();
+
+      const itemsOut = [...items].reverse();
+      const tl = gsap.timeline({
+        onComplete: () => {
+          try {
+            exp.style.height = "0px";
+            listEl.style.pointerEvents = "none";
+            gsap.set(items, { autoAlpha: 0, y: 10 });
+          } catch (e) {}
+          unlockBodyScroll();
+          resolve();
+        },
+      });
+
+      tl.to(itemsOut, { y: 8, autoAlpha: 0, stagger: 0.06, duration: 0.25, ease: "power3.in" }, 0)
+        .to(exp, { height: 0, duration: 0.36, ease: "power2.in" }, "-=0.1")
+        .to(listEl, { autoAlpha: 0, duration: 0.05, pointerEvents: "none" }, "-=0.08");
+
+      tlRef.current = tl;
+    });
+  };
+
+  // standard desktop/general navigation (avoids loading when already on same path)
+  const handleClick = (e, path) => {
+    e?.preventDefault?.();
+    if (path === location.pathname) {
+      if (mobileOpen) {
+        // if menu open, close it cleanly
+        closeMenuAnimation().then(() => setMobileOpen(false));
+      }
+      // optional: scroll to top if clicking same route
+      if (path === "/") {
+        try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch { window.scrollTo(0, 0); }
+      }
+      return;
+    }
+    if (onNavigate) onNavigate();
+    setTimeout(() => navigate(path), 1000);
+  };
+
+  // mobile item click: collapse with animation then navigate (no animate if same route)
+  const handleMobileItemClick = async (path) => {
+    if (path === location.pathname) {
+      // same route -> just close menu (animate) and don't navigate
+      if (mobileOpen) {
+        await closeMenuAnimation();
+        setMobileOpen(false);
+      }
+      return;
+    }
+
+    if (mobileOpen) {
+      // close with animation then navigate
+      await closeMenuAnimation();
+      setMobileOpen(false);
+      if (onNavigate) onNavigate();
+      navigate(path);
+    } else {
+      if (onNavigate) onNavigate();
+      setTimeout(() => navigate(path), 1000);
+    }
+  };
+
+  // open/close animation when mobileOpen toggles (open uses measured height)
   useEffect(() => {
     const exp = expanderRef.current;
     const listEl = listRef.current;
@@ -102,26 +171,26 @@ export default function NavBar({ onNavigate }) {
       tlRef.current = tl;
       lockBodyScroll();
     } else {
+      // normal close triggered by state change: run close animation
+      const itemsCur = itemRefs.current.filter(Boolean);
       tlRef.current?.kill();
       const closeTl = gsap.timeline();
-      const itemsOut = [...items].reverse();
+      const itemsOut = [...itemsCur].reverse();
       closeTl
         .to(itemsOut, { y: 8, autoAlpha: 0, stagger: 0.06, duration: 0.25, ease: "power3.in" }, 0)
         .to(exp, { height: 0, duration: 0.36, ease: "power2.in" }, "-=0.1")
         .to(listEl, { autoAlpha: 0, duration: 0.05, pointerEvents: "none" }, "-=0.08");
 
       tlRef.current = closeTl;
-
       const t = setTimeout(() => {
         unlockBodyScroll();
       }, 380);
-
       return () => clearTimeout(t);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mobileOpen]);
 
-  // outside click => collapse if open
+  // outside click => collapse if open (uses closeMenuAnimation for full animation)
   useEffect(() => {
     const onPointerDown = (ev) => {
       if (!mobileOpen) return;
@@ -129,7 +198,7 @@ export default function NavBar({ onNavigate }) {
       if (!node) return;
       const target = ev.target;
       if (!node.contains(target)) {
-        setMobileOpen(false);
+        closeMenuAnimation().then(() => setMobileOpen(false));
       }
     };
 
@@ -142,14 +211,31 @@ export default function NavBar({ onNavigate }) {
     };
   }, [mobileOpen]);
 
-  // collapse on beforeunload (attempt to close before reload/navigation)
+  // ensure menu is forcibly closed whenever route changes
+  useEffect(() => {
+    // when pathname changes we ensure menu is closed and UI reset
+    const forceClose = async () => {
+      // if already closed, still ensure styles reset
+      tlRef.current?.kill();
+      if (expanderRef.current) expanderRef.current.style.height = "0px";
+      if (listRef.current) {
+        listRef.current.style.pointerEvents = "none";
+        gsap.set(itemRefs.current.filter(Boolean), { autoAlpha: 0, y: 10 });
+      }
+      unlockBodyScroll();
+      setMobileOpen(false);
+    };
+    forceClose();
+    // run whenever location.pathname changes
+  }, [location.pathname]);
+
+  // collapse on beforeunload fallback
   useEffect(() => {
     const onBeforeUnload = () => {
       if (mobileOpen) {
         setMobileOpen(false);
         unlockBodyScroll();
       }
-      // no preventDefault — just try to reset UI before unload
     };
     window.addEventListener("beforeunload", onBeforeUnload);
     return () => window.removeEventListener("beforeunload", onBeforeUnload);
@@ -164,9 +250,11 @@ export default function NavBar({ onNavigate }) {
     const debouncedReload = () => {
       if (debounceTimer) clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        setMobileOpen(false);
-        unlockBodyScroll();
-        setTimeout(() => window.location.reload(), 80);
+        // close before reload
+        closeMenuAnimation().then(() => {
+          setMobileOpen(false);
+          setTimeout(() => window.location.reload(), 80);
+        });
       }, 150);
     };
     const onMqlChange = (e) => {
@@ -256,11 +344,7 @@ export default function NavBar({ onNavigate }) {
 
       {/* Mobile: fixed logo at left-top so it's always visible */}
       <div className="md:hidden top-4 left-4 z-50 fixed pointer-events-auto">
-        <button
-          onClick={(e) => handleClick(e, "/")}
-          className="flex justify-center items-center w-10 h-10"
-          aria-label="Home"
-        >
+        <button onClick={(e) => handleClick(e, "/")} className="flex justify-center items-center w-10 h-10" aria-label="Home">
           <div className="bg-orange-600 rounded-lg w-10 h-10 logoBox" />
         </button>
       </div>
@@ -274,19 +358,11 @@ export default function NavBar({ onNavigate }) {
         >
           {/* Top row visible always */}
           <div className="flex justify-between items-center w-full">
-            <button
-              onClick={(e) => handleClick(e, "/scedule")}
-              className="bg-[#ef4c23] px-4 py-2 rounded-lg text-md text-white whitespace-nowrap"
-            >
+            <button onClick={(e) => handleClick(e, "/scedule")} className="bg-[#ef4c23] px-4 py-2 rounded-lg text-md text-white whitespace-nowrap">
               Schedule a demo
             </button>
 
-            <button
-              onClick={() => setMobileOpen((s) => !s)}
-              aria-expanded={mobileOpen}
-              aria-label="Toggle menu"
-              className="p-2 rounded focus:outline-none"
-            >
+            <button onClick={() => setMobileOpen((s) => !s)} aria-expanded={mobileOpen} aria-label="Toggle menu" className="p-2 rounded focus:outline-none">
               {!mobileOpen ? (
                 <div className="flex flex-col gap-[5px]">
                   <span className="block bg-white w-6 h-[2px]" />
@@ -300,26 +376,11 @@ export default function NavBar({ onNavigate }) {
           </div>
 
           {/* Expander (animates height from 0 -> target) */}
-          <div
-            ref={expanderRef}
-            className="w-full"
-            style={{ height: 0, overflow: "hidden", willChange: "height, transform" }}
-          >
-            <ul
-              ref={listRef}
-              className="flex flex-col gap-2 mt-2 px-0 py-0 w-full"
-              style={{ boxSizing: "border-box" }}
-            >
+          <div ref={expanderRef} className="w-full" style={{ height: 0, overflow: "hidden", willChange: "height, transform" }}>
+            <ul ref={listRef} className="flex flex-col gap-2 mt-2 px-0 py-0 w-full" style={{ boxSizing: "border-box" }}>
               {LINKS.map((l, i) => (
                 <li key={l.path}>
-                  <button
-                    ref={(el) => (itemRefs.current[i] = el)}
-                    onClick={(e) => {
-                      setMobileOpen(false);
-                      handleClick(e, l.path);
-                    }}
-                    className="bg-white/6 px-3 py-2 rounded-xl w-full text-white text-left"
-                  >
+                  <button ref={(el) => (itemRefs.current[i] = el)} onClick={() => handleMobileItemClick(l.path)} className="bg-white/6 px-3 py-2 rounded-xl w-full text-white text-left">
                     {l.label}
                   </button>
                 </li>
